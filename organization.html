@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Management - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Organization Management Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="audit-management.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Audit Management
+                </a>
+                <a href="tips-tricks.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Tips & Tricks
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Organization Management</h2>
+            <p class="text-gray-600 mb-6">
+                The Organization Management section allows administrators to organize the company structure by creating and managing department categories and departments. This section helps define the organizational hierarchy and structure.
+            </p>
+
+            <!-- Accessing Organization Management -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Organization Management</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Departments" in the sidebar menu under the Organization section</li>
+                </ol>
+            </section>
+
+            <!-- Understanding the Structure -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Understanding the Organizational Structure</h3>
+                <p class="text-gray-600 mb-3">The organization management system consists of two main components:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Department Categories:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>High-level groupings that organize departments by function or purpose</li>
+                    <li>Examples: Operations, Sales, Support, Administration, etc.</li>
+                    <li>Categories are system-wide and not specific to individual branches</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Departments:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Specific units within each category that represent actual work areas</li>
+                    <li>Departments are typically assigned to specific branches</li>
+                    <li>Examples: IT Department, Marketing Department, Customer Service Department</li>
+                </ul>
+            </section>
+
+            <!-- Department Categories Management -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Department Categories Management</h3>
+                <p class="text-gray-600 mb-3">Department categories are managed separately from departments:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Accessing Department Categories:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>From the main Departments page, click on "Department Categories" in the navigation or submenu</li>
+                    <li>This will take you to the department categories management page</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Creating a New Department Category:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>On the Department Categories page, click the "Create Category" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                    <li>Fill in the following required fields:
+                        <ul class="list-circle pl-6 mt-2">
+                            <li><span class="font-medium">Name</span> - Enter a unique name for the category (e.g., "Operations", "Sales")</li>
+                            <li><span class="font-medium">Description</span> - Provide a detailed description of what this category encompasses</li>
+                        </ul>
+                    </li>
+                    <li>Click the "Save Category" button (the button may appear as text, an icon, or similar depending on your interface) to create the category</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Editing a Department Category:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the category you want to edit in the categories list</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column for that category</li>
+                    <li>The edit form will load with current values pre-filled</li>
+                    <li>Modify the name or description as needed</li>
+                    <li>Click the "Save Category" button (the button may appear as text, an icon, or similar depending on your interface) to update the category</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Deleting a Department Category:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the category you want to delete in the categories list</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the category</li>
+                    <li>Click "Confirm" to delete the category or "Cancel" to keep it</li>
+                    <li><span class="text-red-600">Note:</span> You cannot delete a category that has departments assigned to it</li>
+                </ol>
+            </section>
+
+            <!-- Departments Management -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Departments Management</h3>
+                <p class="text-gray-600 mb-3">Departments are managed on the main Departments page:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Creating a New Department:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>On the Departments page, click the "Create Department" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                    <li>Fill in the following required fields:
+                        <ul class="list-circle pl-6 mt-2">
+                            <li><span class="font-medium">Name</span> - Enter a unique name for the department (e.g., "Marketing Department")</li>
+                            <li><span class="font-medium">Category</span> - Select the appropriate department category from the dropdown</li>
+                            <li><span class="font-medium">Branch</span> - Select which branch this department belongs to (for super admins)</li>
+                            <li><span class="font-medium">Description</span> - Provide a detailed description of the department's function</li>
+                        </ul>
+                    </li>
+                    <li>For regular employees, the branch will be automatically set to their assigned branch</li>
+                    <li>Click the "Save Department" button (the button may appear as text, an icon, or similar depending on your interface) to create the department</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Editing an Existing Department:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the department you want to edit in the departments list</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column for that department</li>
+                    <li>The edit form will load with current values pre-filled</li>
+                    <li>Modify the name, category, branch, or description as needed</li>
+                    <li>Click the "Save Department" button (the button may appear as text, an icon, or similar depending on your interface) to update the department</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Deleting a Department:</h4>
+                <p class="text-gray-600 mb-3">The deletion process differs based on your user role:</p>
+                
+                <h5 class="font-medium text-gray-600 mb-2">For Super Administrators:</h5>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the department you want to delete in the departments list</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the department</li>
+                    <li>Click "Confirm" to immediately delete the department or "Cancel" to keep it</li>
+                    <li><span class="text-red-600">Note:</span> You cannot delete a department that has employees assigned to it</li>
+                </ol>
+                
+                <h5 class="font-medium text-gray-600 mb-2">For Regular Employees:</h5>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the department you want to delete in the departments list</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal will appear asking for a reason for the deletion</li>
+                    <li>Enter a detailed reason (minimum 5 characters required)</li>
+                    <li>Click "Submit" to create an approval request</li>
+                    <li>The request will be sent to a super administrator for review and approval</li>
+                </ol>
+            </section>
+
+            <!-- Approval Workflow -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Approval Workflow</h3>
+                <p class="text-gray-600 mb-3">The organization management system implements an approval workflow for non-super-admin users:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">For Department Operations:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Super Administrators:</span> Can create, edit, and delete departments immediately without approval</li>
+                    <li><span class="font-medium">Regular Employees:</span> Must submit requests for approval when creating, editing, or deleting departments</li>
+                    <li><span class="font-medium">Approval Process:</span> Requests appear in the Audit Management section for super administrators to review</li>
+                    <li><span class="font-medium">Reason Required:</span> Employees must provide a reason for changes (minimum 5 characters)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Reviewing Pending Requests:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Super administrators can view pending requests in the Audit Management section</li>
+                    <li>Navigate to "Audit" → "Approvals" to see all pending requests</li>
+                    <li>Find department-related requests in the list</li>
+                    <li>Click "Approve" or "Reject" to process the request</li>
+                </ol>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Both department categories and departments pages offer filtering options:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Department Categories Page:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Search</span> - Enter text to search in category names or descriptions</li>
+                    <li><span class="font-medium">Date Range</span> - Filter by creation date range</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Departments Page:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Search</span> - Enter text to search in department names</li>
+                    <li><span class="font-medium">Advanced Search</span> - Search across multiple fields (name, description)</li>
+                    <li><span class="font-medium">Category Filter</span> - Filter by specific department category</li>
+                    <li><span class="font-medium">Date Range</span> - Filter by creation date range</li>
+                </ul>
+            </section>
+
+            <!-- Bulk Operations -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Bulk Operations</h3>
+                <p class="text-gray-600 mb-3">The departments page supports bulk operations:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Bulk Deletion:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Select multiple departments using the checkboxes in the first column of the table</li>
+                    <li>Choose "Delete Selected" from the "Bulk Actions" dropdown</li>
+                    <li>The deletion process follows the same approval workflow as individual deletions</li>
+                    <li>Super administrators can delete multiple departments immediately</li>
+                    <li>Regular employees must provide a reason for bulk deletions</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>
