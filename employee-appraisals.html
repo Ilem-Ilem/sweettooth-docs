@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Appraisals - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Employee Appraisals Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="clock-in-board.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Clock-In Board
+                </a>
+                <a href="appraisal-cycles.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Appraisal Cycles
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Employee Appraisals</h2>
+            <p class="text-gray-600 mb-6">
+                The Employee Appraisals system enables managers to conduct performance evaluations, 
+                track employee development, and maintain comprehensive performance records.
+            </p>
+
+            <!-- Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Overview</h3>
+                <p class="text-gray-600 mb-3">
+                    The Employee Appraisals system facilitates the performance evaluation process:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Performance Reviews</h4>
+                        <p class="text-gray-600 text-sm">Conduct structured performance evaluations for employees</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Development Planning</h4>
+                        <p class="text-gray-600 text-sm">Identify strengths, areas for improvement, and future goals</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accessing Employee Appraisals -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Employee Appraisals</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials (typically managers or HR personnel)</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Employee Appraisals" in the sidebar menu under the Organization section</li>
+                    <li>The Employee Appraisals page will display a list of employees eligible for review</li>
+                </ol>
+            </section>
+
+            <!-- Employee Appraisal List -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Employee Appraisal List</h3>
+                <p class="text-gray-600 mb-3">The main page displays employees available for appraisal:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Employee Name</span> - Full name of the employee</li>
+                    <li><span class="font-medium">Email</span> - Contact email address</li>
+                    <li><span class="font-medium">Department</span> - Department the employee belongs to</li>
+                    <li><span class="font-medium">Roles</span> - Assigned roles and responsibilities</li>
+                    <li><span class="font-medium">Last Review Date</span> - Date of the most recent performance review</li>
+                    <li><span class="font-medium">Current Rating</span> - Overall performance rating</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Actions Available:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Start Appraisal</span> - (the button may appear as text, a star icon, or similar depending on your interface) Click to begin the appraisal process for an employee</li>
+                </ul>
+            </section>
+
+            <!-- Conducting an Appraisal -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Conducting an Employee Appraisal</h3>
+                <p class="text-gray-600 mb-3">The appraisal process involves evaluating employee performance across multiple dimensions:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Starting an Appraisal:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the employee in the appraisal list</li>
+                    <li>Click the "Start Appraisal" button (the button may appear as text, a star icon, or similar depending on your interface) for that employee</li>
+                    <li>The system will check if an appraisal already exists for the current cycle</li>
+                    <li>If no current appraisal exists, you'll be directed to the appraisal form</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Appraisal Form Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Rating</span> - (dropdown/slider) Select a performance rating (typically 1-5 scale)</li>
+                    <li><span class="font-medium">Comments</span> - (textarea) Provide overall performance comments (required)</li>
+                    <li><span class="font-medium">Strengths</span> - (textarea) Document the employee's key strengths (required)</li>
+                    <li><span class="font-medium">Areas for Improvement</span> - (textarea) Identify areas needing development (required)</li>
+                    <li><span class="font-medium">Goals</span> - (textarea) Set objectives for the next review period (required)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Appraisal Cycle Selection:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Select Cycle</span> - (dropdown) Choose the appropriate appraisal cycle for this review</li>
+                    <li><span class="font-medium">Cycle Information</span> - View details about the selected cycle including dates and requirements</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Submitting the Appraisal:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Complete all required fields in the appraisal form</li>
+                    <li>Review the information for accuracy</li>
+                    <li>Click the "Submit Appraisal" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                    <li>The system will save the appraisal and update the employee's performance rating</li>
+                </ol>
+            </section>
+
+            <!-- Appraisal Stages -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Appraisal Stages</h3>
+                <p class="text-gray-600 mb-3">The appraisal process may involve multiple stages depending on your organization's setup:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Stages Overview:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Draft</span> - Initial stage where appraisal is being prepared</li>
+                    <li><span class="font-medium">Self Review</span> - Employee reviews their own performance</li>
+                    <li><span class="font-medium">Manager Review</span> - Manager evaluates employee performance</li>
+                    <li><span class="font-medium">HR Review</span> - HR validates and calibrates ratings</li>
+                    <li><span class="font-medium">Completed</span> - Finalized appraisal ready for action</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Self-Assessment Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Accomplishments</span> - (textarea) Employee's self-reported achievements</li>
+                    <li><span class="font-medium">Challenges</span> - (textarea) Obstacles faced during the period</li>
+                    <li><span class="font-medium">Goals Achieved</span> - (textarea) Objectives met during the period</li>
+                    <li><span class="font-medium">Development Needs</span> - (textarea) Areas where employee seeks growth</li>
+                    <li><span class="font-medium">Self Rating</span> - (dropdown/slider) Employee's self-evaluation</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Manager Assessment Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Manager Rating</span> - (dropdown/slider) Manager's performance rating</li>
+                    <li><span class="font-medium">Manager Comments</span> - (textarea) Manager's observations</li>
+                    <li><span class="font-medium">Strengths</span> - (textarea) Manager's perspective on employee strengths</li>
+                    <li><span class="font-medium">Areas for Improvement</span> - (textarea) Manager's recommendations</li>
+                    <li><span class="font-medium">Goals</span> - (textarea) Manager's expectations for next period</li>
+                    <li><span class="font-medium">Development Plan</span> - (textarea) Specific development activities</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">HR Assessment Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">HR Rating</span> - (dropdown/slider) HR's calibrated rating</li>
+                    <li><span class="font-medium">HR Comments</span> - (textarea) HR's observations</li>
+                    <li><span class="font-medium">Calibration Notes</span> - (textarea) HR's calibration rationale</li>
+                    <li><span class="font-medium">Final Decision</span> - (textarea) HR's final determination</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific employees for appraisal:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Search Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Search Box</span> - (text input) Enter text to search across employee names and emails</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Filter Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Department Filter</span> - (dropdown) Filter by specific department</li>
+                </ul>
+            </section>
+
+            <!-- Employee Performance Tracking -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Employee Performance Tracking</h3>
+                <p class="text-gray-600 mb-3">The system maintains historical performance data:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Automatic Updates:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Performance Rating</span> - Updated automatically when appraisal is submitted</li>
+                    <li><span class="font-medium">Last Review Date</span> - Updated to current date when appraisal is completed</li>
+                    <li><span class="font-medium">Historical Records</span> - Maintained for trend analysis</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Integration with Employee Records:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Completed appraisals are linked to employee profiles</li>
+                    <li>Performance history is accessible from employee details</li>
+                    <li>Development plans are integrated with goal-setting features</li>
+                </ul>
+            </section>
+
+            <!-- Validation and Requirements -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Validation and Requirements</h3>
+                <p class="text-gray-600 mb-3">The system enforces requirements to ensure comprehensive appraisals:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Required Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Rating must be selected (1-5 scale)</li>
+                    <li>Comments must be provided (minimum length enforced)</li>
+                    <li>Strengths must be documented (minimum length enforced)</li>
+                    <li>Areas for improvement must be identified (minimum length enforced)</li>
+                    <li>Goals must be set for the next period (minimum length enforced)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Minimum Length Requirements:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Comments, strengths, areas for improvement, and goals typically require at least 10 characters</li>
+                    <li>These requirements ensure meaningful feedback is provided</li>
+                </ul>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Prepare for appraisals by reviewing the employee's past performance and goals</li>
+                    <li>Provide specific examples to support your ratings and comments</li>
+                    <li>Focus on behaviors and outcomes rather than personality traits</li>
+                    <li>Set SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound)</li>
+                    <li>Document both positive contributions and areas needing improvement</li>
+                    <li>Align goals with departmental and organizational objectives</li>
+                    <li>Encourage employee participation in the self-assessment process</li>
+                    <li>Follow up on development plans after the appraisal is completed</li>
+                    <li>Maintain confidentiality of appraisal discussions</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock-In Board - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Clock-In Board Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="create-employee.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Create Employee
+                </a>
+                <a href="employee-appraisals.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Employee Appraisals
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Clock-In Board</h2>
+            <p class="text-gray-600 mb-6">
+                The Clock-In Board provides comprehensive tracking of employee attendance, 
+                including daily clock-ins, historical records, and punctuality analysis.
+            </p>
+
+            <!-- Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Overview</h3>
+                <p class="text-gray-600 mb-3">
+                    The Clock-In Board system consists of multiple views to track employee attendance:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Today's Clock-In Board</h4>
+                        <p class="text-gray-600 text-sm">View today's attendance with real-time updates</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">General Clock-In Board</h4>
+                        <p class="text-gray-600 text-sm">View attendance over a selected date range</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Employee History</h4>
+                        <p class="text-gray-600 text-sm">View individual employee attendance records</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accessing Clock-In Board -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Clock-In Board</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Clock-In Board" in the sidebar menu under the Organization section</li>
+                    <li>Choose between "Today" and "All" views from the submenu</li>
+                </ol>
+            </section>
+
+            <!-- Today's Clock-In Board -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Today's Clock-In Board</h3>
+                <p class="text-gray-600 mb-3">This view shows all employees who have clocked in today:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Employee Name</span> - Full name of the employee</li>
+                    <li><span class="font-medium">Employee Number</span> - Unique identifier</li>
+                    <li><span class="font-medium">Department</span> - Department the employee belongs to</li>
+                    <li><span class="font-medium">Shift Type</span> - Morning, afternoon, night, etc.</li>
+                    <li><span class="font-medium">Clock-In Time</span> - Time the employee clocked in</li>
+                    <li><span class="font-medium">Status</span> - On time, early, or late indicator</li>
+                    <li><span class="font-medium">Clock-Out Time</span> - Time the employee clocked out (if applicable)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Statistics Panel:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Total Clocked In</span> - Number of employees who have clocked in today</li>
+                    <li><span class="font-medium">Late Count</span> - Number of employees who were late</li>
+                    <li><span class="font-medium">Early Count</span> - Number of employees who were early</li>
+                    <li><span class="font-medium">On-Time Count</span> - Number of employees who were on time</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Department Filter</span> - (dropdown) Filter by specific department</li>
+                    <li><span class="font-medium">Search</span> - (text input) Search by employee name, number, or email</li>
+                    <li><span class="font-medium">Sort By</span> - (dropdown) Sort by clock-in time, name, or department</li>
+                    <li><span class="font-medium">View History</span> - (button) Click to view individual employee's attendance history</li>
+                </ul>
+            </section>
+
+            <!-- General Clock-In Board -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">General Clock-In Board</h3>
+                <p class="text-gray-600 mb-3">This view shows attendance over a customizable date range:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Date Range Selection:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Date From</span> - (date picker) Select start date for the range</li>
+                    <li><span class="font-medium">Date To</span> - (date picker) Select end date for the range</li>
+                    <li><span class="font-medium">Default Range</span> - Shows last 7 days by default</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Date</span> - The date of the shift</li>
+                    <li><span class="font-medium">Employee Name</span> - Full name of the employee</li>
+                    <li><span class="font-medium">Employee Number</span> - Unique identifier</li>
+                    <li><span class="font-medium">Department</span> - Department the employee belongs to</li>
+                    <li><span class="font-medium">Shift Type</span> - Morning, afternoon, night, etc.</li>
+                    <li><span class="font-medium">Clock-In Time</span> - Time the employee clocked in</li>
+                    <li><span class="font-medium">Clock-Out Time</span> - Time the employee clocked out (if applicable)</li>
+                    <li><span class="font-medium">Duration</span> - Total hours worked</li>
+                    <li><span class="font-medium">Status</span> - On time, early, or late indicator</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Statistics Panel:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Total Clocked</span> - Total number of shifts recorded</li>
+                    <li><span class="font-medium">Late Count</span> - Number of late arrivals</li>
+                    <li><span class="font-medium">Early Count</span> - Number of early arrivals</li>
+                    <li><span class="font-medium">On-Time Count</span> - Number of on-time arrivals</li>
+                    <li><span class="font-medium">Total Hours Worked</span> - Sum of all hours worked</li>
+                    <li><span class="font-medium">Late Percentage</span> - Percentage of late arrivals</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Department Filter</span> - (dropdown) Filter by specific department</li>
+                    <li><span class="font-medium">Search</span> - (text input) Search by employee name, number, or email</li>
+                    <li><span class="font-medium">Sort By</span> - (dropdown) Sort by date, name, or department</li>
+                    <li><span class="font-medium">Reset Filters</span> - (button) Reset to default date range (last 7 days)</li>
+                    <li><span class="font-medium">Export CSV</span> - (button) Download attendance data as CSV file</li>
+                </ul>
+            </section>
+
+            <!-- Employee History -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Employee History</h3>
+                <p class="text-gray-600 mb-3">This view shows attendance history for a specific employee:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Accessing Employee History:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Navigate to the General Clock-In Board</li>
+                    <li>Click on an employee's name or use the "View History" option</li>
+                    <li>Alternatively, access directly if you have the employee ID</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Date</span> - The date of the shift</li>
+                    <li><span class="font-medium">Clock-In Time</span> - Time the employee clocked in</li>
+                    <li><span class="font-medium">Clock-Out Time</span> - Time the employee clocked out (if applicable)</li>
+                    <li><span class="font-medium">Duration</span> - Total hours worked</li>
+                    <li><span class="font-medium">Shift Type</span> - Morning, afternoon, night, etc.</li>
+                    <li><span class="font-medium">Department</span> - Department during that shift</li>
+                    <li><span class="font-medium">Status</span> - On time, early, or late indicator</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Statistics Panel:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Total Shifts</span> - Number of shifts worked</li>
+                    <li><span class="font-medium">Total Hours Worked</span> - Sum of all hours worked</li>
+                    <li><span class="font-medium">Average Hours per Shift</span> - Average duration per shift</li>
+                    <li><span class="font-medium">Late Count</span> - Number of late arrivals</li>
+                    <li><span class="font-medium">Early Count</span> - Number of early arrivals</li>
+                    <li><span class="font-medium">On-Time Count</span> - Number of on-time arrivals</li>
+                    <li><span class="font-medium">Late Percentage</span> - Percentage of late arrivals</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Date Range Selection</span> - (date pickers) Select custom date range (default: last 30 days)</li>
+                    <li><span class="font-medium">Department Filter</span> - (dropdown) Filter by specific department</li>
+                    <li><span class="font-medium">Reset Filters</span> - (button) Reset to default date range (last 30 days)</li>
+                    <li><span class="font-medium">Export CSV</span> - (button) Download employee's attendance data as CSV file</li>
+                </ul>
+            </section>
+
+            <!-- Punctuality Status Indicators -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Punctuality Status Indicators</h3>
+                <p class="text-gray-600 mb-3">The system uses color-coded indicators to show punctuality:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Types:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium text-green-600">Early</span> - Employee arrived before expected time (shown in green)</li>
+                    <li><span class="font-medium text-blue-600">On Time</span> - Employee arrived at expected time (shown in blue)</li>
+                    <li><span class="font-medium text-red-600">Late</span> - Employee arrived after expected time (shown in red)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Expected Times:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Morning Shift</span> - Expected at 06:00</li>
+                    <li><span class="font-medium">Afternoon Shift</span> - Expected at 14:00</li>
+                    <li><span class="font-medium">Night Shift</span> - Expected at 22:00</li>
+                </ul>
+            </section>
+
+            <!-- Exporting Data -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Exporting Attendance Data</h3>
+                <p class="text-gray-600 mb-3">Export attendance data for reporting purposes:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Export Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">General Clock-In Board</span> - Export all attendance data for the selected date range</li>
+                    <li><span class="font-medium">Employee History</span> - Export attendance data for a specific employee</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Export Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Apply desired filters and date ranges</li>
+                    <li>Click the "Export CSV" button (the button may appear as text, a download icon, or similar depending on your interface)</li>
+                    <li>The system will generate a CSV file with the filtered data</li>
+                    <li>The file will automatically download to your computer</li>
+                </ol>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Regularly review attendance patterns to identify trends</li>
+                    <li>Use the date range filters to analyze specific periods</li>
+                    <li>Export data periodically for external reporting</li>
+                    <li>Monitor late arrival percentages for departmental insights</li>
+                    <li>Compare individual employee history with department averages</li>
+                    <li>Use department filters to evaluate team performance</li>
+                    <li>Track total hours worked for payroll preparation</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

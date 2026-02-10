@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Employee Management Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="organization.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Organization Management
+                </a>
+                <a href="all-employees.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: All Employees
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Employee Management</h2>
+            <p class="text-gray-600 mb-6">
+                The Employee Management section provides comprehensive tools for managing your workforce, 
+                including employee records, attendance tracking, performance evaluations, and HR reporting.
+            </p>
+
+            <!-- Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Overview</h3>
+                <p class="text-gray-600 mb-4">
+                    The Employee Management system is organized into several interconnected modules:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Employee Records</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>All Employees - View and manage employee profiles</li>
+                            <li>Create Employee - Add new employees to the system</li>
+                            <li>Employee Details - View comprehensive employee information</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Attendance Tracking</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Clock-In Board - Track daily attendance</li>
+                            <li>Employee History - View individual attendance records</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Performance Management</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Employee Appraisals - Conduct performance reviews</li>
+                            <li>Appraisal Cycles - Manage review periods</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">HR Reporting</h4>
+                        <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                            <li>Workforce Overview - Comprehensive HR reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accessing Employee Management -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Employee Management</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Employees" in the sidebar menu under the Organization section</li>
+                    <li>Alternatively, access specific modules directly from the navigation</li>
+                </ol>
+            </section>
+
+            <!-- User Roles and Permissions -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">User Roles and Permissions</h3>
+                <p class="text-gray-600 mb-3">Different user roles have varying levels of access:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Super Administrators:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Full access to all employee management features</li>
+                    <li>Can create, edit, and delete employees immediately</li>
+                    <li>Can assign roles to employees without approval</li>
+                    <li>Can access all branches and departments</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">HR Managers/Officers:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Access to employee records within their assigned branch</li>
+                    <li>May need approval for certain operations (depending on configuration)</li>
+                    <li>Can conduct appraisals and manage appraisal cycles</li>
+                    <li>Can generate HR reports</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Regular Employees:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Limited access to employee management features</li>
+                    <li>May only view their own information</li>
+                    <li>May need approval for certain operations</li>
+                </ul>
+            </section>
+
+            <!-- Approval Workflow -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Approval Workflow</h3>
+                <p class="text-gray-600 mb-3">
+                    Many employee management operations require approval from super administrators:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Employee creation requests</li>
+                    <li>Employee deletion requests</li>
+                    <li>Role assignment changes</li>
+                    <li>Employee information updates</li>
+                </ul>
+                <p class="text-gray-600 mt-3">
+                    When non-super-admin users initiate these operations, they must provide a reason, 
+                    and the request is sent to super administrators for review and approval.
+                </p>
+            </section>
+
+            <!-- Navigation to Subsections -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Getting Started</h3>
+                <p class="text-gray-600 mb-4">
+                    Explore the different aspects of employee management using the links below:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="all-employees.html" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 transition-colors">
+                        <h4 class="font-medium text-blue-700">All Employees</h4>
+                        <p class="text-gray-600 text-sm mt-1">View, search, filter, and manage all employee records</p>
+                    </a>
+                    <a href="create-employee.html" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 transition-colors">
+                        <h4 class="font-medium text-blue-700">Create Employee</h4>
+                        <p class="text-gray-600 text-sm mt-1">Add new employees to the system with all required information</p>
+                    </a>
+                    <a href="clock-in-board.html" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 transition-colors">
+                        <h4 class="font-medium text-blue-700">Clock-In Board</h4>
+                        <p class="text-gray-600 text-sm mt-1">Track employee attendance and punctuality</p>
+                    </a>
+                    <a href="employee-appraisals.html" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 transition-colors">
+                        <h4 class="font-medium text-blue-700">Employee Appraisals</h4>
+                        <p class="text-gray-600 text-sm mt-1">Conduct performance reviews and evaluations</p>
+                    </a>
+                    <a href="appraisal-cycles.html" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 transition-colors">
+                        <h4 class="font-medium text-blue-700">Appraisal Cycles</h4>
+                        <p class="text-gray-600 text-sm mt-1">Manage performance review periods and schedules</p>
+                    </a>
+                    <a href="hr-reports.html" class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg p-4 transition-colors">
+                        <h4 class="font-medium text-blue-700">HR Reports</h4>
+                        <p class="text-gray-600 text-sm mt-1">Generate comprehensive workforce overview reports</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

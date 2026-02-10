@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Employees - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">All Employees Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="employee-management.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Employee Management
+                </a>
+                <a href="create-employee.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Create Employee
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">All Employees</h2>
+            <p class="text-gray-600 mb-6">
+                The All Employees page provides a comprehensive view of all employees in your organization, 
+                allowing you to manage employee records, assign roles, and perform various administrative tasks.
+            </p>
+
+            <!-- Accessing All Employees -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing All Employees</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Employees" in the sidebar menu under the Organization section</li>
+                    <li>The All Employees page will display a list of employees in your branch</li>
+                </ol>
+            </section>
+
+            <!-- Employee List Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Employee List Overview</h3>
+                <p class="text-gray-600 mb-3">The employee list displays the following information for each employee:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Employee #</span> - Unique identifier for the employee</li>
+                    <li><span class="font-medium">Name</span> - Full name of the employee</li>
+                    <li><span class="font-medium">Email</span> - Contact email address</li>
+                    <li><span class="font-medium">Department</span> - Department the employee belongs to</li>
+                    <li><span class="font-medium">Status</span> - Employment status (active, inactive, terminated, etc.)</li>
+                    <li><span class="font-medium">Hire Date</span> - Date the employee was hired</li>
+                    <li><span class="font-medium">Salary</span> - Employee's salary information</li>
+                    <li><span class="font-medium">Roles</span> - Assigned roles and permissions</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Actions Column:</h4>
+                <p class="text-gray-600 mb-3">Each employee row includes an Actions column with the following options:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">View Details</span> - (the button may appear as text, an eye icon, or similar depending on your interface) Click to view comprehensive employee information</li>
+                    <li><span class="font-medium">Edit</span> - (the button may appear as text, a pencil icon, or similar depending on your interface) Click to modify employee information</li>
+                    <li><span class="font-medium">Assign Roles</span> - (the button may appear as text, a user-group icon, or similar depending on your interface) Click to assign or modify employee roles</li>
+                    <li><span class="font-medium">Delete</span> - (the button may appear as text, a trash icon, or similar depending on your interface) Click to remove the employee from the system</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific employees:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Quick Search:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Search Box</span> - Enter text to search across employee names, emails, and employee numbers</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Advanced Search:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Advanced Search</span> - Search across multiple fields including name, email, employee number, phone, branch, and department</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Filter Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Status Filter</span> - Filter by employment status (active, inactive, terminated, on probation, on leave)</li>
+                    <li><span class="font-medium">Department Filter</span> - Filter by specific department</li>
+                    <li><span class="font-medium">Branch Filter</span> - Filter by specific branch</li>
+                    <li><span class="font-medium">Gender Filter</span> - Filter by gender</li>
+                    <li><span class="font-medium">Shift Preference</span> - Filter by shift preference (morning, afternoon, night, rotating, flexible)</li>
+                    <li><span class="font-medium">Hire Date Range</span> - Filter by hire date range</li>
+                    <li><span class="font-medium">Termination Date Range</span> - Filter by termination date range</li>
+                    <li><span class="font-medium">Date Range</span> - Filter by creation date range</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Apply Filters</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to apply all selected filters</li>
+                    <li><span class="font-medium">Reset Filters</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to clear all filters and return to default view</li>
+                </ul>
+            </section>
+
+            <!-- Managing Employees -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Managing Employees</h3>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Viewing Employee Details:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the employee in the list</li>
+                    <li>Click the "View Details" button (the button may appear as text, an eye icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A detailed view of the employee's information will be displayed</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Editing Employee Information:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the employee in the list</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column</li>
+                    <li>Modify the employee information as needed</li>
+                    <li>Click the "Save" button (the button may appear as text, an icon, or similar depending on your interface) to save changes</li>
+                    <li><span class="text-red-600">Note:</span> Non-super-admin users may need to submit changes for approval</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Assigning Roles:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the employee in the list</li>
+                    <li>Click the "Assign Roles" button (the button may appear as text, a user-group icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal will appear with available roles</li>
+                    <li>Select the roles you want to assign to the employee</li>
+                    <li>Click the "Save" button (the button may appear as text, an icon, or similar depending on your interface) to assign the roles</li>
+                    <li><span class="text-red-600">Note:</span> Non-super-admin users may need to provide a reason for role changes</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Deleting an Employee:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the employee in the list</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the employee</li>
+                    <li>Click "Confirm" to delete the employee or "Cancel" to keep them</li>
+                    <li><span class="text-red-600">Note:</span> Non-super-admin users must provide a reason for deletion, which requires approval</li>
+                </ol>
+            </section>
+
+            <!-- Bulk Operations -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Bulk Operations</h3>
+                <p class="text-gray-600 mb-3">Perform actions on multiple employees simultaneously:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Selecting Multiple Employees:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Check the checkbox in the first column of each employee row you want to select</li>
+                    <li>Or use the "Select All" checkbox to select all employees on the current page</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Bulk Delete:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Select multiple employees using the checkboxes</li>
+                    <li>Choose "Delete Selected" from the "Bulk Actions" dropdown</li>
+                    <li>A confirmation dialog will appear with the count of selected employees</li>
+                    <li>Click "Confirm" to delete all selected employees or "Cancel" to keep them</li>
+                    <li><span class="text-red-600">Note:</span> Bulk operations follow the same approval workflow as individual operations</li>
+                </ol>
+            </section>
+
+            <!-- Exporting Employee Data -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Exporting Employee Data</h3>
+                <p class="text-gray-600 mb-3">Export employee information to CSV format:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Export All Filtered Employees:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Apply any desired filters to narrow down the employee list</li>
+                    <li>Click the "Export Excel" button (the button may appear as text, a download icon, or similar depending on your interface)</li>
+                    <li>The system will generate a CSV file containing all filtered employees</li>
+                    <li>The file will automatically download to your computer</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Export Selected Employees:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Select specific employees using the checkboxes</li>
+                    <li>Choose "Export Selected" from the "Bulk Actions" dropdown</li>
+                    <li>The system will generate a CSV file containing only the selected employees</li>
+                    <li>The file will automatically download to your computer</li>
+                </ol>
+            </section>
+
+            <!-- Pagination -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Pagination</h3>
+                <p class="text-gray-600 mb-3">
+                    The employee list is divided into pages to improve performance. Use the pagination controls 
+                    at the bottom of the table to navigate between pages. You can also adjust the number of 
+                    employees displayed per page using the quantity selector.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

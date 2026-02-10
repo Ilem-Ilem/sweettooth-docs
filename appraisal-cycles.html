@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appraisal Cycles - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Appraisal Cycles Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="employee-appraisals.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Employee Appraisals
+                </a>
+                <a href="hr-reports.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: HR Reports
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Appraisal Cycles</h2>
+            <p class="text-gray-600 mb-6">
+                The Appraisal Cycles system allows HR administrators to manage performance review periods, 
+                schedule appraisals, and organize the performance evaluation process across departments.
+            </p>
+
+            <!-- Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Overview</h3>
+                <p class="text-gray-600 mb-3">
+                    Appraisal Cycles define the periods during which performance evaluations take place:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Cycle Management</h4>
+                        <p class="text-gray-600 text-sm">Create, edit, and manage appraisal periods</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-medium text-blue-600 mb-2">Department-Specific Cycles</h4>
+                        <p class="text-gray-600 text-sm">Configure cycles for specific departments or organization-wide</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accessing Appraisal Cycles -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Appraisal Cycles</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with HR administrator credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "HR" in the sidebar menu under the Organization section</li>
+                    <li>Click on "Appraisal Cycles" in the submenu</li>
+                    <li>The Appraisal Cycles page will display all existing cycles</li>
+                </ol>
+            </section>
+
+            <!-- Appraisal Cycle List -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Appraisal Cycle List</h3>
+                <p class="text-gray-600 mb-3">The main page displays all appraisal cycles with their details:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Cycle Name</span> - Descriptive name for the appraisal cycle</li>
+                    <li><span class="font-medium">Start Date</span> - Date when the cycle begins</li>
+                    <li><span class="font-medium">End Date</span> - Date when the cycle ends</li>
+                    <li><span class="font-medium">Due Date</span> - Deadline for completing appraisals</li>
+                    <li><span class="font-medium">Status</span> - Planned, Active, or Completed</li>
+                    <li><span class="font-medium">Department</span> - Department the cycle applies to (or all departments)</li>
+                    <li><span class="font-medium">Created At</span> - Date the cycle was created</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Actions Available:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Create Cycle</span> - (the button may appear as text, a plus icon, or similar depending on your interface) Click to create a new appraisal cycle</li>
+                    <li><span class="font-medium">Edit</span> - (the button may appear as text, a pencil icon, or similar depending on your interface) Click to modify an existing cycle</li>
+                    <li><span class="font-medium">Activate</span> - (the button may appear as text, a play icon, or similar depending on your interface) Click to make this the active cycle</li>
+                    <li><span class="font-medium">Complete</span> - (the button may appear as text, a check icon, or similar depending on your interface) Click to mark the cycle as completed</li>
+                    <li><span class="font-medium">Delete</span> - (the button may appear as text, a trash icon, or similar depending on your interface) Click to remove the cycle</li>
+                </ul>
+            </section>
+
+            <!-- Creating an Appraisal Cycle -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating an Appraisal Cycle</h3>
+                <p class="text-gray-600 mb-3">Create a new appraisal cycle to define a performance review period:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Starting Creation:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Click the "Create Cycle" button (the button may appear as text, a plus icon, or similar depending on your interface) on the main page</li>
+                    <li>A modal or form will appear with cycle creation fields</li>
+                    <li>Fill in the required information for the new cycle</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Required Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Name</span> - (text input) Enter a descriptive name for the cycle (e.g., "Q1 2026 Annual Review")</li>
+                    <li><span class="font-medium">Start Date</span> - (date picker) Select when the cycle begins (required)</li>
+                    <li><span class="font-medium">End Date</span> - (date picker) Select when the cycle ends (required, must be after start date)</li>
+                    <li><span class="font-medium">Due Date</span> - (date picker) Select the deadline for completing appraisals (required, must be between start and end dates)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Optional Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Status</span> - (dropdown) Select the initial status (defaults to "Planned")</li>
+                    <li><span class="font-medium">Department</span> - (dropdown) Select a specific department for this cycle (or leave blank for organization-wide)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Saving the Cycle:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Verify all required fields are completed correctly</li>
+                    <li>Click the "Create Cycle" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                    <li>The new cycle will be added to the list and available for use</li>
+                </ol>
+            </section>
+
+            <!-- Editing an Appraisal Cycle -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Editing an Appraisal Cycle</h3>
+                <p class="text-gray-600 mb-3">Modify an existing appraisal cycle as needed:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Starting Editing:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the cycle you want to edit in the list</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal or form will appear with the current cycle information</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Modifiable Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>All fields from the creation process can be modified except for the cycle ID</li>
+                    <li>Be cautious when changing dates for active cycles as it may affect ongoing appraisals</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Saving Changes:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Make the necessary changes to the cycle information</li>
+                    <li>Click the "Update Cycle" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                    <li>The changes will be saved and reflected in the cycle list</li>
+                </ol>
+            </section>
+
+            <!-- Activating an Appraisal Cycle -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Activating an Appraisal Cycle</h3>
+                <p class="text-gray-600 mb-3">Set a cycle as active to make it available for conducting appraisals:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Activation Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the planned cycle you want to activate in the list</li>
+                    <li>Click the "Activate" button (the button may appear as text, a play icon, or similar depending on your interface) in the Actions column</li>
+                    <li>The system will automatically deactivate any other active cycles</li>
+                    <li>The selected cycle will become the active cycle for appraisals</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Important Considerations:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Only one cycle can be active at a time</li>
+                    <li>Activating a new cycle will deactivate the current active cycle</li>
+                    <li>Ensure the start date has passed before activating</li>
+                    <li>Notify managers and employees about the new active cycle</li>
+                </ul>
+            </section>
+
+            <!-- Completing an Appraisal Cycle -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Completing an Appraisal Cycle</h3>
+                <p class="text-gray-600 mb-3">Mark a cycle as completed when all appraisals are finished:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Completion Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the active or planned cycle you want to complete in the list</li>
+                    <li>Click the "Complete" button (the button may appear as text, a check icon, or similar depending on your interface) in the Actions column</li>
+                    <li>The cycle status will change to "Completed"</li>
+                    <li>The cycle will no longer be available for new appraisals</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Post-Completion Actions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Generate reports based on the completed cycle data</li>
+                    <li>Archive the cycle if it's no longer needed</li>
+                    <li>Begin planning for the next appraisal cycle</li>
+                </ul>
+            </section>
+
+            <!-- Deleting an Appraisal Cycle -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Deleting an Appraisal Cycle</h3>
+                <p class="text-gray-600 mb-3">Remove an appraisal cycle from the system:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Deletion Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the cycle you want to delete in the list</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the cycle</li>
+                    <li>Click "Confirm" to delete the cycle or "Cancel" to keep it</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Important Considerations:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Only cycles without completed appraisals should be deleted</li>
+                    <li>Deleting a cycle removes it permanently from the system</li>
+                    <li>Completed appraisals tied to the cycle may become inaccessible</li>
+                    <li>Consider completing the cycle instead of deleting if appraisals have started</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific appraisal cycles:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Search Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Search Box</span> - (text input) Enter text to search across cycle names</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Filter Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Status Filter</span> - (dropdown) Filter by cycle status (all, planned, active, completed)</li>
+                </ul>
+            </section>
+
+            <!-- Cycle Statuses -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Cycle Statuses</h3>
+                <p class="text-gray-600 mb-3">Appraisal cycles have different statuses that determine their availability:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Definitions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Planned</span> - Cycle is scheduled but not yet active; appraisals cannot be conducted</li>
+                    <li><span class="font-medium">Active</span> - Cycle is currently accepting appraisals; only one cycle can be active at a time</li>
+                    <li><span class="font-medium">Completed</span> - Cycle has finished; no new appraisals can be started, but existing ones remain accessible</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Transitions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Planned → Active (when activated)</li>
+                    <li>Active → Completed (when marked as completed)</li>
+                    <li>Planned → Completed (direct transition possible if needed)</li>
+                </ul>
+            </section>
+
+            <!-- Department-Specific Cycles -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Department-Specific Cycles</h3>
+                <p class="text-gray-600 mb-3">Create appraisal cycles for specific departments:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Creating Department-Specific Cycles:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>When creating a cycle, select a specific department from the department dropdown</li>
+                    <li>The cycle will only be available to employees in that department</li>
+                    <li>Employees in other departments will not see this cycle during appraisals</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Organization-Wide Cycles:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Leave the department field blank when creating a cycle</li>
+                    <li>The cycle will be available to all employees in the organization</li>
+                    <li>This is the default behavior when no department is specified</li>
+                </ol>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Plan appraisal cycles well in advance to allow adequate preparation time</li>
+                    <li>Coordinate with department heads to ensure alignment with business cycles</li>
+                    <li>Communicate cycle schedules clearly to all managers and employees</li>
+                    <li>Set realistic due dates that allow sufficient time for thorough appraisals</li>
+                    <li>Consider seasonal business fluctuations when scheduling cycles</li>
+                    <li>Use department-specific cycles for teams with different performance rhythms</li>
+                    <li>Regularly review and update cycle schedules based on organizational changes</li>
+                    <li>Archive completed cycles after generating necessary reports</li>
+                    <li>Ensure HR staff are trained on cycle management procedures</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

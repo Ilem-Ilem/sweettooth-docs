@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Create Employee Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="all-employees.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: All Employees
+                </a>
+                <a href="clock-in-board.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Clock-In Board
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Create Employee</h2>
+            <p class="text-gray-600 mb-6">
+                The Create Employee form allows you to add new employees to the system with all necessary information, 
+                including personal details, employment information, and role assignments.
+            </p>
+
+            <!-- Accessing Create Employee -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Create Employee</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Employees" in the sidebar menu under the Organization section</li>
+                    <li>Click the "Create Employee" button (the button may appear as text, an icon, or similar depending on your interface) on the All Employees page</li>
+                    <li>The Create Employee form will load with default values</li>
+                </ol>
+            </section>
+
+            <!-- Form Fields Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Form Fields Overview</h3>
+                <p class="text-gray-600 mb-3">The Create Employee form contains several sections with required and optional fields:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Basic Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Department</span> - (dropdown) Select the department the employee will belong to (required)</li>
+                    <li><span class="font-medium">Employee Number</span> - (auto-generated) Unique identifier for the employee (automatically generated based on branch code)</li>
+                    <li><span class="font-medium">Full Name</span> - (text input) Enter the employee's full name (required)</li>
+                    <li><span class="font-medium">Email</span> - (email input) Enter the employee's email address (required, must be unique)</li>
+                    <li><span class="font-medium">Phone</span> - (text input) Enter the employee's phone number (optional)</li>
+                    <li><span class="font-medium">Address</span> - (textarea) Enter the employee's address (optional)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Personal Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Date of Birth</span> - (date picker) Select the employee's date of birth (optional)</li>
+                    <li><span class="font-medium">Gender</span> - (dropdown) Select the employee's gender (optional)</li>
+                    <li><span class="font-medium">Nationality</span> - (dropdown) Select the employee's nationality (defaults to Nigerian)</li>
+                    <li><span class="font-medium">Emergency Contact Name</span> - (text input) Enter emergency contact name (optional)</li>
+                    <li><span class="font-medium">Emergency Contact Phone</span> - (text input) Enter emergency contact phone (optional)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Employment Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Hire Date</span> - (date picker) Select the employee's hire date (required, defaults to today)</li>
+                    <li><span class="font-medium">Termination Date</span> - (date picker) Select the employee's termination date (optional)</li>
+                    <li><span class="font-medium">Status</span> - (dropdown) Select the employee's status (active, inactive, terminated, on probation, on leave)</li>
+                    <li><span class="font-medium">Probation End Date</span> - (date picker) Select when probation ends (optional)</li>
+                    <li><span class="font-medium">Shift Preference</span> - (dropdown) Select preferred shift type (morning, afternoon, night, rotating, flexible)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Compensation Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Salary</span> - (number input) Enter the employee's annual salary (optional)</li>
+                    <li><span class="font-medium">Hourly Rate</span> - (number input) Enter the employee's hourly rate (optional)</li>
+                    <li><span class="font-medium">Tax ID</span> - (text input) Enter the employee's tax identification number (optional)</li>
+                    <li><span class="font-medium">Bank Account</span> - (text input) Enter the employee's bank account number (optional)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Additional Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Allergies</span> - (textarea) Enter any known allergies (optional)</li>
+                    <li><span class="font-medium">Profile Photo</span> - (file upload) Upload the employee's profile photo (optional, max 2MB)</li>
+                    <li><span class="font-medium">Last Performance Review Date</span> - (date picker) Enter last review date (optional)</li>
+                    <li><span class="font-medium">Performance Rating</span> - (number input) Enter initial performance rating (optional, 0-5 scale)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Role Assignment:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Roles</span> - (checkboxes) Select roles to assign to the employee (optional)</li>
+                </ul>
+            </section>
+
+            <!-- Creating an Employee -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating an Employee</h3>
+                <p class="text-gray-600 mb-3">Follow these steps to create a new employee:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Step-by-Step Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Select the appropriate department from the dropdown (required)</li>
+                    <li>Verify the auto-generated employee number or note it for reference</li>
+                    <li>Fill in the required fields: Full Name and Email</li>
+                    <li>Complete other fields as needed for your organization</li>
+                    <li>Upload a profile photo if available (optional)</li>
+                    <li>Select appropriate roles for the employee (optional)</li>
+                    <li>Click the "Save Employee" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Approval Workflow:</h4>
+                <p class="text-gray-600 mb-3">The creation process differs based on your user role:</p>
+                
+                <h5 class="font-medium text-gray-600 mb-2">For Super Administrators:</h5>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Employee is created immediately in the system</li>
+                    <li>No approval required</li>
+                    <li>Employee receives default login credentials</li>
+                </ul>
+                
+                <h5 class="font-medium text-gray-600 mb-2">For Regular Employees:</h5>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>A modal appears asking for a reason for the creation</li>
+                    <li>Enter a detailed reason (minimum 5 characters required)</li>
+                    <li>Click "Submit" to create an approval request</li>
+                    <li>The request is sent to super administrators for review and approval</li>
+                </ul>
+            </section>
+
+            <!-- Creating Missing Dependencies -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating Missing Dependencies</h3>
+                <p class="text-gray-600 mb-3">If needed, you can create related records directly from the form:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Creating a New Department:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>If the required department doesn't exist in the dropdown</li>
+                    <li>Click the "Create Department" button (the button may appear as text, an icon, or similar depending on your interface) next to the department dropdown</li>
+                    <li>A modal will appear with department creation fields</li>
+                    <li>Fill in the department details and save</li>
+                    <li>The new department will be available in the dropdown</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Creating a New Branch:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>If the required branch doesn't exist in the dropdown</li>
+                    <li>Click the "Create Branch" button (the button may appear as text, an icon, or similar depending on your interface) next to the branch dropdown</li>
+                    <li>A modal will appear with branch creation fields</li>
+                    <li>Fill in the branch details and save</li>
+                    <li>The new branch will be available in the dropdown</li>
+                </ol>
+            </section>
+
+            <!-- Validation and Errors -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Validation and Error Handling</h3>
+                <p class="text-gray-600 mb-3">The form validates all required fields before submission:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Required Field Validation:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Department must be selected</li>
+                    <li>Employee number must be unique</li>
+                    <li>Name is required</li>
+                    <li>Email is required and must be unique</li>
+                    <li>Hire date is required</li>
+                    <li>Status is required</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Format Validation:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Email must be in valid email format</li>
+                    <li>Phone number format is validated</li>
+                    <li>Profile photo must be an image file (JPG, PNG, etc.) and under 2MB</li>
+                    <li>Numeric fields accept only valid numbers</li>
+                </ul>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Always verify that the employee number is unique before creating</li>
+                    <li>Use consistent naming conventions for employee names</li>
+                    <li>Ensure email addresses are unique across the system</li>
+                    <li>Assign appropriate roles based on job responsibilities</li>
+                    <li>Keep employee information up-to-date</li>
+                    <li>Upload a profile photo for better identification</li>
+                    <li>Consider data privacy regulations when collecting personal information</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>
