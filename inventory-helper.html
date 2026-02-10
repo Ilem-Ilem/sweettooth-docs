@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helper Functions - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Helper Functions</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Utility tools and quick actions to assist with daily inventory operations</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#available-tools" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Available Tools</a>
+                <a href="#batch-processing" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Batch Processing</a>
+                <a href="#utility-functions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Utility Functions</a>
+                <a href="#integration-points" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Integration Points</a>
+                <a href="#shortcuts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Shortcuts</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-violet-500 to-purple-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Helper Functions Overview</h2>
+                <p class="mb-4">The Helper Functions module provides utility tools and quick actions to assist with daily inventory operations.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Quick Access</h3>
+                        <p>Easy access to common inventory operations</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Efficiency Tools</h3>
+                        <p>Batch processing and utility functions</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Integration</h3>
+                        <p>Connectivity with other inventory modules</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quick Access:</strong> Easy access to common inventory operations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Batch Processing:</strong> Tools for efficient bulk operations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Utility Functions:</strong> Data management and maintenance tools</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Integration Points:</strong> Connectivity with other modules</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Shortcuts:</strong> Quick access to frequent tasks</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Efficiency:</strong> Streamline routine inventory operations</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Available Tools Section -->
+        <section id="available-tools" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Available Tools</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Helper Functions module provides various tools to assist with daily inventory operations.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Tools:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Quick Search:</strong> Rapid search across all inventory modules</li>
+                            <li><strong>Recent Activity:</strong> View recently accessed items and operations</li>
+                            <li><strong>Quick Reports:</strong> Generate common reports with minimal input</li>
+                            <li><strong>Data Validation:</strong> Tools to verify data integrity</li>
+                            <li><strong>Import/Export:</strong> Bulk data operations</li>
+                            <li><strong>System Utilities:</strong> Maintenance and cleanup functions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Navigation Shortcuts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Direct links to frequently used inventory modules</li>
+                            <li>Quick access to common reports</li>
+                            <li>One-click access to approval queues</li>
+                            <li>Direct navigation to pending tasks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Information Tools:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Quick lookup of item information</li>
+                            <li>Stock level summaries</li>
+                            <li>Supplier contact information</li>
+                            <li>Department details</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Familiarize yourself with the helper tools to increase your efficiency in daily inventory operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Batch Processing Section -->
+        <section id="batch-processing" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Batch Processing</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Batch processing tools allow you to perform operations on multiple items simultaneously.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Operations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Mass Updates:</strong> Update multiple items with the same changes</li>
+                            <li><strong>Stock Adjustments:</strong> Adjust stock levels for multiple items</li>
+                            <li><strong>Status Changes:</strong> Change status for multiple items at once</li>
+                            <li><strong>Category Updates:</strong> Move multiple items to different categories</li>
+                            <li><strong>Reorder Level Updates:</strong> Adjust reorder levels for multiple items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Processing Benefits:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Significantly reduces time for repetitive operations</li>
+                            <li>Ensures consistency across multiple items</li>
+                            <li>Reduces manual data entry errors</li>
+                            <li>Improves operational efficiency</li>
+                            <li>Enables bulk maintenance tasks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Processing Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Always verify selections before processing</li>
+                            <li>Review changes before finalizing batch operations</li>
+                            <li>Have a rollback plan for critical operations</li>
+                            <li>Test batch operations on small sets first</li>
+                            <li>Ensure proper permissions for batch operations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Batch operations affect multiple records simultaneously. Always verify your selections and have a backup plan before proceeding.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Functions Section -->
+        <section id="utility-functions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Utility Functions</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Utility functions provide tools for data management, maintenance, and system optimization.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Management Tools:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Data Validation:</strong> Check for inconsistencies and errors</li>
+                            <li><strong>Duplicate Detection:</strong> Identify and merge duplicate records</li>
+                            <li><strong>Data Cleanup:</strong> Remove obsolete or incorrect data</li>
+                            <li><strong>Backup Tools:</strong> Create backups of critical data</li>
+                            <li><strong>Restore Functions:</strong> Recover data from backups</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Maintenance Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>System Cleanup:</strong> Remove temporary files and logs</li>
+                            <li><strong>Index Optimization:</strong> Improve database performance</li>
+                            <li><strong>Cache Management:</strong> Clear and refresh system caches</li>
+                            <li><strong>Performance Monitoring:</strong> Track system performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reporting Utilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Quick Reports:</strong> Generate common reports quickly</li>
+                            <li><strong>Ad-hoc Queries:</strong> Create custom reports on demand</li>
+                            <li><strong>Data Export:</strong> Export data in various formats</li>
+                            <li><strong>Dashboard Widgets:</strong> Customize dashboard information</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular use of utility functions helps maintain system performance and data integrity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration Points Section -->
+        <section id="integration-points" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Integration Points</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Helper functions provide integration points with other inventory modules and external systems.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Internal Integrations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Items Module:</strong> Quick access to item creation and updates</li>
+                            <li><strong>Purchases Module:</strong> Direct links to purchase orders</li>
+                            <li><strong>Stock Levels:</strong> Instant access to stock information</li>
+                            <li><strong>Health Checks:</strong> Access to health assessment tools</li>
+                            <li><strong>Requests & Dispatches:</strong> Links to request and dispatch modules</li>
+                            <li><strong>Reports & Analytics:</strong> Quick access to reporting tools</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">External Integrations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Accounting Systems:</strong> Integration with financial systems</li>
+                            <li><strong>ERP Systems:</strong> Connection to enterprise resource planning</li>
+                            <li><strong>Supplier Portals:</strong> Links to supplier management systems</li>
+                            <li><strong>Production Systems:</strong> Integration with manufacturing systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Synchronization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Real-time Sync:</strong> Immediate data synchronization</li>
+                            <li><strong>Scheduled Sync:</strong> Periodic data updates</li>
+                            <li><strong>Manual Sync:</strong> On-demand data synchronization</li>
+                            <li><strong>Error Handling:</strong> Robust error detection and recovery</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Leverage integration points to streamline cross-module operations and reduce manual data entry.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shortcuts Section -->
+        <section id="shortcuts" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Shortcuts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Shortcuts provide quick access to frequently used inventory functions and operations.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Navigation Shortcuts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Quick Menu:</strong> Access to frequently used modules</li>
+                            <li><strong>Recent Items:</strong> Quick access to recently viewed items</li>
+                            <li><strong>Favorites:</strong> Customizable shortcuts to important functions</li>
+                            <li><strong>Dashboard Links:</strong> Direct access to dashboard widgets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Operation Shortcuts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Quick Create:</strong> Fast item creation without full form</li>
+                            <li><strong>Quick Search:</strong> Global search across all modules</li>
+                            <li><strong>Quick Reports:</strong> Generate common reports instantly</li>
+                            <li><strong>Quick Actions:</strong> Common operations with minimal clicks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Keyboard Shortcuts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Global Search:</strong> Ctrl+K (or Cmd+K on Mac)</li>
+                            <li><strong>New Item:</strong> Ctrl+N (or Cmd+N on Mac)</li>
+                            <li><strong>Save:</strong> Ctrl+S (or Cmd+S on Mac)</li>
+                            <li><strong>Refresh:</strong> F5 or Ctrl+R (or Cmd+R on Mac)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Customize your shortcuts to match your most frequently used functions for maximum efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Helper Functions features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to all helper functions and utilities</li>
+                            <li><strong>Inventory Manager:</strong> Access to most helper functions</li>
+                            <li><strong>Store Keeper:</strong> Access to operational helper functions</li>
+                            <li><strong>Department Head:</strong> Limited access to relevant helper functions</li>
+                            <li><strong>Regular Employee:</strong> Basic access to common helper functions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Some advanced utilities may require elevated permissions</li>
+                            <li>Batch operations often require additional authorization</li>
+                            <li>System-level utilities are restricted to administrators</li>
+                            <li>Access to external integrations may be role-dependent</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need access to specific helper functions for your role.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Helper Function Usage</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize the effectiveness of helper functions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Efficiency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Learn and use keyboard shortcuts for common operations</li>
+                            <li>Customize your dashboard and shortcuts to match your workflow</li>
+                            <li>Use batch operations for repetitive tasks</li>
+                            <li>Take advantage of quick search functionality</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Regularly use data validation tools to maintain quality</li>
+                            <li>Run cleanup utilities periodically to maintain performance</li>
+                            <li>Backup critical data before major operations</li>
+                            <li>Verify batch operation results after processing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">System Maintenance:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Use system utilities to maintain optimal performance</li>
+                            <li>Monitor system performance regularly</li>
+                            <li>Keep integration points synchronized</li>
+                            <li>Update favorites and shortcuts as workflows evolve</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Training:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Train team members on available helper functions</li>
+                            <li>Share shortcuts and tips with colleagues</li>
+                            <li>Stay updated on new helper function features</li>
+                            <li>Document custom configurations for team reference</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Regular use of helper functions can significantly improve your productivity. Spend time learning the tools that match your daily tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

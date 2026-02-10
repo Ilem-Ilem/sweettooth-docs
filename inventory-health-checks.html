@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Checks - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Health Checks</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Monitoring and assessing the condition of inventory items to ensure quality and safety</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#creating-checks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Checks</a>
+                <a href="#health-conditions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Health Conditions</a>
+                <a href="#managing-checks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Checks</a>
+                <a href="#tracking-actions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Tracking Actions</a>
+                <a href="#filters-search" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Filters & Search</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Health Checks Overview</h2>
+                <p class="mb-4">The Health Checks module allows you to monitor and assess the condition of your inventory items to ensure quality and safety.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Condition Assessment</h3>
+                        <p>Record detailed condition assessments for inventory items</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Observation Tracking</h3>
+                        <p>Document observations and required actions</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Quality Assurance</h3>
+                        <p>Maintain quality standards and safety protocols</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Condition Recording:</strong> Document health conditions of inventory items</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Observation Logging:</strong> Record detailed observations about items</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Action Tracking:</strong> Document required actions and resolutions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quantity Monitoring:</strong> Track quantity affected by health issues</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Expiration Tracking:</strong> Monitor expiration dates and shelf life</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Integration:</strong> Link with stock management for automatic updates</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Creating Health Checks Section -->
+        <section id="creating-checks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Health Checks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating health checks involves recording the condition assessment of inventory items along with observations and required actions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Item Selection:</strong> Choose the inventory item to assess</li>
+                            <li><strong>Check Date:</strong> Date when the health check was performed</li>
+                            <li><strong>Condition:</strong> Select the current health condition of the item</li>
+                            <li><strong>Quantity Affected:</strong> Number of units affected by the condition</li>
+                            <li><strong>Observations:</strong> Detailed notes about the item's condition</li>
+                            <li><strong>Action Taken:</strong> Steps taken to address the issue</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create a Health Check:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Health Checks section</li>
+                            <li>Click the "Add New Health Check" button</li>
+                            <li>Select the item from the inventory list</li>
+                            <li>Set the check date (defaults to today)</li>
+                            <li>Choose the appropriate health condition</li>
+                            <li>Enter the quantity affected (if applicable)</li>
+                            <li>Record your observations about the item's condition</li>
+                            <li>Document any actions taken to address the issue</li>
+                            <li>Click "Save" to record the health check</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quantity Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>The system validates that the quantity affected does not exceed available stock</li>
+                            <li>If quantity affected is greater than available stock, an error will be shown</li>
+                            <li>Ensure accurate quantity entries to maintain stock integrity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Be specific in your observations to help others understand the exact condition of the item. Include details like specific damage, storage conditions, or environmental factors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Conditions Section -->
+        <section id="health-conditions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Health Conditions</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Understanding Health Status</h3>
+                    <p class="text-gray-600 mb-4">Health conditions represent the current state of inventory items and help prioritize actions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Condition Categories:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Good:</strong> Item in excellent condition, ready for use or sale</li>
+                            <li><strong>Fair:</strong> Item usable but showing signs of wear or minor issues</li>
+                            <li><strong>Poor:</strong> Item needs attention or repair, limited usability</li>
+                            <li><strong>Damaged:</strong> Item is damaged but may be repairable or reusable for parts</li>
+                            <li><strong>Expired:</strong> Item has exceeded its shelf life or expiration date</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Condition Guidelines:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Good:</strong> No visible defects, within expiration dates, properly stored</li>
+                            <li><strong>Fair:</strong> Minor cosmetic issues, slight wear, still functional</li>
+                            <li><strong>Poor:</strong> Noticeable defects, reduced functionality, approaching end of life</li>
+                            <li><strong>Damaged:</strong> Physical damage affecting usability, safety concerns</li>
+                            <li><strong>Expired:</strong> Past expiration date, potential safety risks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Impact of Health Conditions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Health conditions affect item availability for use or sale</li>
+                            <li>Items with poor, damaged, or expired conditions may be quarantined</li>
+                            <li>Health status influences reorder decisions</li>
+                            <li>Conditions are reflected in inventory reports and analytics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Items marked as "Damaged" or "Expired" should be immediately quarantined and not used in production or sales until properly dispositioned.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Health Checks Section -->
+        <section id="managing-checks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Health Checks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once health checks are created, you can view details, track trends, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Health Check Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on a health check in the list to view detailed information</li>
+                            <li>See the item name, SKU, and category</li>
+                            <li>Review the condition assessment and date</li>
+                            <li>Check the quantity affected</li>
+                            <li>Read detailed observations and actions taken</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Check Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Trend Analysis:</strong> Identify recurring issues with specific items</li>
+                            <li><strong>Pattern Recognition:</strong> Spot trends in health conditions</li>
+                            <li><strong>Performance Tracking:</strong> Monitor improvement or deterioration</li>
+                            <li><strong>Compliance Reporting:</strong> Generate reports for audits</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Check Lifecycle:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Health checks are created when items are assessed</li>
+                            <li>They remain in the system for historical reference</li>
+                            <li>They contribute to the overall health status of items</li>
+                            <li>They can be reviewed and analyzed over time</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular health checks help identify issues early, preventing larger problems and reducing waste.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking Actions Section -->
+        <section id="tracking-actions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Tracking Actions</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Documenting actions taken during health checks ensures accountability and helps track resolution of issues.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Action Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Immediate Actions:</strong> Steps taken during the inspection</li>
+                            <li><strong>Corrective Measures:</strong> Actions to address identified issues</li>
+                            <li><strong>Preventive Measures:</strong> Steps to prevent future occurrences</li>
+                            <li><strong>Disposal Actions:</strong> Proper handling of damaged or expired items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Actions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Quarantine damaged items</li>
+                            <li>Relocate items to appropriate storage areas</li>
+                            <li>Initiate disposal process for expired items</li>
+                            <li>Request repairs or maintenance</li>
+                            <li>Adjust storage conditions</li>
+                            <li>Notify relevant stakeholders</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Action Tracking Benefits:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensures accountability for health check findings</li>
+                            <li>Tracks resolution of identified issues</li>
+                            <li>Provides evidence of compliance with quality standards</li>
+                            <li>Helps identify recurring problems</li>
+                            <li>Supports continuous improvement initiatives</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Document not just what was done, but also who performed the action and when. This creates a complete audit trail.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters and Search Section -->
+        <section id="filters-search" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Filters and Search</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Health Checks interface includes filtering and search capabilities to help you find specific assessments quickly.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Filters:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Search:</strong> Search by item name or SKU</li>
+                            <li><strong>Condition Filter:</strong> Filter by health condition (good, fair, poor, damaged, expired)</li>
+                            <li><strong>Date Range:</strong> Filter by check date range</li>
+                            <li><strong>Action Taken Filter:</strong> Filter by whether actions were taken</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Using Filters:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Use the search bar to find health checks by item name or SKU</li>
+                            <li>Select a condition from the dropdown to filter by health status</li>
+                            <li>Set date ranges to see checks performed during specific periods</li>
+                            <li>Filter by action taken to see resolved or unresolved issues</li>
+                            <li>Combine multiple filters for more specific results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Additional Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sort health checks by clicking on column headers</li>
+                            <li>Adjust the number of checks displayed per page</li>
+                            <li>Export filtered results to Excel or CSV</li>
+                            <li>View summary statistics for the filtered results</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Health Checks features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, view, and manage health checks</li>
+                            <li><strong>Quality Manager:</strong> Can perform health checks and manage quality processes</li>
+                            <li><strong>Inventory Manager:</strong> Can view and create health checks</li>
+                            <li><strong>Quality Inspector:</strong> Dedicated role for performing health checks</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel should perform health checks</li>
+                            <li>Training may be required for accurate condition assessments</li>
+                            <li>Higher-level roles can review and validate checks from lower-level users</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for health check tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Health Check Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain effective health check management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Assessment Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Develop clear criteria for each health condition category</li>
+                            <li>Train staff on consistent assessment methods</li>
+                            <li>Use standardized terminology in observations</li>
+                            <li>Document specific examples of each condition level</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Frequency Guidelines:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Perform health checks on high-risk items more frequently</li>
+                            <li>Check items approaching expiration dates weekly</li>
+                            <li>Inspect items in harsh storage conditions more often</li>
+                            <li>Review items with previous health issues regularly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Be specific and objective in health condition assessments</li>
+                            <li>Include quantitative measurements when possible</li>
+                            <li>Document the location where the item was found</li>
+                            <li>Record environmental conditions during assessment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Follow-up Actions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Immediately quarantine items with critical health issues</li>
+                            <li>Follow established protocols for disposal of expired items</li>
+                            <li>Track resolution of identified issues</li>
+                            <li>Share findings with relevant teams for process improvements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Use the analytics and reporting features to identify trends in health conditions and improve preventive measures.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

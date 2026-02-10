@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Reports</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comprehensive analytics and insights into inventory operations</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#stock-levels-report" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Levels</a>
+                <a href="#stock-movement-report" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Movement</a>
+                <a href="#stock-turnover-report" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Turnover</a>
+                <a href="#reorder-report" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Reorder Report</a>
+                <a href="#stock-variance-report" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Variance</a>
+                <a href="#generating-reports" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Generating Reports</a>
+                <a href="#export-options" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Export Options</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Reports Overview</h2>
+                <p class="mb-4">The Reports module provides comprehensive analytics and insights into your inventory operations.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Stock Levels</h3>
+                        <p>Current inventory status and availability</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Movement Analysis</h3>
+                        <p>Historical tracking of stock movements</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Turnover Insights</h3>
+                        <p>Analysis of inventory rotation rates</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Levels Report:</strong> Current inventory status and availability</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Movement Report:</strong> Historical tracking of stock in/out movements</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Turnover Report:</strong> Analysis of inventory rotation rates</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reorder Report:</strong> Items requiring replenishment</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Variance Report:</strong> Discrepancies between expected and actual stock</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Export Options:</strong> Download reports in Excel and CSV formats</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Stock Levels Report Section -->
+        <section id="stock-levels-report" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Levels Report</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Stock Levels Report provides a comprehensive view of current inventory status and availability.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Contents:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Item Information:</strong> SKU, name, category, and unit of measure</li>
+                            <li><strong>Available Stock:</strong> Quantity ready for use or sale</li>
+                            <li><strong>Reserved Stock:</strong> Quantity allocated for specific purposes</li>
+                            <li><strong>Damaged Stock:</strong> Quantity that is unusable due to damage</li>
+                            <li><strong>Total Stock:</strong> Sum of all stock categories</li>
+                            <li><strong>Reorder Level:</strong> Threshold for triggering reorder alerts</li>
+                            <li><strong>Max Stock Level:</strong> Maximum allowed stock level</li>
+                            <li><strong>Health Status:</strong> Current condition of the item</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customizable date ranges and filters</li>
+                            <li>Export to Excel and CSV formats</li>
+                            <li>Visual charts and graphs for better understanding</li>
+                            <li>Detailed drill-down capabilities</li>
+                            <li>Automated report generation</li>
+                            <li>Comparison with previous periods</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Usage:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Monitor current inventory levels</li>
+                            <li>Identify items below reorder levels</li>
+                            <li>Track inventory health status</li>
+                            <li>Plan procurement activities</li>
+                            <li>Identify slow-moving or obsolete items</li>
+                            <li>Support financial reporting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Use the Stock Levels Report regularly to identify items that need to be reordered and prevent stockouts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Movement Report Section -->
+        <section id="stock-movement-report" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Movement Report</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Stock Movement Report provides historical tracking of stock in/out movements and transactions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Contents:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Item Information:</strong> SKU, name, and category</li>
+                            <li><strong>Movement Type:</strong> In, Out, Adjustment, Transfer, etc.</li>
+                            <li><strong>Quantity:</strong> Amount moved in or out</li>
+                            <li><strong>Before/After Quantities:</strong> Stock levels before and after movement</li>
+                            <li><strong>Reference:</strong> Link to the original transaction</li>
+                            <li><strong>Date/Time:</strong> When the movement occurred</li>
+                            <li><strong>Personnel:</strong> Who performed the movement</li>
+                            <li><strong>Notes:</strong> Description of the movement activity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Detailed transaction history</li>
+                            <li>Filter by date range, item, or movement type</li>
+                            <li>Export to Excel and CSV formats</li>
+                            <li>Visual representation of movement trends</li>
+                            <li>Drill-down to individual transactions</li>
+                            <li>Comparison with previous periods</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Usage:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Track inventory flow patterns</li>
+                            <li>Identify unusual movement activities</li>
+                            <li>Support audit requirements</li>
+                            <li>Reconcile stock levels</li>
+                            <li>Analyze consumption patterns</li>
+                            <li>Investigate discrepancies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular review of stock movements helps identify trends and potential issues before they become problems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Turnover Report Section -->
+        <section id="stock-turnover-report" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Turnover Report</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Stock Turnover Report analyzes inventory rotation rates and identifies fast and slow-moving items.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Contents:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Item Information:</strong> SKU, name, and category</li>
+                            <li><strong>Turnover Rate:</strong> Calculated rotation rate for the period</li>
+                            <li><strong>Movement Count:</strong> Number of transactions during the period</li>
+                            <li><strong>Total Moved:</strong> Total quantity moved during the period</li>
+                            <li><strong>Current Stock:</strong> Available quantity at the end of the period</li>
+                            <li><strong>Velocity Classification:</strong> High, Moderate, or Low turnover</li>
+                            <li><strong>Period Comparison:</strong> Comparison with previous periods</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Turnover rate calculations</li>
+                            <li>Velocity classification (high, moderate, low)</li>
+                            <li>Period-over-period comparisons</li>
+                            <li>Export to Excel and CSV formats</li>
+                            <li>Visual charts showing turnover patterns</li>
+                            <li>Filter by category or date range</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Usage:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify fast-moving items for prioritized procurement</li>
+                            <li>Spot slow-moving items that may become obsolete</li>
+                            <li>Optimize inventory investment</li>
+                            <li>Adjust reorder levels based on velocity</li>
+                            <li>Plan warehouse space allocation</li>
+                            <li>Support financial planning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Items with very low turnover rates may tie up capital unnecessarily and should be reviewed for potential discontinuation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reorder Report Section -->
+        <section id="reorder-report" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Reorder Report</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Reorder Report identifies items that require replenishment based on current stock levels and reorder points.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Contents:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Item Information:</strong> SKU, name, and category</li>
+                            <li><strong>Current Quantity:</strong> Available stock level</li>
+                            <li><strong>Reorder Level:</strong> Threshold for triggering reorder</li>
+                            <li><strong>Suggested Quantity:</strong> Recommended reorder amount</li>
+                            <li><strong>Urgency Level:</strong> Critical, High, Medium, or Low</li>
+                            <li><strong>Last Purchase Date:</strong> When the item was last ordered</li>
+                            <li><strong>Lead Time:</strong> Expected time to receive new stock</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Automatic identification of items below reorder levels</li>
+                            <li>Urgency classification for prioritization</li>
+                            <li>Suggested reorder quantities</li>
+                            <li>Export to Excel and CSV formats</li>
+                            <li>Filter by urgency level or category</li>
+                            <li>Integration with purchase order creation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Usage:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify items that need to be reordered</li>
+                            <li>Prioritize procurement activities</li>
+                            <li>Prevent stockouts</li>
+                            <li>Optimize ordering frequency</li>
+                            <li>Plan procurement budgets</li>
+                            <li>Coordinate with suppliers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Review the Reorder Report daily to ensure critical items are ordered in time to prevent disruptions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Variance Report Section -->
+        <section id="stock-variance-report" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Variance Report</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Stock Variance Report identifies discrepancies between expected and actual stock levels.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Contents:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Item Information:</strong> SKU, name, and category</li>
+                            <li><strong>Expected Quantity:</strong> System-recorded stock level</li>
+                            <li><strong>Actual Quantity:</strong> Physically counted stock level</li>
+                            <li><strong>Variance:</strong> Difference between expected and actual</li>
+                            <li><strong>Variance Percentage:</strong> Variance as percentage of expected</li>
+                            <li><strong>Investigation Status:</strong> Open, Under Review, Resolved</li>
+                            <li><strong>Root Cause:</strong> Identified reason for variance</li>
+                            <li><strong>Resolution:</strong> Action taken to address variance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Variance identification and quantification</li>
+                            <li>Percentage-based analysis</li>
+                            <li>Investigation tracking</li>
+                            <li>Root cause analysis</li>
+                            <li>Export to Excel and CSV formats</li>
+                            <li>Filter by variance size or status</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Usage:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify inventory discrepancies</li>
+                            <li>Investigate causes of variances</li>
+                            <li>Improve inventory accuracy</li>
+                            <li>Address process inefficiencies</li>
+                            <li>Support audit requirements</li>
+                            <li>Reduce inventory losses</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Significant variances may indicate process issues or potential loss. Investigate immediately and implement corrective actions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generating Reports Section -->
+        <section id="generating-reports" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Generating Reports</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Generating reports involves selecting the report type, configuring parameters, and running the report.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Generation Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Select the desired report from the reports menu</li>
+                            <li>Configure the date range for the report</li>
+                            <li>Apply any additional filters (category, department, etc.)</li>
+                            <li>Click "Generate Preview" to see a sample</li>
+                            <li>Review the preview for accuracy</li>
+                            <li>Click "Generate Report" to create the final version</li>
+                            <li>Optionally submit for review if required</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Parameters:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Date Range:</strong> Specify the period for the report</li>
+                            <li><strong>Category Filter:</strong> Limit to specific item categories</li>
+                            <li><strong>Department Filter:</strong> Focus on specific departments</li>
+                            <li><strong>Location Filter:</strong> Restrict to specific branches or locations</li>
+                            <li><strong>Item Filter:</strong> Focus on specific items or groups</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Customization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customize columns displayed in the report</li>
+                            <li>Select specific metrics to include</li>
+                            <li>Choose aggregation levels (daily, weekly, monthly)</li>
+                            <li>Apply sorting and grouping options</li>
+                            <li>Format numerical values as needed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Always preview reports before generating the final version to ensure parameters are correct and results are as expected.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Export Options Section -->
+        <section id="export-options" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Export Options</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Reports can be exported in various formats for further analysis and sharing.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Export Formats:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Excel (.xlsx):</strong> Full-featured spreadsheet format with formatting</li>
+                            <li><strong>CSV (.csv):</strong> Comma-separated values for easy import to other systems</li>
+                            <li><strong>PDF (.pdf):</strong> Fixed-layout format for printing and sharing</li>
+                            <li><strong>Print View:</strong> Optimized layout for printing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Export Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Generate the report with desired parameters</li>
+                            <li>Locate the export buttons on the report page</li>
+                            <li>Select the desired export format</li>
+                            <li>Wait for the export to complete</li>
+                            <li>Download the file when prompted</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Export Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Large reports may take time to export</li>
+                            <li>Excel format preserves formatting and formulas</li>
+                            <li>CSV format is ideal for data analysis tools</li>
+                            <li>PDF format maintains layout for presentations</li>
+                            <li>File sizes vary based on report complexity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> For data analysis, export to Excel or CSV format. For presentations, use PDF format.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Report Usage</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize the value of inventory reports.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Scheduling:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Run Stock Levels Report daily to monitor current status</li>
+                            <li>Generate Reorder Report weekly to plan procurement</li>
+                            <li>Review Stock Movement Report monthly for trends</li>
+                            <li>Run Stock Turnover Report quarterly for strategic planning</li>
+                            <li>Generate Stock Variance Report after each physical count</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analysis Techniques:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Compare current reports with historical data</li>
+                            <li>Look for patterns and anomalies in the data</li>
+                            <li>Focus on actionable insights rather than just numbers</li>
+                            <li>Share relevant reports with stakeholders</li>
+                            <li>Use reports to support decision-making</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Quality:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensure data accuracy before running reports</li>
+                            <li>Investigate and resolve discrepancies promptly</li>
+                            <li>Keep item information up to date</li>
+                            <li>Regularly review and update reorder levels</li>
+                            <li>Verify that all transactions are properly recorded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Sharing and Communication:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Share relevant reports with appropriate stakeholders</li>
+                            <li>Use reports to support procurement decisions</li>
+                            <li>Present findings to management regularly</li>
+                            <li>Use reports to identify improvement opportunities</li>
+                            <li>Archive important reports for historical reference</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Create a regular reporting schedule and share key reports with your team to ensure everyone stays informed about inventory status and trends.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

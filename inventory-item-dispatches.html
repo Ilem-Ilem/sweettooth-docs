@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Dispatches - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Item Dispatches</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Processing approved item requests and releasing inventory items from the store to requesting departments</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#dispatch-process" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Dispatch Process</a>
+                <a href="#approving-items" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Approving Items</a>
+                <a href="#dispatching-items" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Dispatching Items</a>
+                <a href="#stock-movements" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Movements</a>
+                <a href="#managing-dispatches" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Dispatches</a>
+                <a href="#filters-search" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Filters & Search</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Item Dispatches Overview</h2>
+                <p class="mb-4">The Dispatches module handles the process of releasing inventory items from the store to requesting departments.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Request Processing</h3>
+                        <p>Process approved item requests for dispatch</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Stock Updates</h3>
+                        <p>Automatic stock level updates upon dispatch</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Audit Trail</h3>
+                        <p>Maintain detailed records of all dispatch activities</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Request Processing:</strong> Process approved item requests for dispatch</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Updates:</strong> Automatically update stock levels upon dispatch</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quantity Tracking:</strong> Track dispatched quantities and remaining balances</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Shift Linking:</strong> Link dispatches to specific shifts or projects</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Audit Trail:</strong> Maintain detailed records of all dispatch activities</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Export Reports:</strong> Generate dispatch reports and summaries</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Dispatch Process Section -->
+        <section id="dispatch-process" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Dispatch Process</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">The dispatch process involves approving requests and then releasing items to requesting departments.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dispatch Workflow:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Item request is created by a department</li>
+                            <li>Request is submitted for approval</li>
+                            <li>Inventory team reviews and approves the request</li>
+                            <li>Items are reserved from available stock</li>
+                            <li>Store keeper accesses the dispatch module</li>
+                            <li>Approved items are dispatched to the requesting department</li>
+                            <li>Stock levels are automatically updated</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Prerequisites for Dispatch:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Request must be in "approved" status</li>
+                            <li>Sufficient stock must be available</li>
+                            <li>Items must be properly reserved</li>
+                            <li>Authorized personnel must perform the dispatch</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dispatch Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System checks for sufficient stock before dispatch</li>
+                            <li>Validates that items are properly reserved</li>
+                            <li>Ensures dispatch quantities do not exceed approved amounts</li>
+                            <li>Verifies department has permission to receive items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Always verify that items are physically handed over to the requesting department and obtain acknowledgment when possible.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approving Items Section -->
+        <section id="approving-items" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Approving Items</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Approving items in a request reserves them from available stock and prepares them for dispatch.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Access the dispatch module and open the request</li>
+                            <li>Review the items and quantities requested</li>
+                            <li>Verify sufficient stock is available</li>
+                            <li>Approve all items or specific quantities</li>
+                            <li>Click "Approve Items" to reserve them</li>
+                            <li>Approved items are now reserved and ready for dispatch</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Approve All:</strong> Approve all requested quantities</li>
+                            <li><strong>Partial Approval:</strong> Approve specific quantities for each item</li>
+                            <li><strong>Approve Individually:</strong> Approve items one by one</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System checks for sufficient stock before approval</li>
+                            <li>Approves only quantities that are available</li>
+                            <li>Blocks approval if stock is insufficient</li>
+                            <li>Updates item status to "approved" after approval</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Items must be approved before they can be dispatched. Approval reserves the items from available stock.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dispatching Items Section -->
+        <section id="dispatching-items" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Dispatching Items</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Dispatching items releases them from inventory and updates stock levels accordingly.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dispatch Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Open the dispatch modal for an approved request</li>
+                            <li>Verify that items have been approved</li>
+                            <li>Confirm the quantities to be dispatched</li>
+                            <li>Click "Dispatch Items" to release them</li>
+                            <li>Stock levels are automatically updated</li>
+                            <li>Request status is updated to reflect dispatch</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dispatch Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System verifies that items are properly approved</li>
+                            <li>Confirms sufficient approved quantities are available</li>
+                            <li>Checks that items are reserved for dispatch</li>
+                            <li>Validates that dispatch quantities do not exceed approved amounts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Post-Dispatch Actions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Stock levels are reduced by dispatched quantities</li>
+                            <li>Reserved quantities are released</li>
+                            <li>Stock movement records are created</li>
+                            <li>Request status is updated (completed or partially dispatched)</li>
+                            <li>Audit trail is updated with dispatch details</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Always verify that the physical items match the quantities being dispatched before confirming the transaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Movements Section -->
+        <section id="stock-movements" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Movements</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Each dispatch creates a stock movement record that tracks the flow of inventory.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Movement Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Type:</strong> "Out" for dispatched items</li>
+                            <li><strong>Quantity:</strong> Negative value representing dispatched amount</li>
+                            <li><strong>Before/After:</strong> Stock levels before and after the movement</li>
+                            <li><strong>Reference:</strong> Link to the original request</li>
+                            <li><strong>Personnel:</strong> Who performed the dispatch</li>
+                            <li><strong>Date/Time:</strong> When the dispatch occurred</li>
+                            <li><strong>Notes:</strong> Description of the dispatch activity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Movement Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>All dispatches create movement records automatically</li>
+                            <li>Movements are linked to the original request</li>
+                            <li>Historical tracking enables audit trails</li>
+                            <li>Movements help with inventory reconciliation</li>
+                            <li>Reports can be generated based on movement data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Movement Impact:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Reduces available stock by dispatched quantities</li>
+                            <li>Updates item availability for other requests</li>
+                            <li>Provides visibility into inventory flow</li>
+                            <li>Supports cost accounting and valuation</li>
+                            <li>Enables trend analysis and forecasting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Regularly review stock movements to identify patterns and optimize inventory management processes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Dispatches Section -->
+        <section id="managing-dispatches" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Dispatches</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once dispatches are processed, you can view details, track status, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Dispatch Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on a request in the list to view dispatch details</li>
+                            <li>See all items included in the dispatch</li>
+                            <li>View quantities requested, approved, and dispatched</li>
+                            <li>Check the status of the dispatch</li>
+                            <li>Review the responsible personnel</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dispatch Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Status Tracking:</strong> Monitor the progress of dispatches</li>
+                            <li><strong>Quantity Monitoring:</strong> Track dispatched vs. requested quantities</li>
+                            <li><strong>Reconciliation:</strong> Verify physical vs. system quantities</li>
+                            <li><strong>Reporting:</strong> Generate dispatch reports for analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actions Available:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>View Details:</strong> See complete dispatch information</li>
+                            <li><strong>Approve Items:</strong> Reserve items for dispatch</li>
+                            <li><strong>Dispatch Items:</strong> Release items to requesting department</li>
+                            <li><strong>Export:</strong> Download dispatch data in Excel or CSV</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Once items are dispatched, the transaction is typically final. Verify quantities before confirming dispatch.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters and Search Section -->
+        <section id="filters-search" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Filters and Search</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Item Dispatches interface includes filtering and search capabilities to help you find specific dispatches quickly.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Filters:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Search:</strong> Search by request number, department name, or requester name</li>
+                            <li><strong>Shift Filter:</strong> Filter by production shift</li>
+                            <li><strong>Date Range:</strong> Filter by dispatch date range</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Using Filters:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Use the search bar to find dispatches by request number or department</li>
+                            <li>Select a shift from the dropdown to filter by production shift</li>
+                            <li>Set date ranges to see dispatches during specific periods</li>
+                            <li>Combine multiple filters for more specific results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Additional Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sort dispatches by clicking on column headers</li>
+                            <li>Adjust the number of dispatches displayed per page</li>
+                            <li>Export filtered results to Excel or CSV</li>
+                            <li>View dispatch summary statistics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Item Dispatches features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to approve and dispatch items</li>
+                            <li><strong>Inventory Manager:</strong> Can approve and dispatch items</li>
+                            <li><strong>Store Keeper:</strong> Can view and process dispatches</li>
+                            <li><strong>Department Head:</strong> Can view dispatches for their department</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel can approve and dispatch items</li>
+                            <li>Higher-level roles can override lower-level decisions</li>
+                            <li>Some departments may have restricted access to certain items</li>
+                            <li>Financial approval may be required for high-value items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for dispatch management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Dispatch Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain efficient and effective dispatch management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Verification:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Always verify that requested items match physical inventory</li>
+                            <li>Confirm quantities before approving and dispatching</li>
+                            <li>Check item condition before dispatch</li>
+                            <li>Verify recipient department and authorization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Keep detailed records of all dispatch activities</li>
+                            <li>Obtain acknowledgment from recipients when possible</li>
+                            <li>Document any discrepancies or issues</li>
+                            <li>Maintain logs of approved and dispatched items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Efficiency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Process dispatches in batches when possible</li>
+                            <li>Coordinate with requesting departments for optimal timing</li>
+                            <li>Use the "Approve All" function for complete requests</li>
+                            <li>Regularly review pending requests to prevent delays</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Communication:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Notify requesting departments when items are dispatched</li>
+                            <li>Provide status updates throughout the process</li>
+                            <li>Coordinate with logistics for item delivery</li>
+                            <li>Address any issues or concerns promptly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Regularly review dispatch patterns to identify opportunities for process improvements and efficiency gains.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

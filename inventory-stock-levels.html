@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Levels - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Stock Levels</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Real-time tracking of available, reserved, and damaged stock with health monitoring</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#stock-categories" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Categories</a>
+                <a href="#managing-stock" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Stock</a>
+                <a href="#health-monitoring" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Health Monitoring</a>
+                <a href="#stock-adjustments" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Adjustments</a>
+                <a href="#reorder-alerts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Reorder Alerts</a>
+                <a href="#filters-search" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Filters & Search</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Stock Levels Overview</h2>
+                <p class="mb-4">The Stock Levels module provides real-time visibility into your inventory with detailed tracking of available, reserved, and damaged stock.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Real-time Tracking</h3>
+                        <p>Monitor stock levels as they change in real-time</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Health Status</h3>
+                        <p>Track item conditions and expiration dates</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Reorder Alerts</h3>
+                        <p>Automatic notifications when stock falls below threshold</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Real-time Tracking:</strong> Monitor available, reserved, and damaged stock levels</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Health Monitoring:</strong> Track item conditions (good, warning, critical, expired)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reorder Alerts:</strong> Automatic notifications when stock falls below threshold</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Adjustments:</strong> Update stock levels with approval workflows</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Historical Tracking:</strong> Maintain records of stock movements and changes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Integration:</strong> Connect with purchasing for automated reordering</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Stock Categories Section -->
+        <section id="stock-categories" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Categories</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Understanding Stock Types</h3>
+                    <p class="text-gray-600 mb-4">Stock is categorized into different types to provide accurate visibility into inventory status and availability.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Categories:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Available Stock:</strong> Quantity ready for use or sale</li>
+                            <li><strong>Reserved Stock:</strong> Quantity allocated for specific purposes (production, orders, etc.)</li>
+                            <li><strong>Damaged Stock:</strong> Quantity that is unusable due to damage or defects</li>
+                            <li><strong>Total Stock:</strong> Sum of all stock categories (Available + Reserved + Damaged)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Calculations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Available for Sale/Use:</strong> Available Stock - Reserved Stock</li>
+                            <li><strong>Effective Stock:</strong> Available Stock (what can actually be used)</li>
+                            <li><strong>Unavailable Stock:</strong> Reserved + Damaged Stock</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Movement Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>All stock changes are recorded in the stock movement log</li>
+                            <li>Each movement includes type (in, out, adjustment), quantity, and reason</li>
+                            <li>Reference to the transaction that caused the movement</li>
+                            <li>Date and time of the movement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Regularly reconcile your physical stock counts with system records to ensure accuracy. Discrepancies should be investigated and documented.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Stock Section -->
+        <section id="managing-stock" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Stock</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Managing stock involves monitoring levels, updating quantities, and ensuring accurate records.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Monitoring:</strong> Regularly check stock levels and health status</li>
+                            <li><strong>Updating:</strong> Adjust quantities based on physical counts or transactions</li>
+                            <li><strong>Tracking:</strong> Follow stock movements and changes</li>
+                            <li><strong>Alerting:</strong> Respond to low stock and critical health alerts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Management Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Regularly review stock levels in the system</li>
+                            <li>Perform physical stock counts periodically</li>
+                            <li>Compare physical counts with system records</li>
+                            <li>Make necessary adjustments through the approval process</li>
+                            <li>Monitor and respond to alerts and notifications</li>
+                            <li>Review and update reorder levels as needed</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Visibility:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Dashboard displays critical stock information</li>
+                            <li>Low stock items are highlighted for attention</li>
+                            <li>Health status indicators show item conditions</li>
+                            <li>Recent stock movements are displayed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Establish a regular schedule for stock counts and stick to it. Consistency is key to maintaining accurate inventory records.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Monitoring Section -->
+        <section id="health-monitoring" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Health Monitoring</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Health monitoring tracks the condition of inventory items to ensure quality and safety.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Status Categories:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Good:</strong> Item in excellent condition, ready for use</li>
+                            <li><strong>Warning:</strong> Item showing signs of deterioration, monitor closely</li>
+                            <li><strong>Critical:</strong> Item approaching expiry or significantly deteriorated</li>
+                            <li><strong>Expired:</strong> Item has exceeded its shelf life or expiration date</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Factors:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Expiration Dates:</strong> Track when items expire and need replacement</li>
+                            <li><strong>Physical Condition:</strong> Monitor for damage, spoilage, or deterioration</li>
+                            <li><strong>Storage Conditions:</strong> Ensure proper temperature, humidity, and handling</li>
+                            <li><strong>Rotation:</strong> Follow FIFO (First In, First Out) principles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Monitoring Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Regularly inspect items for signs of deterioration</li>
+                            <li>Update health status in the system as needed</li>
+                            <li>Move expired or critical items to appropriate areas</li>
+                            <li>Dispose of expired items according to company policy</li>
+                            <li>Document any health-related issues</li>
+                            <li>Review health reports to identify trends</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Items with critical or expired health status should be quarantined immediately and not used in production or sales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Adjustments Section -->
+        <section id="stock-adjustments" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Adjustments</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Stock adjustments allow you to update quantities when discrepancies are found between physical counts and system records.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">When to Make Adjustments:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>After physical stock counts reveal discrepancies</li>
+                            <li>When items are damaged during handling or storage</li>
+                            <li>To correct data entry errors</li>
+                            <li>When items are lost or stolen</li>
+                            <li>To account for shrinkage or evaporation</li>
+                            <li>When items expire and need to be written off</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Adjustment Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Identify the item that needs adjustment</li>
+                            <li>Click the "Edit Stock" button in the stock list</li>
+                            <li>Enter the correct quantities for available, reserved, and damaged stock</li>
+                            <li>Update health status if necessary</li>
+                            <li>Enter any relevant notes about the adjustment</li>
+                            <li>Click "Save" to submit the adjustment</li>
+                            <li>If you're a non-super admin, provide a reason and submit for approval</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Adjustment Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Always investigate the cause of significant adjustments</li>
+                            <li>Document the reason for each adjustment</li>
+                            <li>Large adjustments may require additional approval</li>
+                            <li>Adjustments affect inventory valuation</li>
+                            <li>All adjustments create a stock movement record</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Frequent or large stock adjustments may indicate underlying issues with inventory management processes that should be investigated.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reorder Alerts Section -->
+        <section id="reorder-alerts" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Reorder Alerts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Reorder alerts notify you when stock levels fall below predetermined thresholds, helping prevent stockouts.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">How Reorder Alerts Work:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Each item has a configurable reorder level</li>
+                            <li>When available stock falls below this level, an alert is triggered</li>
+                            <li>Low stock items are highlighted in the dashboard</li>
+                            <li>Reorder alerts appear in the critical alerts section</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Setting Reorder Levels:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Reorder levels are set when creating or updating items</li>
+                            <li>Consider lead times when setting reorder levels</li>
+                            <li>Factor in usage patterns and seasonal variations</li>
+                            <li>Review and adjust reorder levels regularly</li>
+                            <li>Set different levels for critical vs. non-critical items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reorder Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Monitor alerts in the dashboard for low stock items</li>
+                            <li>Review the suggested reorder quantities</li>
+                            <li>Create purchase orders for items that need replenishment</li>
+                            <li>Consider bundling multiple items from the same supplier</li>
+                            <li>Submit purchase orders for approval if required</li>
+                            <li>Track the status of orders until delivery</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Set reorder levels slightly higher than minimum to account for unexpected demand increases or supply delays.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters and Search Section -->
+        <section id="filters-search" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Filters and Search</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Stock Levels interface includes filtering and search capabilities to help you find specific items quickly.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Filters:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Search:</strong> Search by item name or SKU</li>
+                            <li><strong>Category Filter:</strong> Filter by item category (raw material, packaging, consumable, equipment)</li>
+                            <li><strong>Status Filter:</strong> Filter by stock status (low stock, overstock)</li>
+                            <li><strong>Health Status Filter:</strong> Filter by health status (good, warning, critical, expired)</li>
+                            <li><strong>Date Range:</strong> Filter by last stock take date</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Using Filters:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Use the search bar to find items by name or SKU</li>
+                            <li>Select a category from the dropdown to filter by item type</li>
+                            <li>Use the status filter to find low stock or overstocked items</li>
+                            <li>Filter by health status to identify items needing attention</li>
+                            <li>Set date ranges to see recently updated stock records</li>
+                            <li>Combine multiple filters for more specific results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Additional Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sort stock by clicking on column headers</li>
+                            <li>Adjust the number of items displayed per page</li>
+                            <li>Export filtered results to Excel or CSV</li>
+                            <li>View summary statistics for the filtered results</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Stock Levels features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to view, update, and adjust stock levels directly</li>
+                            <li><strong>Inventory Manager:</strong> Can manage stock but requires approval for adjustments</li>
+                            <li><strong>Stock Controller:</strong> Limited access to view and request stock changes</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Stock adjustments require approval for non-super admin users</li>
+                            <li>Higher-level roles can approve stock changes from lower-level users</li>
+                            <li>View-only permissions allow monitoring without modification rights</li>
+                            <li>Some actions may be restricted based on item categories</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for stock management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Stock Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain accurate and efficient stock management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Counting:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Establish a regular schedule for physical stock counts</li>
+                            <li>Count high-value items more frequently</li>
+                            <li>Investigate and document discrepancies</li>
+                            <li>Use cycle counting for continuous verification</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reorder Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Set reorder levels based on lead times and usage patterns</li>
+                            <li>Consider seasonal variations in demand</li>
+                            <li>Review and adjust reorder levels regularly</li>
+                            <li>Keep safety stock for critical items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Control:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Regularly inspect items for quality and condition</li>
+                            <li>Follow FIFO (First In, First Out) principles</li>
+                            <li>Quarantine damaged or expired items immediately</li>
+                            <li>Train staff on proper handling and storage techniques</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Document reasons for all stock adjustments</li>
+                            <li>Keep records of physical counts and discrepancies</li>
+                            <li>Maintain logs of damaged or expired items</li>
+                            <li>Track supplier performance related to stock quality</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Use the analytics and reporting features to identify trends and optimize your stock management processes over time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Requests - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Item Requests</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Facilitating the process of requesting inventory items from the store by different departments</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#creating-requests" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Requests</a>
+                <a href="#request-process" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Request Process</a>
+                <a href="#managing-requests" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Requests</a>
+                <a href="#approvals" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Approvals</a>
+                <a href="#stock-reservation" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Reservation</a>
+                <a href="#filters-search" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Filters & Search</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-teal-500 to-cyan-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Item Requests Overview</h2>
+                <p class="mb-4">The Item Requests module facilitates the process of requesting inventory items from the store by different departments.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Department Requests</h3>
+                        <p>Allow departments to request items they need</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Approval Workflow</h3>
+                        <p>Controlled process for request authorization</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Stock Reservation</h3>
+                        <p>Reserve items upon approval for fulfillment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Department Requests:</strong> Allow departments to request items they need</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quantity Specification:</strong> Specify exact quantities and required dates</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Status Tracking:</strong> Track request status (pending, approved, fulfilled)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Project Linking:</strong> Link requests to specific production shifts or projects</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Approval Workflow:</strong> Controlled process for request authorization</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Reservation:</strong> Automatic reservation upon approval</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Creating Requests Section -->
+        <section id="creating-requests" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Item Requests</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating item requests involves specifying the department, items needed, and quantities required.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Department:</strong> Select the requesting department</li>
+                            <li><strong>Request Date:</strong> Date when items are needed (defaults to tomorrow)</li>
+                            <li><strong>Items:</strong> List of items to be requested with quantities</li>
+                            <li><strong>Notes:</strong> Additional information about the request</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create an Item Request:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Item Requests section</li>
+                            <li>Click the "Add New Request" button</li>
+                            <li>Select the requesting department from the dropdown</li>
+                            <li>Set the required date for the items</li>
+                            <li>Add items to the request using the "Add Item" button</li>
+                            <li>Select the item from the inventory list</li>
+                            <li>Specify the quantity needed</li>
+                            <li>Repeat for all required items</li>
+                            <li>Add any relevant notes about the request</li>
+                            <li>Click "Save" to submit the request</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Item Selection:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Select items from the active inventory items list</li>
+                            <li>Quantities must be positive numbers</li>
+                            <li>The system validates stock availability before approval</li>
+                            <li>Only items with sufficient stock can be requested</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> The system automatically generates a unique request number based on your branch code and department. This ensures proper tracking of all requests.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> The system validates that requested quantities do not exceed available stock. If stock is insufficient, the request will not be created and an error will be displayed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Request Process Section -->
+        <section id="request-process" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Request Process</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">The item request process follows a structured workflow from creation to fulfillment.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Request Lifecycle:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li><strong>Creation:</strong> Department creates item request with required items and quantities</li>
+                            <li><strong>Submission:</strong> Request is submitted for approval</li>
+                            <li><strong>Review:</strong> Inventory team reviews the request and available stock</li>
+                            <li><strong>Approval:</strong> Request is approved and items are reserved</li>
+                            <li><strong>Fulfillment:</strong> Items are dispatched to the requesting department</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Transitions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Draft:</strong> Request is being prepared (if applicable)</li>
+                            <li><strong>Pending:</strong> Request submitted and awaiting approval</li>
+                            <li><strong>Approved:</strong> Request approved and items reserved</li>
+                            <li><strong>Partially Dispatched:</strong> Some items have been dispatched</li>
+                            <li><strong>Completed:</strong> All items have been dispatched</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Request Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System checks for sufficient stock before approval</li>
+                            <li>Validates that requested quantities are positive</li>
+                            <li>Ensures department has permission to request items</li>
+                            <li>Verifies item status (active/inactive)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Plan requests in advance to ensure sufficient lead time for approval and fulfillment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Requests Section -->
+        <section id="managing-requests" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Item Requests</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once requests are created, you can view details, track status, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Request Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on a request in the list to view detailed information</li>
+                            <li>See all items included in the request</li>
+                            <li>View department information and requester details</li>
+                            <li>Check the status of the request</li>
+                            <li>Review quantities requested, approved, and dispatched</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Request Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Status Tracking:</strong> Monitor the progress of requests</li>
+                            <li><strong>Quantity Monitoring:</strong> Track approved vs. requested quantities</li>
+                            <li><strong>Dispatch Coordination:</strong> Coordinate with dispatch team</li>
+                            <li><strong>Communication:</strong> Notify departments of status changes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actions Available:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>View Details:</strong> See complete request information</li>
+                            <li><strong>Approve:</strong> Approve the request and reserve items (in Dispatch module)</li>
+                            <li><strong>Dispatch:</strong> Release items to requesting department (in Dispatch module)</li>
+                            <li><strong>Export:</strong> Download request data in Excel or CSV</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Requests must be approved before items can be dispatched. Approval happens in the Dispatch module.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approvals Section -->
+        <section id="approvals" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Request Approvals</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Request approvals ensure proper authorization for inventory allocation and prevent unauthorized usage.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Department creates item request and submits it</li>
+                            <li>Request appears in the pending queue in the Dispatch module</li>
+                            <li>Inventory team reviews the request and available stock</li>
+                            <li>Approve the request to reserve items from stock</li>
+                            <li>Approved items are reserved and ready for dispatch</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Requirements:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>All requests must be approved before dispatch</li>
+                            <li>Approvals are handled in the Dispatch module</li>
+                            <li>Approving reserves items from available stock</li>
+                            <li>Approvals are tracked in the audit log</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">What Happens After Approval:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Request status changes to "approved"</li>
+                            <li>Requested items are reserved from available stock</li>
+                            <li>Reserved quantities are deducted from available stock</li>
+                            <li>Items become unavailable for other requests</li>
+                            <li>Ready for dispatch to the requesting department</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Review requests carefully to ensure they align with operational needs and available inventory.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Reservation Section -->
+        <section id="stock-reservation" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Reservation</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Stock reservation occurs when requests are approved, ensuring items are set aside for the requesting department.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reservation Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Department requests specific items and quantities</li>
+                            <li>Request is submitted and awaits approval</li>
+                            <li>Upon approval, requested quantities are reserved</li>
+                            <li>Reserved quantities are deducted from available stock</li>
+                            <li>Reserved items cannot be used for other requests</li>
+                            <li>Items remain reserved until dispatched</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reservation Impact:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Reduces available stock for other departments</li>
+                            <li>Prevents double-allocation of items</li>
+                            <li>Ensures requested items will be available</li>
+                            <li>Updates stock levels in real-time</li>
+                            <li>Creates audit trail of reservations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reservation Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Reservations are automatically created upon approval</li>
+                            <li>Reservations are released when items are dispatched</li>
+                            <li>Cancelled requests release reserved stock</li>
+                            <li>Monitor reservation duration to prevent stock lockup</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Monitor reservation duration to ensure timely dispatch and prevent unnecessary stock lockup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters and Search Section -->
+        <section id="filters-search" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Filters and Search</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Item Requests interface includes filtering and search capabilities to help you find specific requests quickly.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Filters:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Search:</strong> Search by request number, department name, or requester name</li>
+                            <li><strong>Department Filter:</strong> Filter by requesting department</li>
+                            <li><strong>Status Filter:</strong> Filter by request status (pending, approved, completed, etc.)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Using Filters:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Use the search bar to find requests by number or department</li>
+                            <li>Select a department from the dropdown to filter by requesting department</li>
+                            <li>Select a status to filter by lifecycle stage</li>
+                            <li>Combine multiple filters for more specific results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Additional Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sort requests by clicking on column headers</li>
+                            <li>Adjust the number of requests displayed per page</li>
+                            <li>Export filtered results to Excel or CSV</li>
+                            <li>View request summary statistics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-6060 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Item Requests features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, approve, and manage requests</li>
+                            <li><strong>Department Head:</strong> Can create requests for their department</li>
+                            <li><strong>Inventory Manager:</strong> Can manage and approve requests</li>
+                            <li><strong>Store Keeper:</strong> Can view and process requests</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Users can typically only create requests for their own department</li>
+                            <li>Approval permissions are usually restricted to inventory managers</li>
+                            <li>Higher-level roles can approve requests from any department</li>
+                            <li>Some departments may have restricted access to certain items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for request management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Request Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain efficient and effective request management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Planning Requests:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Plan requests in advance to ensure sufficient lead time</li>
+                            <li>Coordinate with production schedules and project timelines</li>
+                            <li>Consider batch ordering to reduce administrative overhead</li>
+                            <li>Align requests with budget cycles and financial planning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Request Accuracy:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Verify item availability before creating requests</li>
+                            <li>Specify exact quantities needed to avoid waste</li>
+                            <li>Include detailed specifications when necessary</li>
+                            <li>Provide clear justifications for requests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Communication:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Communicate expected fulfillment dates to requesting departments</li>
+                            <li>Notify departments of any delays or changes</li>
+                            <li>Provide status updates throughout the process</li>
+                            <li>Coordinate with dispatch team for timely fulfillment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Keep detailed records of all requests for auditing</li>
+                            <li>Document reasons for any special handling requirements</li>
+                            <li>Maintain logs of approved and denied requests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Regularly review request patterns to identify opportunities for process improvements and efficiency gains.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

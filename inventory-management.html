@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .section-link { transition: all 0.3s ease; }
+        .section-link:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Inventory Management System</h1>
+                <a href="index.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Main Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comprehensive guide to managing inventory, stock levels, purchases, and related operations</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#items" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Items Management</a>
+                <a href="#purchases" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Purchases</a>
+                <a href="#stock-levels" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Levels</a>
+                <a href="#health-checks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Health Checks</a>
+                <a href="#item-requests" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Item Requests</a>
+                <a href="#dispatches" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Dispatches</a>
+                <a href="#helper" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Helper Functions</a>
+                <a href="#reports" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Reports</a>
+                <a href="#callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Callbacks</a>
+                <a href="#analytics" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Inventory Management Overview</h2>
+                <p class="mb-4">The Inventory Management System provides comprehensive tools for tracking, managing, and optimizing your inventory operations.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Real-time Tracking</h3>
+                        <p>Monitor stock levels, movements, and availability in real-time</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Multi-level Approval</h3>
+                        <p>Controlled workflows for inventory adjustments and operations</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Advanced Analytics</h3>
+                        <p>Detailed insights and reports for informed decision-making</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Item Management:</strong> Create, update, and categorize inventory items</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Purchase Orders:</strong> Manage procurement and supplier relationships</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Control:</strong> Real-time tracking of available, reserved, and damaged stock</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Health Monitoring:</strong> Track item conditions and expiration dates</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Request & Dispatch:</strong> Manage inter-departmental item transfers</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reporting & Analytics:</strong> Comprehensive insights and trend analysis</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Items Management Section -->
+        <section id="items" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Items Management</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Items Management module allows you to create, update, and maintain your inventory items with detailed specifications.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Create new inventory items with SKU, category, and unit of measure</li>
+                            <li>Set reorder levels and maximum stock levels for automated alerts</li>
+                            <li>Track item status (active/inactive) and health</li>
+                            <li>Manage stock adjustments with approval workflows</li>
+                            <li>View item history and related transactions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Access & Permissions:</h4>
+                        <p class="text-gray-600">Users with "Inventory Manager" or "Stock Controller" roles can access this module.</p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Items with low stock levels will appear in the dashboard alerts. Regular monitoring helps prevent stockouts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="inventory-items.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchases Section -->
+        <section id="purchases" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Purchases</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Purchases module handles procurement activities, from creating purchase orders to receiving goods and updating stock levels.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Create purchase orders with multiple items and suppliers</li>
+                            <li>Track purchase status (draft, pending approval, approved)</li>
+                            <li>Record supplier information and contact details</li>
+                            <li>Calculate landed costs including shipping and other fees</li>
+                            <li>Automatic stock updates upon purchase approval</li>
+                            <li>Integration with approval workflows for better control</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-gray-600">
+                            <li>Create purchase order with items and quantities</li>
+                            <li>Submit for approval if required by role permissions</li>
+                            <li>Wait for approval from authorized personnel</li>
+                            <li>Receive goods and update stock levels automatically</li>
+                            <li>Track payment status (paid, partial, pending)</li>
+                        </ol>
+                    </div>
+                    
+                    <a href="inventory-purchases.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Levels Section -->
+        <section id="stock-levels" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Levels</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Stock Levels module provides real-time visibility into your inventory with detailed tracking of available, reserved, and damaged stock.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Real-time stock tracking with available, reserved, and damaged quantities</li>
+                            <li>Health status monitoring (good, warning, critical, expired)</li>
+                            <li>Automatic reorder level alerts when stock falls below threshold</li>
+                            <li>Stock adjustment capabilities with approval workflows</li>
+                            <li>Historical stock movement tracking</li>
+                            <li>Integration with purchasing for automated reordering</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Categories:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Available:</strong> Stock ready for use or sale</li>
+                            <li><strong>Reserved:</strong> Stock allocated for specific purposes</li>
+                            <li><strong>Damaged:</strong> Stock that is unusable due to damage</li>
+                            <li><strong>Total:</strong> Sum of all stock categories</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="inventory-stock-levels.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Checks Section -->
+        <section id="health-checks" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Health Checks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Health Checks module allows you to monitor and assess the condition of your inventory items to ensure quality and safety.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Record condition assessments for inventory items</li>
+                            <li>Document observations and required actions</li>
+                            <li>Track quantity affected by health issues</li>
+                            <li>Monitor expiration dates and shelf life</li>
+                            <li>Generate health reports and trends</li>
+                            <li>Integrate with stock management for automatic updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Health Conditions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Good:</strong> Item in excellent condition</li>
+                            <li><strong>Fair:</strong> Item usable but showing signs of wear</li>
+                            <li><strong>Poor:</strong> Item needs attention or repair</li>
+                            <li><strong>Damaged:</strong> Item is damaged but may be repairable</li>
+                            <li><strong>Expired:</strong> Item has exceeded its shelf life</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="inventory-health-checks.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Item Requests Section -->
+        <section id="item-requests" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Item Requests</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Item Requests module facilitates the process of requesting inventory items from the store by different departments.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Submit requests for inventory items by department</li>
+                            <li>Specify quantities and required dates</li>
+                            <li>Track request status (pending, approved, fulfilled)</li>
+                            <li>Link requests to specific production shifts or projects</li>
+                            <li>Integration with approval workflows</li>
+                            <li>Automatic stock reservation upon approval</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Request Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-gray-600">
+                            <li>Department creates item request with required items and quantities</li>
+                            <li>Request is submitted for approval</li>
+                            <li>Inventory team reviews and approves the request</li>
+                            <li>Items are reserved from stock</li>
+                            <li>Items are dispatched to requesting department</li>
+                        </ol>
+                    </div>
+                    
+                    <a href="inventory-item-requests.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dispatches Section -->
+        <section id="dispatches" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Dispatches</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Dispatches module handles the process of releasing inventory items from the store to requesting departments.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Process approved item requests for dispatch</li>
+                            <li>Update stock levels automatically upon dispatch</li>
+                            <li>Track dispatched quantities and remaining balances</li>
+                            <li>Link dispatches to specific shifts or projects</li>
+                            <li>Maintain audit trail of all dispatch activities</li>
+                            <li>Generate dispatch reports and summaries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dispatch Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-1 text-gray-600">
+                            <li>Select approved item request for dispatch</li>
+                            <li>Verify available stock for requested items</li>
+                            <li>Update quantities and adjust stock levels</li>
+                            <li>Record dispatch details and responsible person</li>
+                            <li>Update request status to partially or fully dispatched</li>
+                        </ol>
+                    </div>
+                    
+                    <a href="inventory-item-dispatches.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Helper Functions Section -->
+        <section id="helper" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Helper Functions</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Helper Functions module provides utility tools and quick actions to assist with daily inventory operations.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Quick access to common inventory operations</li>
+                            <li>Batch processing tools for efficiency</li>
+                            <li>Utility functions for data management</li>
+                            <li>Integration points with other modules</li>
+                            <li>Shortcuts for frequent tasks</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="inventory-helper.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Reports</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Reports module provides comprehensive analytics and insights into your inventory operations.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Reports:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Stock Levels Report:</strong> Current inventory status and availability</li>
+                            <li><strong>Stock Movement Report:</strong> Historical tracking of stock in/out movements</li>
+                            <li><strong>Stock Turnover Report:</strong> Analysis of inventory rotation rates</li>
+                            <li><strong>Reorder Report:</strong> Items requiring replenishment</li>
+                            <li><strong>Stock Variance Report:</strong> Discrepancies between expected and actual stock</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customizable date ranges and filters</li>
+                            <li>Export to Excel and CSV formats</li>
+                            <li>Visual charts and graphs for better understanding</li>
+                            <li>Detailed drill-down capabilities</li>
+                            <li>Automated report generation</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="inventory-reports.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Callbacks Section -->
+        <section id="callbacks" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Callbacks module handles the process of returning unused raw materials and managing finished product rejects from production.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Record raw material returns from production</li>
+                            <li>Handle finished product rejects and quality issues</li>
+                            <li>Process callbacks with inventory approval</li>
+                            <li>Update stock levels based on callback outcomes</li>
+                            <li>Track callback reasons and patterns</li>
+                            <li>Generate callback reports for analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Callback Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Raw Material Return:</strong> Unused materials returned from production</li>
+                            <li><strong>Finished Product Reject:</strong> Defective products returned from production</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="inventory-callbacks.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Analytics</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Analytics module provides deep insights into inventory performance, trends, and optimization opportunities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Analytics:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Overview Dashboard:</strong> High-level inventory metrics and KPIs</li>
+                            <li><strong>Stock Levels Analytics:</strong> Detailed analysis of stock distribution and health</li>
+                            <li><strong>Stock Movement Analytics:</strong> Patterns and trends in inventory flows</li>
+                            <li><strong>Purchases Analytics:</strong> Procurement patterns and supplier performance</li>
+                            <li><strong>Requests & Dispatch Analytics:</strong> Departmental usage patterns</li>
+                            <li><strong>Stock Valuation:</strong> Financial value of current inventory</li>
+                            <li><strong>Alerts Dashboard:</strong> Critical notifications and warnings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytics Benefits:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Data-driven decision making</li>
+                            <li>Identification of optimization opportunities</li>
+                            <li>Trend analysis for forecasting</li>
+                            <li>Performance benchmarking</li>
+                            <li>Early warning systems for potential issues</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="inventory-analytics.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

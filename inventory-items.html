@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items Management - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Items Management</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Creating, updating, and maintaining inventory items with detailed specifications</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#creating-items" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Items</a>
+                <a href="#updating-items" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Updating Items</a>
+                <a href="#stock-adjustments" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Adjustments</a>
+                <a href="#deleting-items" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Deleting Items</a>
+                <a href="#filters-search" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Filters & Search</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Items Management Overview</h2>
+                <p class="mb-4">The Items Management module is the foundation of your inventory system, allowing you to create and maintain detailed records of all inventory items.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Item Creation</h3>
+                        <p>Create new inventory items with detailed specifications</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Stock Control</h3>
+                        <p>Manage stock levels with reorder points and max limits</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Approval Workflow</h3>
+                        <p>Controlled updates with multi-level approval process</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Item Creation:</strong> Add new inventory items with SKU, name, category, and unit of measure</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Item Updates:</strong> Modify item details with approval workflow for non-super admins</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Adjustments:</strong> Update stock levels with approval requirements</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reorder Management:</strong> Set reorder levels to prevent stockouts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Status Control:</strong> Manage item status (active/inactive)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Category Management:</strong> Organize items by category (raw material, packaging, consumable, equipment)</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Creating Items Section -->
+        <section id="creating-items" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating New Items</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating new items involves filling out a form with essential details. The system automatically generates a unique SKU based on the item name and category.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Name:</strong> Descriptive name for the item</li>
+                            <li><strong>Category:</strong> Select from raw material, packaging, consumable, or equipment</li>
+                            <li><strong>Unit of Measure:</strong> Choose appropriate UOM (kg, liters, pcs, etc.)</li>
+                            <li><strong>Reorder Level:</strong> Minimum stock level to trigger reorder alerts</li>
+                            <li><strong>Status:</strong> Active or inactive</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create an Item:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Items Management section</li>
+                            <li>Click the "Add New Item" button</li>
+                            <li>Fill in the item details in the form</li>
+                            <li>Review the auto-generated SKU (can be modified if needed)</li>
+                            <li>Click "Save" to submit the item</li>
+                            <li>If you're a non-super admin, you'll need to provide a reason for the change and submit for approval</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> The system automatically generates SKUs based on the item name and category. For example, a "raw material" named "Sugar" might generate "RM-SUG-0001".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Non-super admin users must submit item creation requests for approval. Super admins can create items directly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updating Items Section -->
+        <section id="updating-items" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Updating Items</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Updating items allows you to modify existing item details. The process varies depending on your user role.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Update Process:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admins:</strong> Can update items directly without approval</li>
+                            <li><strong>Regular Users:</strong> Must submit updates for approval with a reason</li>
+                            <li>Changes to item details are tracked in the audit log</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Update an Item:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Find the item you want to update in the items list</li>
+                            <li>Click the "Edit" button in the actions column</li>
+                            <li>Modify the item details as needed</li>
+                            <li>Click "Save" to submit the changes</li>
+                            <li>If you're a non-super admin, provide a reason for the change and submit for approval</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Updatable Fields:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Item name</li>
+                            <li>SKU (must remain unique)</li>
+                            <li>Category</li>
+                            <li>Unit of measure</li>
+                            <li>Reorder level</li>
+                            <li>Maximum stock level</li>
+                            <li>Status (active/inactive)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Updating item details may affect related records like purchase orders, stock movements, and recipes. Consider the impact before making changes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Adjustments Section -->
+        <section id="stock-adjustments" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Adjustments</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Stock adjustments allow you to update the available, reserved, and damaged quantities for an item. This is typically done during stock takes or when correcting discrepancies.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Adjustment Process:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Available Stock:</strong> Quantity ready for use or sale</li>
+                            <li><strong>Reserved Stock:</strong> Quantity allocated for specific purposes</li>
+                            <li><strong>Damaged Stock:</strong> Quantity that is unusable due to damage</li>
+                            <li>All adjustments are tracked in the stock movement log</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Adjust Stock:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Find the item in the items list</li>
+                            <li>Click the "Adjust Stock" button in the actions column</li>
+                            <li>Enter the new quantities for available, reserved, and damaged stock</li>
+                            <li>Add any relevant notes about the adjustment</li>
+                            <li>Click "Save" to submit the adjustment</li>
+                            <li>If you're a non-super admin, provide a reason and submit for approval</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Adjustment Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Adjustments should be based on physical stock counts</li>
+                            <li>Large adjustments may require investigation</li>
+                            <li>All adjustments create a stock movement record</li>
+                            <li>Adjustments may affect reorder alerts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Perform regular stock takes to ensure accuracy. Document the reason for any significant adjustments.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deleting Items Section -->
+        <section id="deleting-items" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Deleting Items</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Deleting items removes them from your inventory system. This action requires careful consideration as it may affect related records.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Deletion Process:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admins:</strong> Can delete items directly after confirmation</li>
+                            <li><strong>Regular Users:</strong> Must submit deletion requests for approval</li>
+                            <li>The system shows a summary of related data that will be affected</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Affected by Deletion:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Stock records associated with the item</li>
+                            <li>Recipes that use this item as an ingredient</li>
+                            <li>Purchase orders containing this item</li>
+                            <li>Stock movement records for this item</li>
+                            <li>Any related transactions or reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Delete an Item:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Find the item in the items list</li>
+                            <li>Click the "Delete" button in the actions column</li>
+                            <li>Review the summary of related data that will be deleted</li>
+                            <li>If you're a non-super admin, provide a reason and submit for approval</li>
+                            <li>If you're a super admin, confirm the deletion in the dialog</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Warning:</strong> Deletion is irreversible and affects related data. Consider deactivating items instead of deleting them if you might need the historical data later.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters and Search Section -->
+        <section id="filters-search" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Filters and Search</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Items Management interface includes powerful filtering and search capabilities to help you find specific items quickly.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Filters:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Search:</strong> Search by item name or SKU</li>
+                            <li><strong>Category Filter:</strong> Filter by item category (raw material, packaging, consumable, equipment)</li>
+                            <li><strong>Status Filter:</strong> Filter by item status (active, inactive)</li>
+                            <li><strong>Stock Level Filter:</strong> Filter by stock level (low stock, out of stock)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Using Filters:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Use the search bar to find items by name or SKU</li>
+                            <li>Select a category from the dropdown to filter by category</li>
+                            <li>Select a status to filter by active/inactive items</li>
+                            <li>Use the stock level filter to find items with low stock or out of stock</li>
+                            <li>Combine multiple filters for more specific results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Additional Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sort items by clicking on column headers</li>
+                            <li>Adjust the number of items displayed per page</li>
+                            <li>Export filtered results to Excel or CSV</li>
+                            <li>View low stock items highlighted in the dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Items Management features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, update, delete items and adjust stock directly</li>
+                            <li><strong>Inventory Manager:</strong> Can manage items but requires approval for certain actions</li>
+                            <li><strong>Stock Controller:</strong> Limited access to view and request changes to items</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Non-super admin users must submit changes for approval</li>
+                            <li>Item creation, updates, and deletions require approval</li>
+                            <li>Stock adjustments require approval for non-super admins</li>
+                            <li>Approvals are handled through the Audit Management section</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for inventory management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Item Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain accurate and efficient item management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Item Naming Conventions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Use clear, descriptive names that distinguish items</li>
+                            <li>Include relevant specifications in the name if needed</li>
+                            <li>Be consistent with naming across similar items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Setting Reorder Levels:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Set reorder levels based on lead times and usage patterns</li>
+                            <li>Consider seasonal variations in demand</li>
+                            <li>Review and adjust reorder levels regularly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Perform regular physical stock counts to verify accuracy</li>
+                            <li>Investigate and document significant stock discrepancies</li>
+                            <li>Keep damaged stock separate and dispose of appropriately</li>
+                            <li>Monitor slow-moving items to prevent obsolescence</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Provide clear reasons when submitting changes for approval</li>
+                            <li>Keep notes updated with relevant information</li>
+                            <li>Document any special handling requirements for items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Regularly review your item list to deactivate items that are no longer in use rather than deleting them to preserve historical data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

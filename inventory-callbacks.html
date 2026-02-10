@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Callbacks</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Handling the process of returning unused raw materials and managing finished product rejects from production</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#callback-types" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Callback Types</a>
+                <a href="#creating-callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Callbacks</a>
+                <a href="#approving-callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Approving Callbacks</a>
+                <a href="#rejecting-callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Rejecting Callbacks</a>
+                <a href="#completing-callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Completing Callbacks</a>
+                <a href="#stock-impact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Impact</a>
+                <a href="#managing-callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Callbacks</a>
+                <a href="#permissions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Callbacks Overview</h2>
+                <p class="mb-4">The Callbacks module handles the process of returning unused raw materials and managing finished product rejects from production.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Raw Material Returns</h3>
+                        <p>Process unused materials returned from production</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Product Rejects</h3>
+                        <p>Handle defective products returned from production</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Approval Workflow</h3>
+                        <p>Controlled process for callback authorization</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Raw Material Returns:</strong> Process unused materials returned from production</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Finished Product Rejects:</strong> Handle defective products returned from production</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Approval Workflow:</strong> Controlled process for callback authorization</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Updates:</strong> Automatic stock level updates based on callback outcomes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Tracking:</strong> Track callback reasons and patterns</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reporting:</strong> Generate callback reports for analysis</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Callback Types Section -->
+        <section id="callback-types" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Callback Types</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">There are two main types of callbacks in the system, each with specific handling procedures.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Raw Material Return:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Description:</strong> Unused raw materials returned from production</li>
+                            <li><strong>Trigger:</strong> Production ends with unused materials</li>
+                            <li><strong>Impact:</strong> Increases available stock for the returned item</li>
+                            <li><strong>Process:</strong> Materials are returned to inventory as available stock</li>
+                            <li><strong>Stock Effect:</strong> Quantity available increases, quantity damaged may increase if materials are degraded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Finished Product Reject:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Description:</strong> Defective finished products returned from production</li>
+                            <li><strong>Trigger:</strong> Quality control identifies defective products</li>
+                            <li><strong>Impact:</strong> Reduces finished goods inventory</li>
+                            <li><strong>Process:</strong> Products are removed from finished goods inventory</li>
+                            <li><strong>Stock Effect:</strong> Quantity available decreases, may affect DailyProduce records</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Callback Statuses:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Pending Approval:</strong> Callback awaiting inventory approval</li>
+                            <li><strong>Approved by Inventory:</strong> Approved, stock updated</li>
+                            <li><strong>Completed:</strong> Fully processed and closed</li>
+                            <li><strong>Rejected:</strong> Inventory rejected, no stock change</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Accurate classification of callback types is important for proper stock management and reporting.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creating Callbacks Section -->
+        <section id="creating-callbacks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating callbacks involves recording the return of unused materials or defective products from production.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Source Type:</strong> Raw material return or finished product reject</li>
+                            <li><strong>Item/Product:</strong> The specific item or product being returned</li>
+                            <li><strong>Quantity:</strong> Amount being returned</li>
+                            <li><strong>Reason:</strong> Explanation for the callback</li>
+                            <li><strong>Shift:</strong> Production shift during which the callback occurred</li>
+                            <li><strong>Callback Time:</strong> When the callback was recorded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Callback Creation Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Access the callback creation interface</li>
+                            <li>Select the callback type (raw material return or finished product reject)</li>
+                            <li>Choose the specific item or product being returned</li>
+                            <li>Enter the quantity being returned</li>
+                            <li>Provide a detailed reason for the callback</li>
+                            <li>Select the production shift</li>
+                            <li>Record the callback time</li>
+                            <li>Submit the callback for approval</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System validates that the selected item/product exists</li>
+                            <li>Ensures quantity is positive and not zero</li>
+                            <li>Verifies that the shift is valid and active</li>
+                            <li>Checks that all required fields are filled</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Callbacks must be submitted for inventory approval before any stock changes occur.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approving Callbacks Section -->
+        <section id="approving-callbacks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Approving Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Approving callbacks authorizes the return of materials or products and triggers stock updates.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Callback is submitted for approval</li>
+                            <li>Inventory team reviews the callback details</li>
+                            <li>Verify the reason and quantity are appropriate</li>
+                            <li>Approve the callback to process the return</li>
+                            <li>System updates stock levels based on callback type</li>
+                            <li>Callback status changes to "approved by inventory"</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Checks that callback can be approved (status is pending)</li>
+                            <li>Verifies employee has permission to approve callbacks</li>
+                            <li>Ensures callback details are valid</li>
+                            <li>Confirms item/product exists in the system</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Post-Approval Actions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>For raw material returns: Stock levels are updated</li>
+                            <li>For finished product rejects: Inventory is reduced</li>
+                            <li>Stock movement records are created</li>
+                            <li>Related production records may be updated</li>
+                            <li>Status changes to "approved by inventory"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Review callback reasons to identify potential process improvements in production.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rejecting Callbacks Section -->
+        <section id="rejecting-callbacks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Rejecting Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Rejecting callbacks prevents the return of materials or products and maintains current stock levels.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Rejection Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Inventory team reviews the callback details</li>
+                            <li>Determine that the callback should not be processed</li>
+                            <li>Open the rejection modal</li>
+                            <li>Provide a reason for the rejection</li>
+                            <li>Confirm the rejection</li>
+                            <li>Callback status changes to "rejected"</li>
+                            <li>No stock changes occur</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Rejection Scenarios:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Callback quantity seems excessive</li>
+                            <li>Reason for callback is unclear or inappropriate</li>
+                            <li>Item/product information is incorrect</li>
+                            <li>Production shift information is invalid</li>
+                            <li>Callback violates company policies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Rejection Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Checks that callback can be rejected (status is pending)</li>
+                            <li>Verifies employee has permission to reject callbacks</li>
+                            <li>Ensures a reason is provided for the rejection</li>
+                            <li>Confirms callback details are valid before rejection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Always provide a clear reason when rejecting a callback to help production teams understand the issue.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completing Callbacks Section -->
+        <section id="completing-callbacks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Completing Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Completing callbacks finalizes the process after inventory approval and marks it as fully processed.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Completion Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Callback must be in "approved by inventory" status</li>
+                            <li>Inventory team confirms all actions are completed</li>
+                            <li>Physical materials/products have been properly handled</li>
+                            <li>Complete the callback to finalize the process</li>
+                            <li>Status changes to "completed"</li>
+                            <li>Callback is closed and archived</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Completion Requirements:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Callback must be approved by inventory first</li>
+                            <li>All physical handling must be completed</li>
+                            <li>Related documentation must be finalized</li>
+                            <li>Any required follow-up actions must be completed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Post-Completion:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Callback is marked as completed</li>
+                            <li>No further actions can be taken on the callback</li>
+                            <li>Records are maintained for audit purposes</li>
+                            <li>Statistics are updated to reflect completion</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Complete callbacks promptly after approval to maintain accurate records and free up system resources.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Impact Section -->
+        <section id="stock-impact" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Impact</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Callbacks have different impacts on stock levels depending on the callback type.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Raw Material Return Impact:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Available Stock:</strong> Increases by the returned quantity</li>
+                            <li><strong>Damaged Stock:</strong> May increase if materials are degraded</li>
+                            <li><strong>Reserved Stock:</strong> No direct impact</li>
+                            <li><strong>Stock Movement:</strong> Recorded as "callback" type movement</li>
+                            <li><strong>Cost Impact:</strong> Maintains inventory value</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Finished Product Reject Impact:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Available Stock:</strong> Decreases by the rejected quantity</li>
+                            <li><strong>Damaged Stock:</strong> May increase depending on handling</li>
+                            <li><strong>Production Records:</strong> DailyProduce records updated</li>
+                            <li><strong>Callback Quantity:</strong> Increases in production records</li>
+                            <li><strong>Cost Impact:</strong> May affect production costing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Movement Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>All callback-related stock changes are recorded as movements</li>
+                            <li>Movements are linked to the original callback record</li>
+                            <li>Provides complete audit trail for all changes</li>
+                            <li>Enables reconciliation and reporting</li>
+                            <li>Supports inventory accuracy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regularly review callback impacts on stock levels to identify trends and optimize production processes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Callbacks Section -->
+        <section id="managing-callbacks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once callbacks are created, you can view details, track status, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Callback Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on a callback in the list to view detailed information</li>
+                            <li>See the item or product involved</li>
+                            <li>Review the quantity and reason for the callback</li>
+                            <li>Check the production shift information</li>
+                            <li>View the status and approval information</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Callback Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Status Tracking:</strong> Monitor the progress of callbacks</li>
+                            <li><strong>Reason Analysis:</strong> Identify common callback reasons</li>
+                            <li><strong>Volume Monitoring:</strong> Track callback volumes over time</li>
+                            <li><strong>Process Improvement:</strong> Use data to improve production</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actions Available:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>View Details:</strong> See complete callback information</li>
+                            <li><strong>Approve Callback:</strong> Authorize the callback and update stock</li>
+                            <li><strong>Reject Callback:</strong> Deny the callback request</li>
+                            <li><strong>Complete Callback:</strong> Finalize the callback process</li>
+                            <li><strong>Export:</strong> Download callback data in Excel or CSV</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Only approved callbacks result in stock changes. Rejected callbacks leave stock levels unchanged.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <section id="permissions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Callbacks features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, approve, reject, and complete callbacks</li>
+                            <li><strong>Inventory Manager:</strong> Can approve, reject, and complete callbacks</li>
+                            <li><strong>Production Manager:</strong> Can create callbacks and view status</li>
+                            <li><strong>Production Staff:</strong> Can create callbacks for their shifts</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel can approve or reject callbacks</li>
+                            <li>Production staff can only create callbacks for their shifts</li>
+                            <li>Higher-level roles can override lower-level decisions</li>
+                            <li>Some actions may require additional authorization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for callback management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-fuchsia-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Callback Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain efficient and effective callback management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Provide detailed reasons for all callbacks</li>
+                            <li>Include specific information about why materials/products were returned</li>
+                            <li>Document any patterns or recurring issues</li>
+                            <li>Maintain records for audit purposes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Process Efficiency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Process callbacks promptly to maintain accurate stock levels</li>
+                            <li>Review callback patterns to identify process improvements</li>
+                            <li>Coordinate with production teams to minimize callbacks</li>
+                            <li>Complete callbacks in a timely manner after approval</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Use callback data to identify quality issues in production</li>
+                            <li>Track reasons for finished product rejects</li>
+                            <li>Implement corrective actions based on callback trends</li>
+                            <li>Monitor raw material return rates for efficiency</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Communication:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Share callback data with production teams</li>
+                            <li>Provide feedback on rejected callbacks</li>
+                            <li>Coordinate with quality assurance teams</li>
+                            <li>Report trends to management for decision-making</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Regular analysis of callback data can reveal valuable insights for improving production efficiency and reducing waste.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Inventory Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Analytics</h1>
+                <a href="inventory-management.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Inventory Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Deep insights into inventory performance, trends, and optimization opportunities</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#overview-dashboard" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview Dashboard</a>
+                <a href="#stock-levels-analytics" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Levels</a>
+                <a href="#stock-movement-analytics" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Movement</a>
+                <a href="#purchases-analytics" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Purchases</a>
+                <a href="#requests-dispatch-analytics" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Requests & Dispatch</a>
+                <a href="#stock-valuation" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Stock Valuation</a>
+                <a href="#alerts-dashboard" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Alerts</a>
+                <a href="#generating-reports" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Generating Reports</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Analytics Overview</h2>
+                <p class="mb-4">The Analytics module provides deep insights into inventory performance, trends, and optimization opportunities.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Performance Metrics</h3>
+                        <p>Data-driven decision making</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Trend Analysis</h3>
+                        <p>Patterns and trends in inventory flows</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Optimization</h3>
+                        <p>Identification of optimization opportunities</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Module Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Overview Dashboard:</strong> High-level inventory metrics and KPIs</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Levels Analytics:</strong> Detailed analysis of stock distribution and health</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Movement Analytics:</strong> Patterns and trends in inventory flows</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Purchases Analytics:</strong> Procurement patterns and supplier performance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Requests & Dispatch Analytics:</strong> Departmental usage patterns</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Stock Valuation:</strong> Financial value of current inventory</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Alerts Dashboard:</strong> Critical notifications and warnings</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Export Options:</strong> Download analytics in Excel and CSV formats</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Overview Dashboard Section -->
+        <section id="overview-dashboard" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Overview Dashboard</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Overview Dashboard provides high-level inventory metrics and key performance indicators.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Metrics:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Total Stock Value:</strong> Financial value of current inventory</li>
+                            <li><strong>Total Items:</strong> Number of items with available stock</li>
+                            <li><strong>Low Stock Count:</strong> Number of items below reorder level</li>
+                            <li><strong>Today's Movements:</strong> Number of stock movements today</li>
+                            <li><strong>Health Status:</strong> Overall health of inventory</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dashboard Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Real-time metric updates</li>
+                            <li>Visual charts and graphs</li>
+                            <li>Quick access to detailed reports</li>
+                            <li>Alert notifications for critical issues</li>
+                            <li>Comparison with previous periods</li>
+                            <li>Export functionality for metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dashboard Sections:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Summary Cards:</strong> Key metrics at a glance</li>
+                            <li><strong>Recent Movements:</strong> Latest stock transactions</li>
+                            <li><strong>Low Stock Items:</strong> Items requiring attention</li>
+                            <li><strong>Critical Alerts:</strong> Urgent notifications</li>
+                            <li><strong>Health Status:</strong> Overall inventory condition</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Check the Overview Dashboard daily to stay informed about critical inventory metrics and potential issues.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Levels Analytics Section -->
+        <section id="stock-levels-analytics" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Levels Analytics</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Stock Levels Analytics provides detailed analysis of stock distribution, health, and trends.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytics Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Stock Summary:</strong> Total items, available, reserved, and damaged quantities</li>
+                            <li><strong>Health Status Breakdown:</strong> Distribution of items by health status</li>
+                            <li><strong>Category Distribution:</strong> Stock distribution by item category</li>
+                            <li><strong>Turnover Analysis:</strong> Analysis of inventory rotation rates</li>
+                            <li><strong>Reorder Recommendations:</strong> Items needing replenishment</li>
+                            <li><strong>Stock Level Trends:</strong> Daily summary of stock movements</li>
+                            <li><strong>Period Comparisons:</strong> Comparison with previous periods</li>
+                            <li><strong>Smart Insights:</strong> Automated recommendations based on data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytical Capabilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify slow-moving or obsolete items</li>
+                            <li>Detect stock level anomalies</li>
+                            <li>Forecast future stock needs</li>
+                            <li>Optimize reorder levels</li>
+                            <li>Improve inventory turnover</li>
+                            <li>Reduce carrying costs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Visualization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Bar charts for category distribution</li>
+                            <li>Pie charts for health status breakdown</li>
+                            <li>Line graphs for trend analysis</li>
+                            <li>Heat maps for stock density</li>
+                            <li>Progress bars for health metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Review Stock Levels Analytics weekly to identify trends and optimize inventory management.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Movement Analytics Section -->
+        <section id="stock-movement-analytics" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Movement Analytics</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Stock Movement Analytics provides insights into inventory flow patterns and transaction trends.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytics Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Movement Summary:</strong> Total movements, in/out ratios, and transaction counts</li>
+                            <li><strong>Type Distribution:</strong> Breakdown of movement types (in, out, adjustment, etc.)</li>
+                            <li><strong>Top Moving Items:</strong> Items with highest movement volumes</li>
+                            <li><strong>Department Analysis:</strong> Movement patterns by department</li>
+                            <li><strong>Time Trends:</strong> Movement patterns over time</li>
+                            <li><strong>Seasonal Patterns:</strong> Seasonal variations in movement</li>
+                            <li><strong>Abnormal Activity:</strong> Identification of unusual movements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytical Capabilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify peak movement periods</li>
+                            <li>Detect unusual transaction patterns</li>
+                            <li>Optimize inventory flow processes</li>
+                            <li>Forecast future movement volumes</li>
+                            <li>Improve warehouse efficiency</li>
+                            <li>Reduce handling costs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Visualization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Line charts for movement trends</li>
+                            <li>Bar charts for type distribution</li>
+                            <li>Pie charts for department analysis</li>
+                            <li>Heat maps for time-based patterns</li>
+                            <li>Waterfall charts for movement flows</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Regular monitoring of stock movements helps identify process inefficiencies and potential issues.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchases Analytics Section -->
+        <section id="purchases-analytics" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Purchases Analytics</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Purchases Analytics provides insights into procurement patterns, supplier performance, and cost trends.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytics Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Purchase Summary:</strong> Total purchases, costs, and volume trends</li>
+                            <li><strong>Supplier Analysis:</strong> Performance and cost analysis by supplier</li>
+                            <li><strong>Category Spending:</strong> Procurement patterns by item category</li>
+                            <li><strong>Cost Trends:</strong> Price fluctuations and cost variations</li>
+                            <li><strong>Order Frequency:</strong> Purchase frequency patterns</li>
+                            <li><strong>Lead Time Analysis:</strong> Delivery performance by supplier</li>
+                            <li><strong>Payment Analysis:</strong> Payment status and timing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytical Capabilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify cost-saving opportunities</li>
+                            <li>Evaluate supplier performance</li>
+                            <li>Optimize order timing and quantities</li>
+                            <li>Forecast future procurement needs</li>
+                            <li>Improve supplier relationships</li>
+                            <li>Reduce procurement costs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Visualization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Area charts for cost trends</li>
+                            <li>Horizontal bar charts for supplier analysis</li>
+                            <li>Stacked column charts for category spending</li>
+                            <li>Scatter plots for cost-volume relationships</li>
+                            <li>Gauge charts for performance metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Use Purchases Analytics monthly to negotiate better terms with suppliers and optimize procurement strategies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requests & Dispatch Analytics Section -->
+        <section id="requests-dispatch-analytics" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Requests & Dispatch Analytics</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Requests & Dispatch Analytics provides insights into departmental usage patterns and inter-departmental flows.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytics Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Request Summary:</strong> Total requests, approval rates, and fulfillment</li>
+                            <li><strong>Department Usage:</strong> Consumption patterns by department</li>
+                            <li><strong>Item Demand:</strong> Most requested items and quantities</li>
+                            <li><strong>Approval Trends:</strong> Approval and rejection patterns</li>
+                            <li><strong>Dispatch Efficiency:</strong> Fulfillment speed and accuracy</li>
+                            <li><strong>Request Timing:</strong> Peak request periods</li>
+                            <li><strong>Backlog Analysis:</strong> Pending and overdue requests</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytical Capabilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify high-consumption departments</li>
+                            <li>Forecast departmental needs</li>
+                            <li>Optimize request processing workflows</li>
+                            <li>Improve dispatch efficiency</li>
+                            <li>Reduce request backlogs</li>
+                            <li>Enhance inter-departmental coordination</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Visualization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sankey diagrams for departmental flows</li>
+                            <li>Tree maps for item demand visualization</li>
+                            <li>Funnel charts for request processing stages</li>
+                            <li>Timeline charts for request lifecycles</li>
+                            <li>Box plots for approval time distributions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Review Requests & Dispatch Analytics weekly to optimize resource allocation and improve service levels.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Valuation Section -->
+        <section id="stock-valuation" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Stock Valuation</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Stock Valuation provides financial insights into the current value of inventory and its impact on business.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Valuation Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Total Inventory Value:</strong> Current financial value of all stock</li>
+                            <li><strong>Category Valuation:</strong> Value distribution by item category</li>
+                            <li><strong>High-Value Items:</strong> Most valuable items in inventory</li>
+                            <li><strong>Valuation Trends:</strong> Value changes over time</li>
+                            <li><strong>Cost Analysis:</strong> Average cost per item and category</li>
+                            <li><strong>Depreciation Tracking:</strong> Value changes due to obsolescence</li>
+                            <li><strong>Carrying Cost:</strong> Cost of holding inventory</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analytical Capabilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Identify high-value items requiring special attention</li>
+                            <li>Optimize inventory investment</li>
+                            <li>Assess financial impact of stock levels</li>
+                            <li>Support financial reporting</li>
+                            <li>Identify potential write-offs</li>
+                            <li>Improve cash flow management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Valuation Methods:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Weighted Average Cost:</strong> Average cost of items based on purchases</li>
+                            <li><strong>FIFO (First In, First Out):</strong> Oldest items valued first</li>
+                            <li><strong>Standard Costing:</strong> Predetermined standard costs</li>
+                            <li><strong>Market Value:</strong> Current market prices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Regular stock valuation is critical for accurate financial reporting and inventory optimization.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts Dashboard Section -->
+        <section id="alerts-dashboard" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Alerts Dashboard</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Alerts Dashboard provides critical notifications and warnings about inventory issues requiring immediate attention.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Alert Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Low Stock Alerts:</strong> Items below reorder levels</li>
+                            <li><strong>Out of Stock Alerts:</strong> Items with zero available stock</li>
+                            <li><strong>Overstock Alerts:</strong> Items exceeding maximum stock levels</li>
+                            <li><strong>Expiration Alerts:</strong> Items approaching expiration dates</li>
+                            <li><strong>Damage Alerts:</strong> Items with high damage percentages</li>
+                            <li><strong>Slow Movement Alerts:</strong> Items with low turnover rates</li>
+                            <li><strong>Abnormal Movement Alerts:</strong> Unusual stock movement patterns</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Alert Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Real-time alert generation</li>
+                            <li>Priority-based alert classification</li>
+                            <li>Customizable alert thresholds</li>
+                            <li>Alert acknowledgment and tracking</li>
+                            <li>Automated escalation procedures</li>
+                            <li>Historical alert analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Alert Configuration:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Set custom thresholds for each alert type</li>
+                            <li>Define notification recipients</li>
+                            <li>Configure alert frequency and timing</li>
+                            <li>Enable/disable specific alert types</li>
+                            <li>Set escalation rules for critical alerts</li>
+                            <li>Customize alert message content</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Critical alerts require immediate attention. Configure appropriate escalation procedures to ensure timely responses.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generating Reports Section -->
+        <section id="generating-reports" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Generating Reports</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Analytics reports can be generated with customizable parameters to meet specific business needs.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Generation Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Select the desired analytics report from the menu</li>
+                            <li>Configure the date range for the analysis</li>
+                            <li>Apply any additional filters (category, department, etc.)</li>
+                            <li>Choose the level of detail required</li>
+                            <li>Select the visualization format</li>
+                            <li>Click "Generate Report" to create the analysis</li>
+                            <li>Review the results and export if needed</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Customization Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Date Range:</strong> Specify the period for analysis</li>
+                            <li><strong>Granularity:</strong> Daily, weekly, monthly, or custom intervals</li>
+                            <li><strong>Categories:</strong> Filter by specific item categories</li>
+                            <li><strong>Departments:</strong> Focus on specific departments</li>
+                            <li><strong>Thresholds:</strong> Set minimum values for inclusion</li>
+                            <li><strong>Sorting:</strong> Arrange results by various criteria</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Export Capabilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Excel (.xlsx):</strong> Full-featured spreadsheet with all data and visuals</li>
+                            <li><strong>CSV (.csv):</strong> Tabular data for further analysis</li>
+                            <li><strong>PDF (.pdf):</strong> Fixed-layout format for presentations</li>
+                            <li><strong>Image (.png):</strong> Visual charts for reports</li>
+                            <li><strong>PowerPoint (.pptx):</strong> Presentation-ready slides</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Schedule regular analytics reports to maintain awareness of inventory trends and performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Analytics Usage</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize the value of inventory analytics.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Regular Review:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Check the Overview Dashboard daily</li>
+                            <li>Review Stock Levels Analytics weekly</li>
+                            <li>Analyze Stock Movement patterns monthly</li>
+                            <li>Examine Purchases Analytics quarterly</li>
+                            <li>Assess Requests & Dispatch Analytics monthly</li>
+                            <li>Update Stock Valuation regularly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actionable Insights:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Focus on actionable metrics rather than vanity metrics</li>
+                            <li>Set up alerts for critical thresholds</li>
+                            <li>Track KPIs that align with business objectives</li>
+                            <li>Use analytics to drive process improvements</li>
+                            <li>Share relevant insights with stakeholders</li>
+                            <li>Document lessons learned from analytics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Quality:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensure data accuracy before drawing conclusions</li>
+                            <li>Regularly clean and validate inventory data</li>
+                            <li>Investigate anomalies in the data</li>
+                            <li>Keep item information up to date</li>
+                            <li>Verify that all transactions are properly recorded</li>
+                            <li>Regularly reconcile physical counts with system records</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Strategic Application:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Use analytics to support strategic decisions</li>
+                            <li>Identify opportunities for cost reduction</li>
+                            <li>Optimize inventory investment</li>
+                            <li>Improve customer service levels</li>
+                            <li>Reduce waste and obsolescence</li>
+                            <li>Enhance supplier relationships</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Create a regular analytics review meeting with key stakeholders to discuss insights and action plans.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Inventory Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
