@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Management - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Audit Management Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="system-settings.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: System Settings
+                </a>
+                <a href="tips-tricks.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Tips & Tricks
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Audit Management</h2>
+            <p class="text-gray-600 mb-6">
+                The Audit Management section allows authorized users to monitor system activities, track changes, and approve or reject requests that require administrative approval.
+            </p>
+
+            <!-- Accessing Audit Management -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Audit Management</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with appropriate credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Audit" in the sidebar menu</li>
+                </ol>
+            </section>
+
+            <!-- Tabs Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Audit Management Tabs</h3>
+                <p class="text-gray-600 mb-3">The Audit Management page is organized into two main tabs:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Logs</span> - View historical audit logs of system activities</li>
+                    <li><span class="font-medium">Approvals</span> - Review and approve/reject pending requests</li>
+                </ul>
+            </section>
+
+            <!-- Audit Logs Tab -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Audit Logs Tab</h3>
+                <p class="text-gray-600 mb-3">This tab displays a chronological record of all system activities:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">User</span> - The user who performed the action</li>
+                    <li><span class="font-medium">Action</span> - The type of action performed (create, update, delete, etc.)</li>
+                    <li><span class="font-medium">Description</span> - Details about what happened</li>
+                    <li><span class="font-medium">Model</span> - The type of record affected</li>
+                    <li><span class="font-medium">Status</span> - The outcome of the action</li>
+                    <li><span class="font-medium">Timestamp</span> - When the action occurred</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Filtering Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Search</span> - Enter text to search in descriptions or actions</li>
+                    <li><span class="font-medium">Department Filter</span> - Filter logs by specific department</li>
+                    <li><span class="font-medium">Action Filter</span> - Filter by specific action types</li>
+                    <li><span class="font-medium">Status Filter</span> - Filter by action status</li>
+                    <li><span class="font-medium">Date Range</span> - Filter by date range</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Sort Columns</span> - Click on column headers to sort the data</li>
+                    <li><span class="font-medium">Pagination Controls</span> - Navigate through multiple pages of logs</li>
+                    <li><span class="font-medium">Clear Filters Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to reset all filters</li>
+                </ul>
+            </section>
+
+            <!-- Approvals Tab -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Approvals Tab</h3>
+                <p class="text-gray-600 mb-3">This tab displays pending requests that require approval:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Information Displayed:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Requester</span> - The user who initiated the request</li>
+                    <li><span class="font-medium">Action</span> - The type of action requested</li>
+                    <li><span class="font-medium">Description</span> - Details about the request</li>
+                    <li><span class="font-medium">Status</span> - Current status (pending, approved, rejected)</li>
+                    <li><span class="font-medium">Created At</span> - When the request was made</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Filtering Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Search</span> - Enter text to search in descriptions or requester names</li>
+                    <li><span class="font-medium">Action Filter</span> - Filter by specific action types</li>
+                    <li><span class="font-medium">Status Filter</span> - Filter by request status</li>
+                    <li><span class="font-medium">Date Range</span> - Filter by date range</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Actions Available:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Approve Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to approve a pending request</li>
+                    <li><span class="font-medium">Reject Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to reject a pending request</li>
+                    <li><span class="font-medium">View Details Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to see more details about a request</li>
+                </ul>
+            </section>
+
+            <!-- Approving Requests -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Approving Requests</h3>
+                <p class="text-gray-600 mb-3">To approve a pending request:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Navigate to the "Approvals" tab</li>
+                    <li>Locate the request you wish to approve in the table</li>
+                    <li>Click the "Approve" button (the button may appear as text, an icon, or similar depending on your interface) in the Actions column for that request</li>
+                    <li>A confirmation dialog may appear - confirm the action if you wish to proceed</li>
+                    <li>The request status will update to "approved" and the action will be executed</li>
+                </ol>
+            </section>
+
+            <!-- Rejecting Requests -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Rejecting Requests</h3>
+                <p class="text-gray-600 mb-3">To reject a pending request:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Navigate to the "Approvals" tab</li>
+                    <li>Locate the request you wish to reject in the table</li>
+                    <li>Click the "Reject" button (the button may appear as text, an icon, or similar depending on your interface) in the Actions column for that request</li>
+                    <li>You may be prompted to provide a reason for rejection</li>
+                    <li>Enter your reason and confirm the rejection</li>
+                    <li>The request status will update to "rejected" and the action will not be executed</li>
+                </ol>
+            </section>
+
+            <!-- Inventory Approvals Page -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Inventory Approvals Page</h3>
+                <p class="text-gray-600 mb-3">There is also a dedicated page for inventory-related approvals:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Accessing Inventory Approvals:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Go to the "Audit" section</li>
+                    <li>Click on "Inventory Approvals" (this may be a submenu item)</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Inventory Approval Types:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Stock Adjustments</span> - Approve changes to inventory quantities</li>
+                    <li><span class="font-medium">Item Creation</span> - Approve requests to add new items to inventory</li>
+                    <li><span class="font-medium">Item Updates</span> - Approve changes to existing inventory items</li>
+                    <li><span class="font-medium">Item Deletions</span> - Approve removal of items from inventory</li>
+                    <li><span class="font-medium">Purchase Creation</span> - Approve requests to create new purchases</li>
+                    <li><span class="font-medium">Purchase Deletions</span> - Approve requests to delete purchases</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Inventory Approval Actions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Approve Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to approve an inventory-related request</li>
+                    <li><span class="font-medium">Reject Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to reject an inventory-related request</li>
+                    <li><span class="font-medium">View Details Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to see more details about an inventory request</li>
+                    <li><span class="font-medium">Filter Controls</span> - Use filters to narrow down the list of requests</li>
+                </ul>
+            </section>
+
+            <!-- Switching Between Tabs -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Switching Between Tabs</h3>
+                <p class="text-gray-600 mb-3">To switch between different audit management views:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Look for the tab navigation at the top of the audit management page</li>
+                    <li>Click on the tab name you want to view ("Logs" or "Approvals")</li>
+                    <li>The table and filtering options will change to show the appropriate data</li>
+                </ol>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific audit entries or requests:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Enter keywords in the search box to find specific entries</li>
+                    <li>Use dropdown filters to narrow down by action type, status, or department</li>
+                    <li>Set date ranges to focus on specific time periods</li>
+                    <li>Click the "Clear Filters" button (the button may appear as text, an icon, or similar depending on your interface) to reset all filters</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Settings - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">System Settings Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="branch-management.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Branch Management
+                </a>
+                <a href="audit-management.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Audit Management
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">System Settings</h2>
+            <p class="text-gray-600 mb-6">
+                The System Settings section allows super administrators to configure global system-wide settings that affect the entire SweetTooth application.
+            </p>
+
+            <!-- Accessing System Settings -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing System Settings</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with super administrator credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Settings" in the sidebar menu (only visible to super admins)</li>
+                </ol>
+            </section>
+
+            <!-- Tabs Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Settings Tabs Overview</h3>
+                <p class="text-gray-600 mb-3">The System Settings page is organized into three main tabs:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Business Configuration</span> - Company information, contact details, and backup settings</li>
+                    <li><span class="font-medium">Currency & Localization</span> - Currency settings, date formats, and language preferences</li>
+                    <li><span class="font-medium">Appearance & Theme</span> - Visual customization options and theme settings</li>
+                </ul>
+            </section>
+
+            <!-- Business Configuration Tab -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Business Configuration Tab</h3>
+                <p class="text-gray-600 mb-3">This tab allows you to configure company information and backup settings:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Fields and Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Company Name</span> - Enter the name of your business</li>
+                    <li><span class="font-medium">Logo Upload</span> - Upload a logo image (JPG, PNG, max 2MB)</li>
+                    <li><span class="font-medium">Phone Number</span> - Enter your business phone number</li>
+                    <li><span class="font-medium">Email Address</span> - Enter your business email address</li>
+                    <li><span class="font-medium">Auto Backup</span> - Toggle to enable automatic system backups</li>
+                    <li><span class="font-medium">Backup Interval</span> - Set how often backups should occur</li>
+                    <li><span class="font-medium">Backup Period</span> - Set how long to keep backups</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Buttons and Actions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Save Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to save all changes made in the form</li>
+                    <li><span class="font-medium">Cancel Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to discard changes and revert to last saved values</li>
+                    <li><span class="font-medium">Remove Logo Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to remove the currently uploaded logo</li>
+                </ul>
+            </section>
+
+            <!-- Currency & Localization Tab -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Currency & Localization Tab</h3>
+                <p class="text-gray-600 mb-3">This tab allows you to configure currency and localization settings:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Fields and Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Multi-Currency</span> - Toggle to enable support for multiple currencies</li>
+                    <li><span class="font-medium">Primary Currency</span> - Select the primary currency for your business (e.g., USD, EUR, NGN)</li>
+                    <li><span class="font-medium">Default Language</span> - Select the default language for the system</li>
+                    <li><span class="font-medium">Date Format</span> - Select how dates should be displayed (e.g., MM/DD/YYYY)</li>
+                    <li><span class="font-medium">Multi-Tax</span> - Toggle to enable support for multiple tax rates</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Buttons and Actions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Save Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to save all changes made in the form</li>
+                    <li><span class="font-medium">Cancel Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to discard changes and revert to last saved values</li>
+                </ul>
+            </section>
+
+            <!-- Appearance & Theme Tab -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Appearance & Theme Tab</h3>
+                <p class="text-gray-600 mb-3">This tab allows you to customize the visual appearance of the system:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Fields and Controls:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Theme Mode</span> - Choose between Light, Dark, or System (follows device settings)</li>
+                    <li><span class="font-medium">Primary Color</span> - Select the primary color for the system theme</li>
+                    <li><span class="font-medium">Sidebar Position</span> - Choose Left or Right for sidebar placement</li>
+                    <li><span class="font-medium">UI Density</span> - Choose Compact, Normal, or Spacious for interface spacing</li>
+                    <li><span class="font-medium">Font Size</span> - Choose Small, Normal, or Large for text size</li>
+                    <li><span class="font-medium">Animation Enabled</span> - Toggle to enable or disable interface animations</li>
+                    <li><span class="font-medium">Light Mode Logo</span> - Upload a logo for light theme</li>
+                    <li><span class="font-medium">Dark Mode Logo</span> - Upload a logo for dark theme</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Buttons and Actions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Save Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to save all changes made in the form</li>
+                    <li><span class="font-medium">Cancel Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to discard changes and revert to last saved values</li>
+                    <li><span class="font-medium">Remove Light Mode Logo Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to remove the light mode logo</li>
+                    <li><span class="font-medium">Remove Dark Mode Logo Button</span> - (the button may appear as text, an icon, or similar depending on your interface) Click to remove the dark mode logo</li>
+                </ul>
+            </section>
+
+            <!-- Switching Between Tabs -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Switching Between Tabs</h3>
+                <p class="text-gray-600 mb-3">To switch between different settings categories:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Look for the tab navigation at the top of the settings page</li>
+                    <li>Click on the tab name you want to view (Business Configuration, Currency & Localization, or Appearance & Theme)</li>
+                    <li>The form fields will change to show the settings for the selected category</li>
+                    <li>Make your changes and save them before switching to another tab</li>
+                </ol>
+            </section>
+
+            <!-- Saving Changes -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Saving Changes</h3>
+                <p class="text-gray-600 mb-3">After making changes to any settings:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Review your changes to ensure they are correct</li>
+                    <li>Click the "Save" button (the button may appear as text, an icon, or similar depending on your interface) at the bottom of the form</li>
+                    <li>You will see a success message confirming that changes were saved</li>
+                    <li>If you want to discard changes, click the "Cancel" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>
