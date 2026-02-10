@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Management - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Branch Management Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Branch Management</h2>
+            <p class="text-gray-600 mb-6">
+                The Branch Management section allows super administrators to manage all branches in the system, 
+                including creating new branches, editing existing ones, and handling deleted branches.
+            </p>
+
+            <!-- Accessing Branch Management -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Branch Management</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with super administrator credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Branches" in the sidebar menu (only visible to super admins)</li>
+                </ol>
+            </section>
+
+            <!-- Viewing Branches -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Viewing Existing Branches</h3>
+                <p class="text-gray-600 mb-3">The main branches page displays a table of all active branches with the following columns:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">#</span> - Branch ID number</li>
+                    <li><span class="font-medium">Branch Name</span> - The name of the branch</li>
+                    <li><span class="font-medium">Code</span> - Unique identifier for the branch</li>
+                    <li><span class="font-medium">Location</span> - Physical address of the branch</li>
+                    <li><span class="font-medium">City</span> - City where the branch is located</li>
+                    <li><span class="font-medium">Status</span> - Active or inactive status</li>
+                    <li><span class="font-medium">Created At</span> - Date the branch was created</li>
+                    <li><span class="font-medium">Actions</span> - Available actions for the branch</li>
+                </ul>
+            </section>
+
+            <!-- Creating a New Branch -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating a New Branch</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Click the "Add New Branch" button (the button may appear as text, an icon like "+", or similar depending on your interface)</li>
+                    <li>In the branch creation modal that opens, fill in the following details:
+                        <ul class="list-circle pl-6 mt-2">
+                            <li><span class="font-medium">Name</span> - Enter a unique name for the branch</li>
+                            <li><span class="font-medium">Code</span> - Enter a unique code for the branch</li>
+                            <li><span class="font-medium">Location</span> - Enter the physical address</li>
+                            <li><span class="font-medium">Phone</span> - Contact phone number</li>
+                            <li><span class="font-medium">Email</span> - Contact email address</li>
+                            <li><span class="font-medium">Description</span> - Brief description of the branch</li>
+                            <li><span class="font-medium">Manager</span> - Select the branch manager from the user list</li>
+                            <li><span class="font-medium">Country, State, City</span> - Geographic information</li>
+                            <li><span class="font-medium">Postal Code</span> - ZIP or postal code</li>
+                            <li><span class="font-medium">Timezone</span> - Select the appropriate timezone</li>
+                            <li><span class="font-medium">Status</span> - Toggle to set as active or inactive</li>
+                        </ul>
+                    </li>
+                    <li>Click "Save" to create the branch</li>
+                </ol>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <p class="text-sm text-blue-700">
+                                <strong>Note:</strong> Clicking the close button (typically an "X" icon) in the top-right corner of any modal will close it without saving changes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Editing a Branch -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Editing an Existing Branch</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the branch you want to edit in the branches table</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column for that branch</li>
+                    <li>The branch editing modal will open with current values pre-filled</li>
+                    <li>Modify the branch information as needed</li>
+                    <li>Click "Save" to update the branch</li>
+                </ol>
+            </section>
+
+            <!-- Deleting a Branch -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Deleting a Branch</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the branch you want to delete in the branches table</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the branch</li>
+                    <li>Click "Confirm" to delete the branch or "Cancel" to keep it</li>
+                </ol>
+                <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <p class="text-sm text-red-700">
+                                <strong>Warning:</strong> Deleting a branch moves it to the "Deleted Branches" section. The branch can be restored later if needed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deleted Branches -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Managing Deleted Branches</h3>
+                <p class="text-gray-600 mb-3">To access deleted branches:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Go back to the main Branch Dashboard menu</li>
+                    <li>Click on "Deleted Branches" in the sidebar menu</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Restoring a Deleted Branch</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the branch you want to restore in the deleted branches table</li>
+                    <li>Click the "Restore" button (the button may appear as text, a refresh icon, or similar depending on your interface) in the Actions column</li>
+                    <li>Confirm the restoration when prompted</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Permanently Deleting a Branch</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the branch you want to permanently delete in the deleted branches table</li>
+                    <li>Click the "Delete Permanently" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear warning that this action cannot be undone</li>
+                    <li>Click "Confirm" to permanently delete the branch or "Cancel" to keep it in the deleted section</li>
+                </ol>
+            </section>
+
+            <!-- Bulk Operations -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Bulk Operations</h3>
+                <p class="text-gray-600 mb-3">You can perform actions on multiple branches at once:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Select multiple branches using the checkboxes in the first column of the table</li>
+                    <li>Choose an action from the "Bulk Actions" dropdown (e.g., "Delete Selected")</li>
+                    <li>Confirm the action when prompted</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching Branches</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific branches:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Search</span> - Enter text to search in name, code, location, or city</li>
+                    <li><span class="font-medium">Status Filter</span> - Filter by active/inactive status</li>
+                    <li><span class="font-medium">Country Filter</span> - Filter by country</li>
+                    <li><span class="font-medium">City Filter</span> - Filter by city</li>
+                    <li><span class="font-medium">Manager Filter</span> - Filter by assigned manager</li>
+                    <li><span class="font-medium">Date Range</span> - Filter by creation date range</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

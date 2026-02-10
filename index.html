@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Comprehensive guide for using the SweetTooth system</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Welcome to SweetTooth User Manual</h2>
+            <p class="text-gray-600 mb-6">
+                This manual provides step-by-step instructions for using the SweetTooth system. 
+                Whether you're managing roles and permissions or handling branch operations, 
+                you'll find detailed guidance here.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Roles & Permissions</h3>
+                    <p class="text-gray-600 mb-4">
+                        Learn how to manage user roles and permissions in the system. 
+                        Understand how to assign roles, create new roles, and configure permissions.
+                    </p>
+                    <a href="roles-permissions.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors">
+                        View Guide →
+                    </a>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-3">Branch Management</h3>
+                    <p class="text-gray-600 mb-4">
+                        Manage all branches in the system. Create new branches, edit existing ones, 
+                        and handle deleted branches with our comprehensive branch management tools.
+                    </p>
+                    <a href="branch-management.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition-colors">
+                        View Guide →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Tips Section -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm text-yellow-700">
+                        <strong>Tip:</strong> Most actions in the system will open modals or confirmation dialogs. 
+                        Look for close buttons (often appearing as "X" icons) to close modals, and always confirm important actions 
+                        like deleting roles or branches.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles & Permissions - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Roles & Permissions Management Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Roles & Permissions Management</h2>
+            <p class="text-gray-600 mb-6">
+                The Roles & Permissions section allows super administrators to manage user roles and their associated permissions within the system.
+            </p>
+
+            <!-- Accessing Roles & Permissions -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Roles & Permissions</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with super administrator credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Roles" in the sidebar menu (only visible to super admins)</li>
+                </ol>
+            </section>
+
+            <!-- Viewing Roles -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Viewing Existing Roles</h3>
+                <p class="text-gray-600 mb-3">The main roles page displays a table of all existing roles with the following columns:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">#</span> - Role ID number</li>
+                    <li><span class="font-medium">Role Name</span> - The name of the role</li>
+                    <li><span class="font-medium">Guard</span> - The authentication guard for the role</li>
+                    <li><span class="font-medium">Created At</span> - Date the role was created</li>
+                    <li><span class="font-medium">Actions</span> - Available actions for the role</li>
+                </ul>
+            </section>
+
+            <!-- Creating a New Role -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating a New Role</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Click the "Add New Role" button (the button may appear as text, an icon like "+", or similar depending on your interface)</li>
+                    <li>In the role creation modal that opens, fill in the following details:
+                        <ul class="list-circle pl-6 mt-2">
+                            <li><span class="font-medium">Role Name</span> - Enter a unique name for the role</li>
+                            <li><span class="font-medium">Guard</span> - Select the appropriate guard (typically "web")</li>
+                        </ul>
+                    </li>
+                    <li>Select the permissions to assign to this role using the checkboxes</li>
+                    <li>Click "Save" to create the role</li>
+                </ol>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <p class="text-sm text-blue-700">
+                                <strong>Note:</strong> Clicking the close button (typically an "X" icon) in the top-right corner of any modal will close it without saving changes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Editing a Role -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Editing an Existing Role</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the role you want to edit in the roles table</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column for that role</li>
+                    <li>The role editing modal will open with current values pre-filled</li>
+                    <li>Modify the role name or permissions as needed</li>
+                    <li>Click "Save" to update the role</li>
+                </ol>
+            </section>
+
+            <!-- Viewing Role Permissions -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Viewing Role Permissions</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the role you want to inspect in the roles table</li>
+                    <li>Click the "View Permissions" button (the button may appear as text, an eye icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal will appear showing all permissions assigned to that role</li>
+                    <li>Click the close button (typically an "X" icon) in the top-right corner to close the modal</li>
+                </ol>
+            </section>
+
+            <!-- Deleting a Role -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Deleting a Role</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the role you want to delete in the roles table</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the role</li>
+                    <li>Click "Confirm" to delete the role or "Cancel" to keep it</li>
+                </ol>
+                <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <p class="text-sm text-red-700">
+                                <strong>Warning:</strong> Deleting a role will remove it from all users assigned to that role. This action cannot be undone.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bulk Operations -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Bulk Operations</h3>
+                <p class="text-gray-600 mb-3">You can perform actions on multiple roles at once:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Select multiple roles using the checkboxes in the first column of the table</li>
+                    <li>Choose an action from the "Bulk Actions" dropdown (e.g., "Delete Selected")</li>
+                    <li>Confirm the action when prompted</li>
+                </ul>
+            </section>
+
+            <!-- Creating Permissions -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating New Permissions</h3>
+                <p class="text-gray-600 mb-3">When creating or editing a role, you can also create new permissions:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>While in the role creation/editing modal, look for the "Add Permission" option</li>
+                    <li>Click the "Create Permission" button</li>
+                    <li>Fill in the permission name and guard in the new modal that appears</li>
+                    <li>Click "Save" to create the new permission</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

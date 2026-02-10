@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips & Tricks - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Tips & Tricks</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Back to Home
+            </a>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tips & Tricks</h2>
+            <p class="text-gray-600 mb-6">
+                Helpful tips and tricks to make the most out of the SweetTooth system.
+            </p>
+
+            <!-- General Tips -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">General Tips</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Modal Navigation:</span> Most forms and detailed views open in modals. To close any modal without saving, click the close button (typically an "X" icon) in the top-right corner.</li>
+                    <li><span class="font-medium">Confirmation Dialogs:</span> Important actions like deletions will show confirmation dialogs. Always read these carefully before confirming.</li>
+                    <li><span class="font-medium">Bulk Actions:</span> You can select multiple items using checkboxes and perform actions on all selected items at once.</li>
+                    <li><span class="font-medium">Search and Filter:</span> Use the search bar and filter options to quickly find specific items in large lists.</li>
+                    <li><span class="font-medium">Pagination:</span> Large lists are divided into pages. Use the pagination controls at the bottom to navigate between pages.</li>
+                </ul>
+            </section>
+
+            <!-- Roles & Permissions Tips -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Roles & Permissions Tips</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Permission Assignment:</span> When creating or editing a role, you can assign multiple permissions at once by checking the boxes next to each permission.</li>
+                    <li><span class="font-medium">Permission Guard:</span> Make sure the guard for permissions matches the guard for the role (usually "web").</li>
+                    <li><span class="font-medium">Viewing Permissions:</span> Use the eye icon to quickly view all permissions assigned to a specific role without editing it.</li>
+                    <li><span class="font-medium">Creating New Permissions:</span> You can create new permissions directly from the role creation/editing modal.</li>
+                </ul>
+            </section>
+
+            <!-- Branch Management Tips -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Branch Management Tips</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Unique Codes:</span> Each branch must have a unique code. This helps identify branches in reports and other parts of the system.</li>
+                    <li><span class="font-medium">Soft Delete:</span> When you delete a branch, it moves to the "Deleted Branches" section where it can be restored if needed.</li>
+                    <li><span class="font-medium">Branch Managers:</span> Assign a user as the branch manager to give them specific responsibilities for that location.</li>
+                    <li><span class="font-medium">Geographic Information:</span> Accurate country, state, and city information helps with reporting and analytics.</li>
+                </ul>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Troubleshooting</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Can't See Menu Options:</span> If you don't see certain menu options, you may not have the required permissions. Contact your system administrator.</li>
+                    <li><span class="font-medium">Modal Won't Close:</span> If a modal becomes unresponsive, try clicking the close button (often an "X" icon) or refresh the page to return to the main screen.</li>
+                    <li><span class="font-medium">Permission Issues:</span> If you receive "Access Denied" errors, verify that your role has the necessary permissions for the action you're trying to perform.</li>
+                    <li><span class="font-medium">Data Not Saving:</span> If form data isn't saving, check that all required fields are filled correctly and that there are no validation errors.</li>
+                </ul>
+            </section>
+
+            <!-- Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Regular Reviews:</span> Regularly review roles and permissions to ensure users have appropriate access levels.</li>
+                    <li><span class="font-medium">Clear Naming:</span> Use clear, descriptive names for roles and branches to make management easier.</li>
+                    <li><span class="font-medium">Documentation:</span> Keep internal documentation of role responsibilities and branch information for reference.</li>
+                    <li><span class="font-medium">Backup:</span> Before making major changes to roles or deleting branches, ensure you have proper backups.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>
