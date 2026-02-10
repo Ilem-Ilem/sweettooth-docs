@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Balance - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Leave Balance Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="my-leaves.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: My Leaves
+                </a>
+                <a href="approve-leaves.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Approve Leaves
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Leave Balance</h2>
+            <p class="text-gray-600 mb-6">
+                The Leave Balance page provides a comprehensive overview of your available leave days, 
+                usage history, and remaining entitlements for the selected year.
+            </p>
+
+            <!-- Accessing Leave Balance -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Leave Balance</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with your employee credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Leave" in the sidebar menu under the Organization section</li>
+                    <li>Click on "Leave Balance" from the submenu</li>
+                    <li>The Leave Balance page will display your current leave allocations</li>
+                </ol>
+            </section>
+
+            <!-- Year Selection -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Year Selection</h3>
+                <p class="text-gray-600 mb-3">The system allows you to view leave balances for different years:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Year Selector:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Year Dropdown</span> - (dropdown) Select the year you want to view (typically current year and adjacent years)</li>
+                    <li>The default view shows the current year's leave balance</li>
+                    <li>Changing the year updates all displayed information to reflect that year's data</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Year Selection Impact:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Leave allocations are year-specific</li>
+                    <li>Used days are tracked per year</li>
+                    <li>Remaining days are calculated based on the selected year</li>
+                    <li>Leave history reflects the selected year</li>
+                </ul>
+            </section>
+
+            <!-- Leave Balance Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Balance Overview</h3>
+                <p class="text-gray-600 mb-3">The page displays a summary of your leave entitlements:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Summary Statistics:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Total Allocated</span> - Total number of leave days allocated to you for the selected year</li>
+                    <li><span class="font-medium">Total Used</span> - Number of leave days you have already taken</li>
+                    <li><span class="font-medium">Total Pending</span> - Number of leave days in pending applications</li>
+                    <li><span class="font-medium">Total Remaining</span> - Number of leave days still available to you</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Calculation Formula:</h4>
+                <p class="text-gray-600 mb-3">Total Remaining = Total Allocated - Total Used - Total Pending</p>
+            </section>
+
+            <!-- Leave Type Breakdown -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Type Breakdown</h3>
+                <p class="text-gray-600 mb-3">The page displays detailed information for each leave type:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Per-Leave-Type Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Leave Type Name</span> - The name of the leave category (e.g., Annual Leave, Sick Leave)</li>
+                    <li><span class="font-medium">Total Allocated</span> - Days allocated for this specific leave type</li>
+                    <li><span class="font-medium">Used Days</span> - Days already taken from this leave type</li>
+                    <li><span class="font-medium">Pending Days</span> - Days in pending applications for this leave type</li>
+                    <li><span class="font-medium">Remaining Days</span> - Days still available for this leave type</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Visual Representation:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Color-coded bars or charts may show the utilization percentage for each leave type</li>
+                    <li>Icons or indicators may highlight low balance situations</li>
+                </ul>
+            </section>
+
+            <!-- Leave History -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave History</h3>
+                <p class="text-gray-600 mb-3">The page includes a history of your leave usage for the selected year:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">History Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Leave Type</span> - The type of leave taken</li>
+                    <li><span class="font-medium">Dates</span> - Start and end dates of the leave period</li>
+                    <li><span class="font-medium">Days</span> - Number of working days taken</li>
+                    <li><span class="font-medium">Status</span> - Current status of the leave application</li>
+                    <li><span class="font-medium">Application Date</span> - When the leave was applied for</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">History Sorting:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>History is typically sorted by date, with most recent entries first</li>
+                    <li>You can review patterns of leave usage over the year</li>
+                </ul>
+            </section>
+
+            <!-- Leave Balance Interpretation -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Understanding Your Leave Balance</h3>
+                <p class="text-gray-600 mb-3">Key concepts to understand:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Available Balance:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>This represents days you can immediately request</li>
+                    <li>Does not include pending applications</li>
+                    <li>May vary by leave type</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Pending Applications:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Days in applications that are awaiting approval</li>
+                    <li>These are temporarily deducted from your available balance</li>
+                    <li>If approved, they become used days</li>
+                    <li>If rejected, they return to your available balance</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Leave Allocation:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Determined by your employment contract and company policy</li>
+                    <li>May be adjusted by HR administrators for special circumstances</li>
+                    <li>Typically resets at the beginning of each year</li>
+                </ul>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Regularly check your leave balance before planning time off</li>
+                    <li>Review your leave history to understand usage patterns</li>
+                    <li>Plan leave requests to avoid exceeding your available balance</li>
+                    <li>Consider spreading leave throughout the year rather than taking it all at once</li>
+                    <li>Be aware of company policies regarding carry-over of unused leave</li>
+                    <li>Check different leave types as they may have separate allocations</li>
+                    <li>Factor in pending applications when planning new requests</li>
+                    <li>Consult with HR if you have questions about your allocation</li>
+                    <li>Keep track of important deadlines for using allocated leave</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

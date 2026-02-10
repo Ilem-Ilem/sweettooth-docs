@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Leave - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Apply Leave Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="leave-management.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Leave Management
+                </a>
+                <a href="my-leaves.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: My Leaves
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Apply Leave</h2>
+            <p class="text-gray-600 mb-6">
+                The Apply Leave form allows employees to submit leave requests with all necessary details, 
+                including leave type, dates, reason, and supporting documentation.
+            </p>
+
+            <!-- Accessing Apply Leave -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Apply Leave</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with your employee credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Leave" in the sidebar menu under the Organization section</li>
+                    <li>Click on "Apply Leave" from the submenu</li>
+                    <li>The Apply Leave form will load with available leave types</li>
+                </ol>
+            </section>
+
+            <!-- Form Fields Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Form Fields Overview</h3>
+                <p class="text-gray-600 mb-3">The Apply Leave form contains several sections with required and optional fields:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Required Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Leave Type</span> - (dropdown) Select the type of leave you're requesting (e.g., Annual Leave, Sick Leave, etc.)</li>
+                    <li><span class="font-medium">Start Date</span> - (date picker) Select the first day of your leave (must be today or in the future)</li>
+                    <li><span class="font-medium">End Date</span> - (date picker) Select the last day of your leave (must be after start date)</li>
+                    <li><span class="font-medium">Reason</span> - (textarea) Provide a detailed explanation for your leave request (minimum 10 characters)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Optional Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Emergency Contact</span> - (text input) Provide contact information for emergencies during your leave</li>
+                    <li><span class="font-medium">Supporting Document</span> - (file upload) Upload relevant documents if required by the leave type (PDF, JPG, JPEG, PNG, max 2MB)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Automatically Calculated Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Total Days</span> - (calculated) Number of working days (excluding weekends) in your requested period</li>
+                    <li><span class="font-medium">Available Balance</span> - (calculated) Your remaining leave days for the selected leave type in the current year</li>
+                </ul>
+            </section>
+
+            <!-- Applying for Leave -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Applying for Leave</h3>
+                <p class="text-gray-600 mb-3">Follow these steps to submit a leave request:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Step-by-Step Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Select the appropriate leave type from the dropdown</li>
+                    <li>Verify your available balance for the selected leave type</li>
+                    <li>Choose your start date (must be today or in the future)</li>
+                    <li>Choose your end date (must be after start date)</li>
+                    <li>Review the calculated total days to ensure they match your needs</li>
+                    <li>Provide a detailed reason for your leave (minimum 10 characters required)</li>
+                    <li>Enter emergency contact information if applicable</li>
+                    <li>Upload supporting documents if required by the leave type</li>
+                    <li>Click the "Submit" button (the button may appear as text, an icon, or similar depending on your interface)</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">What Happens After Submission:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Your leave application is submitted for approval</li>
+                    <li>The status changes to "Pending" until reviewed by a manager</li>
+                    <li>Your available balance is temporarily reduced by the requested days</li>
+                    <li>You can view the status of your application in "My Leaves"</li>
+                    <li>You will receive notifications about approval or rejection</li>
+                </ul>
+            </section>
+
+            <!-- Leave Calculation -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Day Calculation</h3>
+                <p class="text-gray-600 mb-3">The system calculates leave days based on working days:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Calculation Method:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Only weekdays (Monday-Friday) are counted toward leave days</li>
+                    <li>Weekends (Saturday and Sunday) are excluded from the calculation</li>
+                    <li>Public holidays may or may not be excluded depending on system configuration</li>
+                    <li>The total is displayed in real-time as you select dates</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Example:</h4>
+                <p class="text-gray-600 mb-3">If you select a period from Monday to Friday (5 calendar days), it counts as 5 working days. If you select a period from Friday to Monday (4 calendar days), it counts as 2 working days.</p>
+            </section>
+
+            <!-- Leave Type Requirements -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Type Requirements</h3>
+                <p class="text-gray-600 mb-3">Different leave types may have specific requirements:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Common Requirements:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Minimum Notice Period</span> - Some leave types require advance notice (e.g., 7 days for annual leave)</li>
+                    <li><span class="font-medium">Supporting Documents</span> - Certain leave types require documentation (e.g., medical certificate for sick leave)</li>
+                    <li><span class="font-medium">Maximum Consecutive Days</span> - Some leave types limit the number of consecutive days that can be taken</li>
+                    <li><span class="font-medium">Approval Requirements</span> - Some leave types may require special approval processes</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Validation Checks:</h4>
+                <p class="text-gray-600 mb-3">The system performs several validation checks before submission:</p>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Ensures sufficient leave balance is available</li>
+                    <li>Verifies minimum notice period is met</li>
+                    <li>Confirms required documents are attached if needed</li>
+                    <li>Validates that the requested period doesn't exceed maximum consecutive days</li>
+                </ul>
+            </section>
+
+            <!-- Validation and Errors -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Validation and Error Handling</h3>
+                <p class="text-gray-600 mb-3">The form validates all required fields before submission:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Required Field Validation:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Leave type must be selected</li>
+                    <li>Start date must be today or in the future</li>
+                    <li>End date must be after start date</li>
+                    <li>Reason must be provided with at least 10 characters</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Common Error Messages:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>"Insufficient leave balance" - You don't have enough days available for the selected leave type</li>
+                    <li>"Minimum notice period required" - You applied for leave with insufficient advance notice</li>
+                    <li>"Supporting document is required" - A document is required for the selected leave type but wasn't provided</li>
+                    <li>"Maximum consecutive days exceeded" - Your request exceeds the allowed consecutive days for this leave type</li>
+                </ul>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Plan your leave well in advance to meet minimum notice requirements</li>
+                    <li>Check your leave balance before applying to ensure sufficient days are available</li>
+                    <li>Provide detailed reasons to help managers understand your request</li>
+                    <li>Attach required documents to prevent delays in processing</li>
+                    <li>Consider business needs and peak periods when requesting leave</li>
+                    <li>Inform your team members about your upcoming leave</li>
+                    <li>Complete urgent tasks before your leave starts</li>
+                    <li>Arrange coverage for your responsibilities during your absence</li>
+                    <li>Keep track of your leave applications in "My Leaves"</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

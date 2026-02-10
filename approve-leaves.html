@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Leaves - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Approve Leaves Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="leave-balance.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Leave Balance
+                </a>
+                <a href="leave-types.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Leave Types
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Approve Leaves</h2>
+            <p class="text-gray-600 mb-6">
+                The Approve Leaves page allows managers and HR personnel to review, approve, or reject 
+                employee leave applications. This page provides comprehensive tools for managing leave requests efficiently.
+            </p>
+
+            <!-- Accessing Approve Leaves -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Approve Leaves</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with manager or HR credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Leave" in the sidebar menu under the Organization section</li>
+                    <li>Click on "Approve Leaves" from the submenu</li>
+                    <li>The Approve Leaves page will display pending leave applications</li>
+                </ol>
+            </section>
+
+            <!-- Leave Applications List -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Applications List</h3>
+                <p class="text-gray-600 mb-3">The page displays a table with the following information for each leave application:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Table Columns:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Application #</span> - Unique identifier for the leave application</li>
+                    <li><span class="font-medium">Employee</span> - Name of the employee requesting leave</li>
+                    <li><span class="font-medium">Leave Type</span> - The type of leave requested (e.g., Annual Leave, Sick Leave)</li>
+                    <li><span class="font-medium">Leave Dates</span> - The start and end dates of the requested leave</li>
+                    <li><span class="font-medium">Days</span> - The number of working days requested</li>
+                    <li><span class="font-medium">Status</span> - Current status of the application (Pending, Approved, Rejected, Cancelled)</li>
+                    <li><span class="font-medium">Actions</span> - Available actions for each application</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific leave applications:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Filter:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Status Dropdown</span> - (dropdown) Filter by specific status (All, Pending, Approved, Rejected, Cancelled)</li>
+                    <li>Default view typically shows only "Pending" applications</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Search Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Search Box</span> - (text input) Enter text to search across application numbers, employee names, reasons, and leave type names</li>
+                </ul>
+            </section>
+
+            <!-- Approving Leave Applications -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Approving Leave Applications</h3>
+                <p class="text-gray-600 mb-3">Process for approving a leave application:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Step-by-Step Approval Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the pending leave application in the list</li>
+                    <li>Click the "View Details" button (the button may appear as text, an eye icon, or similar depending on your interface) in the Actions column to review the application</li>
+                    <li>Review the employee's request, dates, and reason</li>
+                    <li>Click the "Approve" button (the button may appear as text, a check icon, or similar depending on your interface) in the Actions column</li>
+                    <li>An approval modal will appear asking for optional approval notes</li>
+                    <li>Enter any relevant notes or comments (optional)</li>
+                    <li>Click the "Approve" button (the button may appear as text, an icon, or similar depending on your interface) in the modal to confirm</li>
+                    <li>The application status will change to "Approved"</li>
+                    <li>The employee will be notified of the approval</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Approval Impact:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>The approved days are deducted from the employee's leave balance</li>
+                    <li>The leave is officially recorded in the system</li>
+                    <li>The employee's calendar may be updated to reflect the approved leave</li>
+                </ul>
+            </section>
+
+            <!-- Rejecting Leave Applications -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Rejecting Leave Applications</h3>
+                <p class="text-gray-600 mb-3">Process for rejecting a leave application:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Step-by-Step Rejection Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the pending leave application in the list</li>
+                    <li>Click the "View Details" button (the button may appear as text, an eye icon, or similar depending on your interface) in the Actions column to review the application</li>
+                    <li>Review the employee's request, dates, and reason</li>
+                    <li>Click the "Reject" button (the button may appear as text, an X icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A rejection modal will appear requiring a reason for the rejection</li>
+                    <li>Enter a detailed reason for rejection (minimum 10 characters required)</li>
+                    <li>Click the "Reject" button (the button may appear as text, an icon, or similar depending on your interface) in the modal to confirm</li>
+                    <li>The application status will change to "Rejected"</li>
+                    <li>The employee will be notified of the rejection with the provided reason</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Rejection Impact:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>The requested days are returned to the employee's leave balance</li>
+                    <li>The employee can submit a new request if needed</li>
+                    <li>The rejection is recorded in the system for audit purposes</li>
+                </ul>
+            </section>
+
+            <!-- Leave Details Modal -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Details Modal</h3>
+                <p class="text-gray-600 mb-3">When viewing leave details, you'll see comprehensive information:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Application Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Application Number</span> - Unique identifier for the application</li>
+                    <li><span class="font-medium">Employee Name</span> - Full name of the requesting employee</li>
+                    <li><span class="font-medium">Employee ID</span> - Employee number or ID</li>
+                    <li><span class="font-medium">Leave Type</span> - The type of leave requested</li>
+                    <li><span class="font-medium">Dates</span> - Start and end dates of the requested leave</li>
+                    <li><span class="font-medium">Total Days</span> - Number of working days requested</li>
+                    <li><span class="font-medium">Reason</span> - Explanation provided by the employee</li>
+                    <li><span class="font-medium">Emergency Contact</span> - Contact information provided for emergencies</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Supporting Documents:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>If a supporting document was uploaded, a "Download Document" button (the button may appear as text, a download icon, or similar depending on your interface) will be available</li>
+                    <li>Click the button to download the document to your computer</li>
+                    <li>Review documents to validate the leave request if required</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Approval/Rejection Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Modal provides both "Approve" and "Reject" buttons for quick decision-making</li>
+                    <li>Additional notes can be added during the approval or rejection process</li>
+                </ul>
+            </section>
+
+            <!-- Bulk Operations -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Bulk Operations</h3>
+                <p class="text-gray-600 mb-3">Perform actions on multiple leave applications simultaneously:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Selecting Multiple Applications:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Check the checkbox in the first column of each application row you want to select</li>
+                    <li>Or use the "Select All" checkbox to select all applications on the current page</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Bulk Actions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Currently, bulk operations may be limited to viewing or exporting data</li>
+                    <li>Individual approval/rejection is recommended to ensure proper review of each application</li>
+                </ul>
+            </section>
+
+            <!-- Pagination -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Pagination</h3>
+                <p class="text-gray-600 mb-3">
+                    The leave applications list is divided into pages to improve performance. Use the pagination controls 
+                    at the bottom of the table to navigate between pages. You can also adjust the number of 
+                    applications displayed per page using the quantity selector.
+                </p>
+            </section>
+
+            <!-- Approval Considerations -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Approval Considerations</h3>
+                <p class="text-gray-600 mb-3">Factors to consider when approving or rejecting leave applications:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Business Needs:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Ensure adequate coverage during the requested period</li>
+                    <li>Consider peak business periods or critical project timelines</li>
+                    <li>Check for overlapping leave requests from team members</li>
+                    <li>Evaluate the timing in relation to business objectives</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Employee Factors:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Review the employee's leave history and patterns</li>
+                    <li>Consider the employee's performance and reliability</li>
+                    <li>Evaluate the validity of the reason provided</li>
+                    <li>Take into account personal circumstances if applicable</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Policy Compliance:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Verify the request complies with company leave policies</li>
+                    <li>Check that the requested days don't exceed available balance</li>
+                    <li>Ensure proper notice was given if required</li>
+                    <li>Confirm required documentation is provided if needed</li>
+                </ul>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Review leave applications promptly to avoid delays</li>
+                    <li>Provide clear reasons when rejecting applications</li>
+                    <li>Consider team dynamics when approving leave requests</li>
+                    <li>Keep detailed records of approval decisions</li>
+                    <li>Communicate approval decisions clearly to employees</li>
+                    <li>Plan ahead for periods with multiple leave requests</li>
+                    <li>Ensure equitable treatment of all employees' requests</li>
+                    <li>Stay informed about company leave policies and updates</li>
+                    <li>Coordinate with other managers for cross-team coverage</li>
+                    <li>Use the search and filter functions to efficiently manage applications</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

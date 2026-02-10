@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Leaves - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">My Leaves Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="apply-leave.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Apply Leave
+                </a>
+                <a href="leave-balance.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Leave Balance
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">My Leaves</h2>
+            <p class="text-gray-600 mb-6">
+                The My Leaves page provides a comprehensive view of all your leave applications, 
+                including their current status, dates, and details. This page helps you track your leave history and manage pending requests.
+            </p>
+
+            <!-- Accessing My Leaves -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing My Leaves</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with your employee credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Leave" in the sidebar menu under the Organization section</li>
+                    <li>Click on "My Leaves" from the submenu</li>
+                    <li>The My Leaves page will display all your leave applications</li>
+                </ol>
+            </section>
+
+            <!-- Leave List Overview -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave List Overview</h3>
+                <p class="text-gray-600 mb-3">The page displays a table with the following information for each leave application:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Table Columns:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Application #</span> - Unique identifier for the leave application</li>
+                    <li><span class="font-medium">Leave Type</span> - The type of leave requested (e.g., Annual Leave, Sick Leave)</li>
+                    <li><span class="font-medium">Leave Dates</span> - The start and end dates of the requested leave</li>
+                    <li><span class="font-medium">Days</span> - The number of working days requested</li>
+                    <li><span class="font-medium">Status</span> - Current status of the application (Pending, Approved, Rejected, Cancelled)</li>
+                    <li><span class="font-medium">Actions</span> - Available actions for each application</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Types:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Pending</span> - Application submitted but not yet reviewed</li>
+                    <li><span class="font-medium">Approved</span> - Application approved by a manager</li>
+                    <li><span class="font-medium">Rejected</span> - Application denied by a manager</li>
+                    <li><span class="font-medium">Cancelled</span> - Application cancelled by the employee</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific leave applications:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Filter:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Status Dropdown</span> - (dropdown) Filter by specific status (All, Pending, Approved, Rejected, Cancelled)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Search Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Search Box</span> - (text input) Enter text to search across application numbers, reasons, and leave type names</li>
+                </ul>
+            </section>
+
+            <!-- Managing Leave Applications -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Managing Leave Applications</h3>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Viewing Leave Details:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the leave application in the list</li>
+                    <li>Click the "View Details" button (the button may appear as text, an eye icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal will appear with comprehensive details about the application</li>
+                    <li>Details include: application number, leave type, dates, reason, emergency contact, and supporting document</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Cancelling a Leave Application:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Find the leave application in the list (only pending or approved applications can be cancelled)</li>
+                    <li>Click the "Cancel" button (the button may appear as text, a cancel icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal will appear asking for a cancellation reason</li>
+                    <li>Enter a detailed reason for cancellation (minimum 10 characters required)</li>
+                    <li>Click the "Confirm" button (the button may appear as text, an icon, or similar depending on your interface) to cancel the application</li>
+                    <li>The application status will change to "Cancelled"</li>
+                </ol>
+            </section>
+
+            <!-- Leave Details Modal -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Details Modal</h3>
+                <p class="text-gray-600 mb-3">When viewing leave details, you'll see:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Application Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Application Number</span> - Unique identifier for the application</li>
+                    <li><span class="font-medium">Leave Type</span> - The type of leave requested</li>
+                    <li><span class="font-medium">Dates</span> - Start and end dates of the requested leave</li>
+                    <li><span class="font-medium">Total Days</span> - Number of working days requested</li>
+                    <li><span class="font-medium">Reason</span> - Explanation provided for the leave request</li>
+                    <li><span class="font-medium">Emergency Contact</span> - Contact information provided for emergencies</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Supporting Documents:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>If a supporting document was uploaded, a "Download Document" button (the button may appear as text, a download icon, or similar depending on your interface) will be available</li>
+                    <li>Click the button to download the document to your computer</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Approval Information:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>If approved: Approver name and approval date</li>
+                    <li>If rejected: Rejection reason and date</li>
+                    <li>If cancelled: Cancellation reason and date</li>
+                </ul>
+            </section>
+
+            <!-- Pagination -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Pagination</h3>
+                <p class="text-gray-600 mb-3">
+                    The leave list is divided into pages to improve performance. Use the pagination controls 
+                    at the bottom of the table to navigate between pages. You can also adjust the number of 
+                    leave applications displayed per page using the quantity selector.
+                </p>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Regularly check the status of your leave applications</li>
+                    <li>Cancel leave applications promptly if your plans change</li>
+                    <li>Provide detailed reasons when cancelling to help with planning</li>
+                    <li>Keep track of approved leave dates to avoid scheduling conflicts</li>
+                    <li>Review your leave history to plan future requests</li>
+                    <li>Ensure all required documents are attached before submitting</li>
+                    <li>Plan leave requests well in advance to meet notice requirements</li>
+                    <li>Inform your team about approved leave dates</li>
+                    <li>Arrange coverage for your responsibilities during your absence</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>

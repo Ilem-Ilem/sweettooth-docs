@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Types - SweetTooth User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold">SweetTooth User Manual</h1>
+            <p class="mt-2 text-blue-100">Leave Types Guide</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <nav class="mb-6">
+            <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Home
+                </a>
+                <a href="approve-leaves.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Approve Leaves
+                </a>
+                <a href="leave-management.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Next: Leave Management
+                </a>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Leave Types</h2>
+            <p class="text-gray-600 mb-6">
+                The Leave Types page allows HR administrators to manage different categories of leave available in the system. 
+                This includes configuring default allocations, approval requirements, and other parameters for each leave type.
+            </p>
+
+            <!-- Accessing Leave Types -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Accessing Leave Types</h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                    <li>Log in to the system with HR administrator credentials</li>
+                    <li>Navigate to the Branch Dashboard</li>
+                    <li>Click on "Leave" in the sidebar menu under the Organization section</li>
+                    <li>Click on "Types" from the submenu</li>
+                    <li>The Leave Types page will display all configured leave types</li>
+                </ol>
+            </section>
+
+            <!-- Leave Types List -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Types List</h3>
+                <p class="text-gray-600 mb-3">The page displays a table with the following information for each leave type:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Table Columns:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Leave Type</span> - Name of the leave category (e.g., Annual Leave, Sick Leave)</li>
+                    <li><span class="font-medium">Code</span> - Short identifier for the leave type (e.g., ANNUAL, SICK)</li>
+                    <li><span class="font-medium">Default Days/Year</span> - Number of days allocated by default to employees</li>
+                    <li><span class="font-medium">Paid</span> - Whether the leave is paid or unpaid</li>
+                    <li><span class="font-medium">Requires Approval</span> - Whether manager approval is required</li>
+                    <li><span class="font-medium">Status</span> - Whether the leave type is active or inactive</li>
+                    <li><span class="font-medium">Actions</span> - Available actions for each leave type</li>
+                </ul>
+            </section>
+
+            <!-- Filtering and Searching -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Filtering and Searching</h3>
+                <p class="text-gray-600 mb-3">Use the filtering options to find specific leave types:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Search Options:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li><span class="font-medium">Search Box</span> - (text input) Enter text to search across leave type names, codes, and descriptions</li>
+                </ul>
+            </section>
+
+            <!-- Creating a New Leave Type -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Creating a New Leave Type</h3>
+                <p class="text-gray-600 mb-3">Add a new category of leave to the system:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Step-by-Step Creation Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Click the "Create Leave Type" button (the button may appear as text, a plus icon, or similar depending on your interface) on the page</li>
+                    <li>A modal will appear with the leave type creation form</li>
+                    <li>Fill in the required fields (see below for details)</li>
+                    <li>Click the "Save" button (the button may appear as text, an icon, or similar depending on your interface) to create the new leave type</li>
+                    <li>The new leave type will appear in the list</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Required Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Name</span> - (text input) Enter a descriptive name for the leave type (e.g., "Annual Leave", "Sick Leave")</li>
+                    <li><span class="font-medium">Code</span> - (text input) Enter a unique code for the leave type (e.g., "ANNUAL", "SICK") - will be converted to uppercase</li>
+                    <li><span class="font-medium">Default Days/Year</span> - (number input) Enter the default number of days allocated per year (must be 0 or greater)</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Optional Fields:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li><span class="font-medium">Description</span> - (textarea) Provide a detailed description of the leave type and its usage</li>
+                    <li><span class="font-medium">Requires Approval</span> - (checkbox) Check if manager approval is required for this leave type (default: checked)</li>
+                    <li><span class="font-medium">Requires Document</span> - (checkbox) Check if supporting documents are required (e.g., medical certificate for sick leave)</li>
+                    <li><span class="font-medium">Max Consecutive Days</span> - (number input) Maximum number of consecutive days that can be taken (optional)</li>
+                    <li><span class="font-medium">Min Notice Days</span> - (number input) Minimum number of days advance notice required (default: 0)</li>
+                    <li><span class="font-medium">Is Paid</span> - (checkbox) Check if this is paid leave (default: checked)</li>
+                    <li><span class="font-medium">Is Active</span> - (checkbox) Check if this leave type is currently available for use (default: checked)</li>
+                    <li><span class="font-medium">Color</span> - (color picker) Select a color to represent this leave type in calendars and reports</li>
+                </ul>
+            </section>
+
+            <!-- Editing a Leave Type -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Editing a Leave Type</h3>
+                <p class="text-gray-600 mb-3">Modify an existing leave type configuration:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Step-by-Step Editing Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the leave type you want to edit in the list</li>
+                    <li>Click the "Edit" button (the button may appear as text, a pencil icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A modal will appear with the current values pre-filled</li>
+                    <li>Modify the fields as needed</li>
+                    <li>Click the "Save" button (the button may appear as text, an icon, or similar depending on your interface) to update the leave type</li>
+                    <li>The changes will be reflected in the list</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Important Considerations:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Changes to default days will only affect new allocations, not existing ones</li>
+                    <li>Disabling a leave type will prevent new applications but won't affect existing ones</li>
+                    <li>Be cautious when changing codes as they may be referenced in reports</li>
+                </ul>
+            </section>
+
+            <!-- Toggling Leave Type Status -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Toggling Leave Type Status</h3>
+                <p class="text-gray-600 mb-3">Activate or deactivate a leave type without deleting it:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Activation Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the leave type in the list</li>
+                    <li>Click the "Toggle Status" button (the button may appear as text, a toggle switch, or similar depending on your interface) in the Actions column</li>
+                    <li>If the leave type was active, it will be deactivated; if inactive, it will be activated</li>
+                    <li>A confirmation message will appear indicating the new status</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Status Impact:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Active leave types are available for employees to apply for</li>
+                    <li>Inactive leave types are hidden from the application form</li>
+                    <li>Existing applications for inactive types remain unaffected</li>
+                    <li>Previously allocated days for inactive types remain available</li>
+                </ul>
+            </section>
+
+            <!-- Deleting a Leave Type -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Deleting a Leave Type</h3>
+                <p class="text-gray-600 mb-3">Remove a leave type from the system:</p>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Deletion Process:</h4>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Find the leave type you want to delete in the list</li>
+                    <li>Click the "Delete" button (the button may appear as text, a trash icon, or similar depending on your interface) in the Actions column</li>
+                    <li>A confirmation dialog will appear asking if you're sure you want to delete the leave type</li>
+                    <li>Click "Confirm" to delete the leave type or "Cancel" to keep it</li>
+                </ol>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Important Restrictions:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>You cannot delete a leave type that has existing leave applications</li>
+                    <li>Instead of deleting, consider deactivating the leave type</li>
+                    <li>Deletion is permanent and cannot be undone</li>
+                    <li>All associated data will be removed from the system</li>
+                </ul>
+            </section>
+
+            <!-- Leave Type Configuration Details -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Leave Type Configuration Details</h3>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Default Days Per Year:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Defines the standard allocation for new employees</li>
+                    <li>HR administrators can override this for individual employees</li>
+                    <li>Allocations are typically reset annually</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Approval Requirements:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>When enabled, all applications for this leave type require manager approval</li>
+                    <li>When disabled, applications may be auto-approved or not require approval</li>
+                    <li>Provides control over specific types of leave</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Document Requirements:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>When enabled, applicants must upload supporting documents</li>
+                    <li>Useful for sick leave, compassionate leave, or other verified absences</li>
+                    <li>Documents are stored securely and accessible to authorized personnel</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Consecutive Day Limits:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-4">
+                    <li>Prevents employees from taking extended periods off in a single request</li>
+                    <li>Helps with operational planning and coverage</li>
+                    <li>Does not prevent multiple shorter requests</li>
+                </ul>
+                
+                <h4 class="font-medium text-gray-700 mb-2">Notice Requirements:</h4>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Requires employees to submit requests in advance</li>
+                    <li>Helps with planning and coverage arrangements</li>
+                    <li>Prevents last-minute scheduling disruptions</li>
+                </ul>
+            </section>
+
+            <!-- Pagination -->
+            <section class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Pagination</h3>
+                <p class="text-gray-600 mb-3">
+                    The leave types list is divided into pages to improve performance. Use the pagination controls 
+                    at the bottom of the table to navigate between pages. You can also adjust the number of 
+                    leave types displayed per page using the quantity selector.
+                </p>
+            </section>
+
+            <!-- Tips and Best Practices -->
+            <section>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3">Tips and Best Practices</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600">
+                    <li>Define clear categories that align with company policies</li>
+                    <li>Use descriptive names and codes that are easily understood</li>
+                    <li>Set appropriate default allocations based on employment contracts</li>
+                    <li>Configure approval requirements based on leave type sensitivity</li>
+                    <li>Establish document requirements for verification purposes</li>
+                    <li>Set reasonable consecutive day limits to balance flexibility with planning</li>
+                    <li>Implement appropriate notice periods for different leave types</li>
+                    <li>Use colors consistently across different leave types</li>
+                    <li>Regularly review and update leave types to reflect policy changes</li>
+                    <li>Ensure all stakeholders understand the different leave types and their requirements</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 SweetTooth System. All rights reserved.</p>
+            <p class="mt-2 text-gray-400 text-sm">For support, contact your system administrator</p>
+        </div>
+    </footer>
+</body>
+</html>
