@@ -1,0 +1,24 @@
+/* CSS file to ensure all text is black */
+* {
+    color: black !important;
+}
+
+/* Ensure headings are also black */
+h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+}
+
+/* Ensure paragraph text is black */
+p {
+    color: black !important;
+}
+
+/* Ensure list items are black */
+li {
+    color: black !important;
+}
+
+/* Ensure links maintain readability */
+a {
+    color: #2563eb !important; /* blue-600 */
+}
