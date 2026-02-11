@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Reports - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .section-link { transition: all 0.3s ease; }
+        .section-link:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Accounting Reports</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comprehensive guide to generating and interpreting financial reports</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#general-ledger" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">General Ledger</a>
+                <a href="#trial-balance" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Trial Balance</a>
+                <a href="#income-statement" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Income Statement</a>
+                <a href="#balance-sheet" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Balance Sheet</a>
+                <a href="#cash-flow" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Cash Flow Statement</a>
+                <a href="#unified-reports" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Unified Reports</a>
+                <a href="#report-features" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Features</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Accounting Reports Overview</h2>
+                <p class="mb-4">Accounting Reports provide comprehensive financial statements and analytical reports to support decision-making and regulatory compliance.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Financial Statements</h3>
+                        <p>Core reports showing financial position and performance</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Analytical Reports</h3>
+                        <p>Detailed analysis of financial trends and variances</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Regulatory Compliance</h3>
+                        <p>Reports required for legal and regulatory purposes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Standard Financial Statements:</strong> Generate all required financial reports</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Customizable Filters:</strong> Apply date ranges and other filters</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Export Capabilities:</strong> Export to Excel and PDF formats</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Visual Analytics:</strong> Charts and graphs for better understanding</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Drill-Down Capability:</strong> Access detailed transaction data</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Comparative Reporting:</strong> Compare across different periods</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- General Ledger Section -->
+        <section id="general-ledger" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">General Ledger</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The General Ledger report provides a detailed view of all account transactions and balances.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Show all transactions for selected accounts</li>
+                            <li>Display running balances for each account</li>
+                            <li>Filter by date range, account, or transaction type</li>
+                            <li>Group transactions by category or department</li>
+                            <li>Include opening balances in the report</li>
+                            <li>Export to Excel for further analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Date Range:</strong> Specify the period for the report</li>
+                            <li><strong>Account Selection:</strong> Choose specific accounts or all accounts</li>
+                            <li><strong>Detail Level:</strong> Show summary or detailed transactions</li>
+                            <li><strong>Opening Balance:</strong> Include or exclude opening balances</li>
+                            <li><strong>Sorting:</strong> Sort by date, account, or transaction amount</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Use the General Ledger to investigate specific account balances and verify transaction accuracy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trial Balance Section -->
+        <section id="trial-balance" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Trial Balance</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Trial Balance report verifies that debits equal credits in the general ledger.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Show all account balances at a specific point in time</li>
+                            <li>Verify that total debits equal total credits</li>
+                            <li>Identify potential errors in posting</li>
+                            <li>Filter by date range or account type</li>
+                            <li>Include zero-balance accounts</li>
+                            <li>Export for audit purposes</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>As of Date:</strong> Select the date for the trial balance</li>
+                            <li><strong>Account Type:</strong> Filter by asset, liability, equity, revenue, or expense</li>
+                            <li><strong>Zero Balances:</strong> Include or exclude zero-balance accounts</li>
+                            <li><strong>Comparison:</strong> Compare with prior period balances</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Tip:</strong> Run the Trial Balance regularly to ensure your books are balanced before preparing financial statements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Income Statement Section -->
+        <section id="income-statement" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Income Statement</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Income Statement (Profit & Loss) shows revenues, expenses, and net income over a period.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Display revenues and expenses for the selected period</li>
+                            <li>Calculate gross profit, operating income, and net income</li>
+                            <li>Compare with prior period performance</li>
+                            <li>Break down by department or cost center</li>
+                            <li>Include budget versus actual comparisons</li>
+                            <li>Export for presentations or analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Period:</strong> Monthly, quarterly, or annual reporting</li>
+                            <li><strong>Comparison:</strong> Compare with prior period or budget</li>
+                            <li><strong>Detail Level:</strong> Summary or detailed presentation</li>
+                            <li><strong>Department:</strong> Break down by organizational unit</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Tip:</strong> Use the Income Statement to monitor profitability trends and identify areas for improvement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Balance Sheet Section -->
+        <section id="balance-sheet" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Balance Sheet</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Balance Sheet shows assets, liabilities, and equity at a specific point in time.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Display assets, liabilities, and equity in standard format</li>
+                            <li>Verify that assets equal liabilities plus equity</li>
+                            <li>Compare with prior period balances</li>
+                            <li>Include comparative columns for trend analysis</li>
+                            <li>Break down by detail level as needed</li>
+                            <li>Export for stakeholder reporting</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Date:</strong> Select the date for the balance sheet</li>
+                            <li><strong>Format:</strong> Standard or comparative presentation</li>
+                            <li><strong>Detail Level:</strong> Summary or detailed breakdown</li>
+                            <li><strong>Comparison:</strong> Include prior period for comparison</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> The Balance Sheet provides insight into the company's financial position and solvency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cash Flow Statement Section -->
+        <section id="cash-flow" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Cash Flow Statement</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Cash Flow Statement shows cash inflows and outflows from operating, investing, and financing activities.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Separate cash flows by operating, investing, and financing activities</li>
+                            <li>Show net increase/decrease in cash for the period</li>
+                            <li>Compare with prior period cash flows</li>
+                            <li>Include budget versus actual comparisons</li>
+                            <li>Provide detailed breakdown of major cash items</li>
+                            <li>Export for liquidity analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Period:</strong> Monthly, quarterly, or annual reporting</li>
+                            <li><strong>Method:</strong> Direct or indirect method</li>
+                            <li><strong>Comparison:</strong> Compare with prior period or budget</li>
+                            <li><strong>Detail Level:</strong> Summary or detailed presentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-teal-50 border-l-4 border-teal-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-teal-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-teal-700">
+                                    <strong>Tip:</strong> Monitor cash flow regularly to ensure sufficient liquidity for operations and obligations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unified Reports Section -->
+        <section id="unified-reports" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-red-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Unified Reports</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Unified Reports combine multiple financial statements and analytical data in a single comprehensive report.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Combine financial statements in one document</li>
+                            <li>Include key financial ratios and metrics</li>
+                            <li>Provide executive summary and insights</li>
+                            <li>Offer customizable layouts and formats</li>
+                            <li>Support automated distribution to stakeholders</li>
+                            <li>Include graphical representations of key data</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Components:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Financial Statements:</strong> Income statement, balance sheet, and cash flow</li>
+                            <li><strong>Key Ratios:</strong> Liquidity, profitability, and leverage ratios</li>
+                            <li><strong>Executive Summary:</strong> High-level financial performance</li>
+                            <li><strong>Trend Analysis:</strong> Historical performance trends</li>
+                            <li><strong>Comparative Data:</strong> Budget vs. actual and period-over-period</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-amber-700">
+                                    <strong>Tip:</strong> Use Unified Reports for board meetings and stakeholder presentations for a comprehensive view.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Features Section -->
+        <section id="report-features" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Report Features</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Explore the advanced features available in all accounting reports.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Export Options:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Excel Export:</strong> Download reports in Excel format for further analysis</li>
+                            <li><strong>PDF Export:</strong> Create professional PDF documents for distribution</li>
+                            <li><strong>CSV Export:</strong> Export data in CSV format for integration with other systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Visualization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Charts and Graphs:</strong> Visual representations of financial data</li>
+                            <li><strong>Interactive Dashboards:</strong> Clickable elements for deeper analysis</li>
+                            <li><strong>Trend Lines:</strong> Visual indicators of performance trends</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Automation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Scheduled Reports:</strong> Automatically generate reports on a schedule</li>
+                            <li><strong>Email Distribution:</strong> Send reports automatically to stakeholders</li>
+                            <li><strong>Data Refresh:</strong> Automatic updates when underlying data changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to get the most value from your accounting reports.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Regular Review:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Review financial reports monthly, even if not required</li>
+                            <li>Compare actual results to budget and prior periods</li>
+                            <li>Look for unusual fluctuations or trends</li>
+                            <li>Investigate significant variances promptly</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Distribution:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Share relevant reports with appropriate stakeholders</li>
+                            <li>Ensure reports are distributed in a timely manner</li>
+                            <li>Provide context and explanations for key findings</li>
+                            <li>Make reports accessible to those who need them</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Analysis:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Go beyond just looking at numbers—understand the story behind them</li>
+                            <li>Use ratios and metrics to assess performance</li>
+                            <li>Compare with industry benchmarks when possible</li>
+                            <li>Consider external factors affecting results</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-rose-50 border-l-4 border-rose-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-rose-700">
+                                    <strong>Tip:</strong> Don't just generate reports—act on the insights they provide to improve your business performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

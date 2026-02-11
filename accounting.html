@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .section-link { transition: all 0.3s ease; }
+        .section-link:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Accounting</h1>
+                <a href="index.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Main Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comprehensive guide to managing financial records, journal entries, and accounting reports</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#dashboard" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Dashboard</a>
+                <a href="#chart-of-accounts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Chart of Accounts</a>
+                <a href="#accounting-periods" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Accounting Periods</a>
+                <a href="#bank-accounts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Bank Accounts</a>
+                <a href="#journal-entries" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Journal Entries</a>
+                <a href="#posting-status" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Posting Status</a>
+                <a href="#bank-reconciliation" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Bank Reconciliation</a>
+                <a href="#reports" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Reports</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Accounting Overview</h2>
+                <p class="mb-4">The Accounting System provides comprehensive tools for managing financial records, journal entries, and generating financial reports.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Financial Records</h3>
+                        <p>Track and manage all financial transactions</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Journal Entries</h3>
+                        <p>Record all financial transactions accurately</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Financial Reports</h3>
+                        <p>Generate comprehensive financial statements</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Chart of Accounts:</strong> Organize and classify all financial accounts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Journal Entries:</strong> Record all financial transactions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Bank Management:</strong> Track bank accounts and transactions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Management:</strong> Control accounting periods</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Posting Controls:</strong> Manage transaction posting</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Financial Reports:</strong> Generate comprehensive statements</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Dashboard</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Accounting Dashboard provides a comprehensive overview of key financial metrics and activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Real-time financial metrics and KPIs</li>
+                            <li>Recent journal entries and transactions</li>
+                            <li>Bank account balances and activity</li>
+                            <li>Unposted entries requiring attention</li>
+                            <li>Period-end status and deadlines</li>
+                            <li>Financial health indicators</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dashboard Components:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Financial Summary:</strong> Total assets, liabilities, and equity</li>
+                            <li><strong>Recent Transactions:</strong> Latest journal entries</li>
+                            <li><strong>Bank Balances:</strong> Current balances across all bank accounts</li>
+                            <li><strong>Posting Status:</strong> Entries awaiting posting</li>
+                            <li><strong>Period Status:</strong> Current accounting period information</li>
+                            <li><strong>Alerts:</strong> Important notifications and deadlines</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Check the dashboard daily to stay informed about critical financial metrics and pending tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="accounting-dashboard.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chart of Accounts Section -->
+        <section id="chart-of-accounts" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Chart of Accounts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Chart of Accounts organizes and classifies all financial accounts in the system.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Organize accounts by type (assets, liabilities, equity, revenue, expenses)</li>
+                            <li>Assign unique account codes for identification</li>
+                            <li>Define account hierarchies and sub-accounts</li>
+                            <li>Track account balances and activity</li>
+                            <li>Link accounts to specific departments or cost centers</li>
+                            <li>Control account posting permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Categories:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Assets:</strong> Resources owned by the company (cash, inventory, equipment)</li>
+                            <li><strong>Liabilities:</strong> Obligations owed to others (loans, payables)</li>
+                            <li><strong>Equity:</strong> Owner's interest in the company (capital, retained earnings)</li>
+                            <li><strong>Revenue:</strong> Income from business operations (sales, services)</li>
+                            <li><strong>Expenses:</strong> Costs incurred in business operations (salaries, rent)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Create new accounts with proper classification</li>
+                            <li>Modify existing account properties</li>
+                            <li>Inactivate accounts that are no longer needed</li>
+                            <li>View account history and transactions</li>
+                            <li>Export account lists for reporting</li>
+                            <li>Maintain account hierarchies</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-chart-of-accounts.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accounting Periods Section -->
+        <section id="accounting-periods" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Accounting Periods</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Accounting Periods define the time frames for financial reporting and transaction posting.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Define fiscal years and reporting periods</li>
+                            <li>Control when transactions can be posted</li>
+                            <li>Close periods for financial reporting</li>
+                            <li>Reopen closed periods when necessary</li>
+                            <li>Track period status (open, closed, locked)</li>
+                            <li>Manage period-end processes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Create new accounting periods</li>
+                            <li>Set opening and closing dates</li>
+                            <li>Define period types (monthly, quarterly, annually)</li>
+                            <li>Control posting access by period</li>
+                            <li>Close periods for financial reporting</li>
+                            <li>Reopen periods for corrections when needed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Statuses:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Open:</strong> Transactions can be posted normally</li>
+                            <li><strong>Closed:</strong> No new postings allowed</li>
+                            <li><strong>Locked:</strong> Period is closed and cannot be reopened</li>
+                            <li><strong>Adjusting:</strong> Special period for adjusting entries</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-periods.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Accounts Section -->
+        <section id="bank-accounts" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Bank Accounts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Bank Accounts management allows you to track all banking relationships and transactions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Track multiple bank accounts and their balances</li>
+                            <li>Record deposits, withdrawals, and transfers</li>
+                            <li>Link bank transactions to journal entries</li>
+                            <li>Monitor account activity and reconciliations</li>
+                            <li>Track bank fees and charges</li>
+                            <li>Generate bank reports and statements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Account number and routing information</li>
+                            <li>Bank name and branch details</li>
+                            <li>Account type (checking, savings, credit)</li>
+                            <li>Current balance and available funds</li>
+                            <li>Account status (active, closed, dormant)</li>
+                            <li>Linked general ledger account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Bank Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Create and maintain bank account records</li>
+                            <li>Record bank transactions</li>
+                            <li>Link transactions to journal entries</li>
+                            <li>Track bank charges and fees</li>
+                            <li>Prepare for bank reconciliation</li>
+                            <li>Generate bank reports</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-bank-accounts.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journal Entries Section -->
+        <section id="journal-entries" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Journal Entries</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Journal Entries record all financial transactions in the general ledger.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Record debit and credit transactions</li>
+                            <li>Ensure accounting equation balance</li>
+                            <li>Link to supporting documentation</li>
+                            <li>Track transaction dates and references</li>
+                            <li>Assign to specific accounting periods</li>
+                            <li>Review and approve entries before posting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Components:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Entry Date:</strong> Date of the transaction</li>
+                            <li><strong>Reference:</strong> Transaction reference number</li>
+                            <li><strong>Account:</strong> General ledger account affected</li>
+                            <li><strong>Debit/Credit:</strong> Amount and direction of the entry</li>
+                            <li><strong>Description:</strong> Explanation of the transaction</li>
+                            <li><strong>Posting Status:</strong> Whether entry is posted</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Standard Entry:</strong> Regular business transactions</li>
+                            <li><strong>Adjusting Entry:</strong> Period-end adjustments</li>
+                            <li><strong>Reversing Entry:</strong> Reverse previous entries</li>
+                            <li><strong>Closing Entry:</strong> Close temporary accounts</li>
+                            <li><strong>Compound Entry:</strong> Multiple debits and credits</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-journal-entries.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posting Status Section -->
+        <section id="posting-status" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Posting Status</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Posting Status tracks the status of journal entries as they move through the posting process.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Track entry status (draft, pending, posted, rejected)</li>
+                            <li>Monitor batch posting processes</li>
+                            <li>Identify entries requiring attention</li>
+                            <li>Review posting errors and exceptions</li>
+                            <li>Retry failed postings</li>
+                            <li>Generate posting reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Draft:</strong> Entry is being prepared</li>
+                            <li><strong>Pending:</strong> Entry awaiting posting</li>
+                            <li><strong>Posted:</strong> Entry successfully posted to ledger</li>
+                            <li><strong>Rejected:</strong> Entry failed posting validation</li>
+                            <li><strong>Processing:</strong> Entry currently being posted</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Posting Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Review pending entries</li>
+                            <li>Post entries individually or in batches</li>
+                            <li>Identify and resolve posting errors</li>
+                            <li>Retry failed postings</li>
+                            <li>Monitor posting progress</li>
+                            <li>Generate posting status reports</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-posting-status.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Reconciliation Section -->
+        <section id="bank-reconciliation" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Bank Reconciliation</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Bank Reconciliation compares bank statements with internal records to ensure accuracy.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Compare bank statement balances with book balances</li>
+                            <li>Identify outstanding deposits and checks</li>
+                            <li>Track bank charges and interest</li>
+                            <li>Resolve discrepancies between records</li>
+                            <li>Document reconciliation adjustments</li>
+                            <li>Generate reconciliation reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Process:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Obtain bank statement for the period</li>
+                            <li>Compare ending balances</li>
+                            <li>Identify outstanding deposits</li>
+                            <li>Identify outstanding checks</li>
+                            <li>Account for bank charges and interest</li>
+                            <li>Prepare reconciliation adjustments</li>
+                            <li>Verify balances match after adjustments</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Benefits:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensure accuracy of financial records</li>
+                            <li>Identify unauthorized transactions</li>
+                            <li>Discover timing differences</li>
+                            <li>Validate internal controls</li>
+                            <li>Prepare for audits</li>
+                            <li>Maintain financial integrity</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-bank-reconciliation.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Reports</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Accounting Reports provide comprehensive financial statements and analytical reports.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Available Reports:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>General Ledger:</strong> Detailed account transactions and balances</li>
+                            <li><strong>Trial Balance:</strong> Account balances to verify debits equal credits</li>
+                            <li><strong>Income Statement:</strong> Revenue, expenses, and profit/loss</li>
+                            <li><strong>Balance Sheet:</strong> Assets, liabilities, and equity position</li>
+                            <li><strong>Cash Flow Statement:</strong> Cash inflows and outflows by activity</li>
+                            <li><strong>Unified Reports:</strong> Comprehensive integrated financial reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customizable date ranges and filters</li>
+                            <li>Export to Excel and PDF formats</li>
+                            <li>Visual charts and graphs for better understanding</li>
+                            <li>Detailed drill-down capabilities</li>
+                            <li>Comparative reporting across periods</li>
+                            <li>Automated report generation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Report Usage:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Financial statement preparation</li>
+                            <li>Management decision making</li>
+                            <li>Regulatory compliance</li>
+                            <li>Investor and stakeholder reporting</li>
+                            <li>Internal financial analysis</li>
+                            <li>Auditing and verification</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="accounting-reports.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        View Detailed Documentation
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

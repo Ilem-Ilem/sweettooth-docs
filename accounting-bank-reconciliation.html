@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Reconciliation - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Bank Reconciliation</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comparing bank statements with internal records to ensure accuracy</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#reconciliation-process" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Process</a>
+                <a href="#preparing-reconciliation" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Preparing</a>
+                <a href="#identifying-differences" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Differences</a>
+                <a href="#resolving-differences" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Resolving</a>
+                <a href="#completing-reconciliation" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Completing</a>
+                <a href="#permissions-access" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Bank Reconciliation Overview</h2>
+                <p class="mb-4">Bank Reconciliation compares bank statements with internal records to ensure accuracy.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Accuracy Verification</h3>
+                        <p>Ensure records match bank statements</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Discrepancy Detection</h3>
+                        <p>Identify timing differences and errors</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Financial Integrity</h3>
+                        <p>Maintain accurate financial records</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Statement Comparison:</strong> Compare bank statement balances with book balances</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Outstanding Items:</strong> Identify outstanding deposits and checks</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Bank Charges:</strong> Track bank charges and interest</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Discrepancy Resolution:</strong> Resolve discrepancies between records</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Adjustment Recording:</strong> Document reconciliation adjustments</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Report Generation:</strong> Generate reconciliation reports</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Reconciliation Process Section -->
+        <section id="reconciliation-process" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Reconciliation Process</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The bank reconciliation process compares bank statements with internal records.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Steps:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Obtain bank statement for the period</li>
+                            <li>Compare ending balances</li>
+                            <li>Identify outstanding deposits</li>
+                            <li>Identify outstanding checks</li>
+                            <li>Account for bank charges and interest</li>
+                            <li>Prepare reconciliation adjustments</li>
+                            <li>Verify balances match after adjustments</li>
+                            <li>Document the reconciliation</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Elements:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Bank Balance:</strong> Balance per bank statement</li>
+                            <li><strong>Book Balance:</strong> Balance per company records</li>
+                            <li><strong>Outstanding Deposits:</strong> Deposits made but not yet reflected in bank</li>
+                            <li><strong>Outstanding Checks:</strong> Checks written but not yet cleared</li>
+                            <li><strong>Bank Errors:</strong> Errors made by the bank</li>
+                            <li><strong>Company Errors:</strong> Errors in company records</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Formula:</h4>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-gray-800 font-mono text-center">
+                                Bank Balance + Outstanding Deposits - Outstanding Checks = Book Balance + Bank Charges - Bank Credits
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Perform bank reconciliations monthly to catch discrepancies early and maintain accurate records.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preparing Reconciliation Section -->
+        <section id="preparing-reconciliation" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Preparing for Reconciliation</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Proper preparation ensures a smooth reconciliation process.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Preparation Steps:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Obtain the bank statement for the period</li>
+                            <li>Ensure all transactions are recorded in the system</li>
+                            <li>Verify that all deposits are recorded</li>
+                            <li>Confirm that all checks are recorded</li>
+                            <li>Identify any bank charges or interest</li>
+                            <li>Prepare a list of outstanding items</li>
+                            <li>Verify the beginning balance matches</li>
+                            <li>Ensure the accounting period is correct</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Bank Statement:</strong> Official statement from the bank</li>
+                            <li><strong>Internal Records:</strong> Company's cash account records</li>
+                            <li><strong>Deposit Slips:</strong> Documentation of deposits made</li>
+                            <li><strong>Check Registers:</strong> Record of checks issued</li>
+                            <li><strong>Bank Notices:</strong> Notifications of charges or credits</li>
+                            <li><strong>Previous Reconciliation:</strong> Prior period reconciliation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Preparation Checklist:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>All deposits recorded in the books</li>
+                            <li>All checks issued recorded in the books</li>
+                            <li>Bank charges and fees identified</li>
+                            <li>Interest earned recorded</li>
+                            <li>Beginning balances verified</li>
+                            <li>Accounting period confirmed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Maintain a standardized preparation checklist to ensure all necessary steps are completed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Identifying Differences Section -->
+        <section id="identifying-differences" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Identifying Differences</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Identifying differences between bank and book records is a key step in reconciliation.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Differences:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Outstanding Deposits:</strong> Deposits made but not yet reflected in bank</li>
+                            <li><strong>Outstanding Checks:</strong> Checks written but not yet cleared</li>
+                            <li><strong>Bank Charges:</strong> Fees charged by the bank</li>
+                            <li><strong>Interest Earned:</strong> Interest credited by the bank</li>
+                            <li><strong>NSF Checks:</strong> Checks returned for insufficient funds</li>
+                            <li><strong>Bank Errors:</strong> Mistakes made by the bank</li>
+                            <li><strong>Company Errors:</strong> Mistakes in company records</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Difference Identification Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Compare bank statement transactions with book records</li>
+                            <li>Mark items that appear in both records</li>
+                            <li>Identify items that appear in only one record</li>
+                            <li>Group differences by type</li>
+                            <li>Investigate the cause of each difference</li>
+                            <li>Document the reason for each difference</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Difference Analysis:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Review timing differences</li>
+                            <li>Identify potential errors</li>
+                            <li>Check for missing transactions</li>
+                            <li>Verify bank charges and fees</li>
+                            <li>Confirm interest earnings</li>
+                            <li>Investigate unusual items</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Large or unusual differences should be investigated immediately to identify potential fraud or errors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resolving Differences Section -->
+        <section id="resolving-differences" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Resolving Differences</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Resolving differences involves correcting errors and documenting adjustments.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Resolving Timing Differences:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Outstanding Deposits:</strong> These will clear in the next period</li>
+                            <li><strong>Outstanding Checks:</strong> These will clear when presented to the bank</li>
+                            <li><strong>Bank Charges:</strong> Record these in the books if not already recorded</li>
+                            <li><strong>Interest Earned:</strong> Record these in the books if not already recorded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Resolving Errors:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Identify the type of error (bank or company)</li>
+                            <li>Determine the correct amount</li>
+                            <li>Make necessary corrections</li>
+                            <li>Record any required journal entries</li>
+                            <li>Document the correction</li>
+                            <li>Verify the correction</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Adjustment Recording:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Record bank charges not previously recorded</li>
+                            <li>Record interest earned not previously recorded</li>
+                            <li>Correct any book errors</li>
+                            <li>Reverse any incorrect entries</li>
+                            <li>Make adjusting entries as needed</li>
+                            <li>Update account balances</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Always document the reason for adjustments and maintain supporting documentation for audit purposes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completing Reconciliation Section -->
+        <section id="completing-reconciliation" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Completing Reconciliation</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Completing the reconciliation involves final verification and documentation.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Final Verification:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Verify that all items are accounted for</li>
+                            <li>Confirm that adjusted balances match</li>
+                            <li>Review all adjustments made</li>
+                            <li>Verify that journal entries are correct</li>
+                            <li>Ensure all supporting documentation is attached</li>
+                            <li>Obtain necessary approvals</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation Requirements:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Completed reconciliation worksheet</li>
+                            <li>Supporting documentation for adjustments</li>
+                            <li>Journal entries for adjustments</li>
+                            <li>Bank statement copies</li>
+                            <li>Management approval signatures</li>
+                            <li>Reconciliation date and preparer information</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Post-Reconciliation Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Update general ledger accounts</li>
+                            <li>File reconciliation documentation</li>
+                            <li>Prepare reconciliation reports</li>
+                            <li>Notify management of significant findings</li>
+                            <li>Update internal controls as needed</li>
+                            <li>Begin preparation for next period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Retain reconciliation documentation for at least seven years for audit and tax purposes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions and Access Section -->
+        <section id="permissions-access" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Bank Reconciliation features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to all reconciliation features</li>
+                            <li><strong>Accounting Manager:</strong> Can perform and approve reconciliations</li>
+                            <li><strong>Accountant:</strong> Can perform reconciliations</li>
+                            <li><strong>Bookkeeper:</strong> Can view reconciliation status</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel should perform reconciliations</li>
+                            <li>Segregation of duties should be maintained</li>
+                            <li>Approval requirements may apply to adjustments</li>
+                            <li>Some accounts may have restricted access</li>
+                            <li>Access to sensitive bank information may be limited</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for reconciliation tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Bank Reconciliation</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain effective bank reconciliation processes.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Frequency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Perform reconciliations monthly</li>
+                            <li>Consider more frequent reconciliations for high-volume accounts</li>
+                            <li>Reconcile immediately after receiving bank statements</li>
+                            <li>Don't delay reconciliation beyond the statement period</li>
+                            <li>Perform reconciliations consistently</li>
+                            <li>Align reconciliation timing with business cycles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Accuracy:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Verify all transactions before starting reconciliation</li>
+                            <li>Double-check all calculations</li>
+                            <li>Investigate all discrepancies</li>
+                            <li>Document all adjustments thoroughly</li>
+                            <li>Retain all supporting documentation</li>
+                            <li>Have reconciliations reviewed by supervisors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Controls:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain segregation of duties</li>
+                            <li>Implement approval controls for adjustments</li>
+                            <li>Regularly review access permissions</li>
+                            <li>Monitor for unusual transactions</li>
+                            <li>Implement automated validation controls</li>
+                            <li>Conduct periodic audits</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain detailed reconciliation worksheets</li>
+                            <li>Keep copies of bank statements</li>
+                            <li>Document all adjustments made</li>
+                            <li>Record reconciliation dates and preparers</li>
+                            <li>Train staff on proper procedures</li>
+                            <li>Regularly update documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Bank reconciliation is a critical internal control. Maintain strict procedures and document all activities for audit purposes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

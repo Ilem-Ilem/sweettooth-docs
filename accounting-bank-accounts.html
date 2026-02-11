@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Accounts - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Bank Accounts</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Managing banking relationships and tracking account activity</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#creating-accounts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Accounts</a>
+                <a href="#account-information" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Account Information</a>
+                <a href="#managing-accounts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Accounts</a>
+                <a href="#bank-transactions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Bank Transactions</a>
+                <a href="#bank-reconciliation" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Bank Reconciliation</a>
+                <a href="#permissions-access" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Bank Accounts Overview</h2>
+                <p class="mb-4">Bank Accounts management allows you to track all banking relationships and transactions.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Account Tracking</h3>
+                        <p>Track multiple bank accounts and their balances</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Transaction Recording</h3>
+                        <p>Record deposits, withdrawals, and transfers</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Reconciliation</h3>
+                        <p>Monitor account activity and reconciliations</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Account Tracking:</strong> Track multiple bank accounts and their balances</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Transaction Recording:</strong> Record deposits, withdrawals, and transfers</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Linking:</strong> Link bank transactions to journal entries</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Monitoring:</strong> Monitor account activity and reconciliations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Charges Tracking:</strong> Track bank fees and charges</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reporting:</strong> Generate bank reports and statements</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Creating Accounts Section -->
+        <section id="creating-accounts" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Bank Accounts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating bank accounts involves defining account properties and linking them to general ledger accounts.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Account Name:</strong> Descriptive name for the bank account</li>
+                            <li><strong>Account Number:</strong> Bank account number</li>
+                            <li><strong>Bank Name:</strong> Name of the financial institution</li>
+                            <li><strong>Branch Information:</strong> Branch name and location</li>
+                            <li><strong>Account Type:</strong> Checking, savings, credit, etc.</li>
+                            <li><strong>GL Account:</strong> Linked general ledger account</li>
+                            <li><strong>Opening Balance:</strong> Initial balance for the account</li>
+                            <li><strong>Opening Date:</strong> Date the account was opened</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create a Bank Account:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Bank Accounts section</li>
+                            <li>Click the "Add New Account" button</li>
+                            <li>Enter the account name and description</li>
+                            <li>Provide the bank account number</li>
+                            <li>Select the bank name and branch information</li>
+                            <li>Choose the account type</li>
+                            <li>Link to the appropriate general ledger account</li>
+                            <li>Enter the opening balance and date</li>
+                            <li>Set any additional properties</li>
+                            <li>Click "Save" to create the account</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Properties:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Active Status:</strong> Whether the account is currently active</li>
+                            <li><strong>Online Banking:</strong> Whether online banking is enabled</li>
+                            <li><strong>Statement Frequency:</strong> How often statements are received</li>
+                            <li><strong>Minimum Balance:</strong> Required minimum balance</li>
+                            <li><strong>Interest Rate:</strong> Interest rate if applicable</li>
+                            <li><strong>Overdraft Limit:</strong> Overdraft protection limit</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Link each bank account to the appropriate general ledger account to ensure accurate financial reporting.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Information Section -->
+        <section id="account-information" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Account Information</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Bank account information includes all details about your banking relationships.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Basic Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Account Number:</strong> Last four digits of the account number</li>
+                            <li><strong>Bank Name:</strong> Name of the financial institution</li>
+                            <li><strong>Branch Name:</strong> Name of the specific branch</li>
+                            <li><strong>Branch Address:</strong> Complete address of the branch</li>
+                            <li><strong>Account Type:</strong> Checking, savings, credit, etc.</li>
+                            <li><strong>Account Status:</strong> Active, closed, dormant, etc.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Financial Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Current Balance:</strong> Actual balance in the account</li>
+                            <li><strong>Available Balance:</strong> Funds available for use</li>
+                            <li><strong>Opening Balance:</strong> Initial balance when account was created</li>
+                            <li><strong>Opening Date:</strong> Date the account was opened</li>
+                            <li><strong>Currency:</strong> Currency in which the account is denominated</li>
+                            <li><strong>GL Account:</strong> Linked general ledger account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Additional Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Contact Person:</strong> Primary contact at the bank</li>
+                            <li><strong>Contact Number:</strong> Phone number for the account</li>
+                            <li><strong>Online Banking:</strong> Online banking access details</li>
+                            <li><strong>Statement Frequency:</strong> How often statements are received</li>
+                            <li><strong>Minimum Balance:</strong> Required minimum balance</li>
+                            <li><strong>Interest Rate:</strong> Interest rate if applicable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Keep bank account information up to date to ensure accurate financial records and smooth operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Accounts Section -->
+        <section id="managing-accounts" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Bank Accounts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once accounts are created, you can view details, update properties, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Account Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on an account in the list to view detailed information</li>
+                            <li>See the account name, number, and bank information</li>
+                            <li>Review the current balance and activity</li>
+                            <li>Check the account status and properties</li>
+                            <li>View recent transactions for the account</li>
+                            <li>Access reconciliation history</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Updating Properties:</strong> Modify account names, numbers, or bank information</li>
+                            <li><strong>Activating/Deactivating:</strong> Enable or disable accounts</li>
+                            <li><strong>Changing GL Links:</strong> Update linked general ledger accounts</li>
+                            <li><strong>Adjusting Balances:</strong> Correct account balances when necessary</li>
+                            <li><strong>Viewing History:</strong> Review transaction history</li>
+                            <li><strong>Exporting Data:</strong> Download account information</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actions Available:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>View Details:</strong> See complete account information</li>
+                            <li><strong>Edit Account:</strong> Modify account properties</li>
+                            <li><strong>Close Account:</strong> Mark account as closed</li>
+                            <li><strong>Export:</strong> Download account data in Excel or CSV</li>
+                            <li><strong>View Transactions:</strong> See all transactions for the account</li>
+                            <li><strong>Reconcile:</strong> Start bank reconciliation process</li>
+                            <li><strong>Transfer:</strong> Initiate transfers between accounts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> When closing an account, ensure all transactions are recorded and the account is properly reconciled before closing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Transactions Section -->
+        <section id="bank-transactions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Bank Transactions</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Bank transactions include all deposits, withdrawals, transfers, and other banking activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Transaction Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Deposits:</strong> Money added to the account</li>
+                            <li><strong>Withdrawals:</strong> Money taken out of the account</li>
+                            <li><strong>Transfers:</strong> Money moved between accounts</li>
+                            <li><strong>Bank Charges:</strong> Fees charged by the bank</li>
+                            <li><strong>Interest Earned:</strong> Interest credited to the account</li>
+                            <li><strong>Direct Debits:</strong> Automatic payments from the account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Transaction Recording:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Record transactions with proper dates</li>
+                            <li>Link transactions to appropriate accounts</li>
+                            <li>Include reference numbers for tracking</li>
+                            <li>Provide descriptions for each transaction</li>
+                            <li>Ensure transactions balance properly</li>
+                            <li>Attach supporting documentation when needed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Transaction Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Import transactions from bank feeds</li>
+                            <li>Manually enter transactions not captured electronically</li>
+                            <li>Match transactions to existing records</li>
+                            <li>Investigate and resolve discrepancies</li>
+                            <li>Generate transaction reports</li>
+                            <li>Export transaction data for analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Regular transaction recording helps maintain accurate account balances and simplifies the reconciliation process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Reconciliation Section -->
+        <section id="bank-reconciliation" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Bank Reconciliation</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Bank reconciliation compares bank statements with internal records to ensure accuracy.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Obtain bank statement for the period</li>
+                            <li>Compare ending balances</li>
+                            <li>Identify outstanding deposits</li>
+                            <li>Identify outstanding checks</li>
+                            <li>Account for bank charges and interest</li>
+                            <li>Prepare reconciliation adjustments</li>
+                            <li>Verify balances match after adjustments</li>
+                            <li>Document the reconciliation</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Elements:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Bank Balance:</strong> Balance per bank statement</li>
+                            <li><strong>Book Balance:</strong> Balance per company records</li>
+                            <li><strong>Outstanding Deposits:</strong> Deposits made but not yet reflected in bank</li>
+                            <li><strong>Outstanding Checks:</strong> Checks written but not yet cleared</li>
+                            <li><strong>Bank Errors:</strong> Errors made by the bank</li>
+                            <li><strong>Company Errors:</strong> Errors in company records</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation Benefits:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensure accuracy of financial records</li>
+                            <li>Identify unauthorized transactions</li>
+                            <li>Discover timing differences</li>
+                            <li>Validate internal controls</li>
+                            <li>Prepare for audits</li>
+                            <li>Maintain financial integrity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Perform bank reconciliations monthly to catch discrepancies early and maintain accurate records.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions and Access Section -->
+        <section id="permissions-access" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Bank Accounts features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, modify, and delete bank accounts</li>
+                            <li><strong>Accounting Manager:</strong> Can create and modify bank accounts</li>
+                            <li><strong>Accountant:</strong> Can view accounts and record transactions</li>
+                            <li><strong>Bookkeeper:</strong> Can view accounts and record basic transactions</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel should create new bank accounts</li>
+                            <li>Modifying account properties may require elevated permissions</li>
+                            <li>Recording transactions typically requires appropriate access</li>
+                            <li>Reconciliation may require specific authorization</li>
+                            <li>Some accounts may be restricted to specific users</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for bank account management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Bank Account Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain effective bank account management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Setup:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Link each bank account to the appropriate general ledger account</li>
+                            <li>Ensure account numbers are correctly entered</li>
+                            <li>Record accurate opening balances</li>
+                            <li>Document bank contact information</li>
+                            <li>Set up online banking access when available</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Transaction Recording:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Record transactions promptly after they occur</li>
+                            <li>Use consistent and descriptive references</li>
+                            <li>Attach supporting documentation</li>
+                            <li>Verify that transactions balance properly</li>
+                            <li>Regularly import electronic transactions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reconciliation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Perform reconciliations monthly</li>
+                            <li>Investigate all discrepancies</li>
+                            <li>Document reconciliation adjustments</li>
+                            <li>Retain reconciliation records</li>
+                            <li>Review reconciliations with supervisors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Security:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Restrict access to authorized personnel only</li>
+                            <li>Implement dual control for large transactions</li>
+                            <li>Monitor account activity regularly</li>
+                            <li>Secure online banking credentials</li>
+                            <li>Review account statements promptly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Bank account security is critical. Implement strong access controls and monitor account activity regularly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

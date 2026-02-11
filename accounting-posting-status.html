@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting Status - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Posting Status</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Tracking the status of journal entries as they move through the posting process</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#status-types" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Status Types</a>
+                <a href="#status-tracking" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Status Tracking</a>
+                <a href="#monitoring-entries" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Monitoring Entries</a>
+                <a href="#posting-errors" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Posting Errors</a>
+                <a href="#batch-posting" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Batch Posting</a>
+                <a href="#permissions-access" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Posting Status Overview</h2>
+                <p class="mb-4">Posting Status tracks the status of journal entries as they move through the posting process.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Status Tracking</h3>
+                        <p>Track entry status (draft, pending, posted, rejected)</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Batch Processing</h3>
+                        <p>Monitor batch posting processes</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Error Management</h3>
+                        <p>Identify and resolve posting errors</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Status Tracking:</strong> Track entry status (draft, pending, posted, rejected)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Batch Monitoring:</strong> Monitor batch posting processes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Error Identification:</strong> Identify entries requiring attention</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Error Resolution:</strong> Review posting errors and exceptions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Retry Functionality:</strong> Retry failed postings</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Reporting:</strong> Generate posting status reports</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Status Types Section -->
+        <section id="status-types" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Status Types</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Journal entries have different statuses that indicate their position in the posting process.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Definitions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Draft:</strong> Entry is being prepared and has not been submitted for posting</li>
+                            <li><strong>Pending:</strong> Entry has been submitted and is awaiting posting</li>
+                            <li><strong>Posted:</strong> Entry has been successfully posted to the general ledger</li>
+                            <li><strong>Rejected:</strong> Entry failed posting validation and requires correction</li>
+                            <li><strong>Processing:</strong> Entry is currently being processed for posting</li>
+                            <li><strong>On Hold:</strong> Entry is temporarily paused for review or approval</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Transitions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Draft → Pending:</strong> When entry is submitted for posting</li>
+                            <li><strong>Pending → Processing:</strong> When posting process begins</li>
+                            <li><strong>Processing → Posted:</strong> When posting completes successfully</li>
+                            <li><strong>Processing → Rejected:</strong> When posting fails validation</li>
+                            <li><strong>Any → On Hold:</strong> When entry is paused for review</li>
+                            <li><strong>On Hold → Pending:</strong> When entry is resumed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Implications:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Draft:</strong> Entry can be modified freely</li>
+                            <li><strong>Pending:</strong> Entry is locked from modification</li>
+                            <li><strong>Posted:</strong> Entry is final and affects account balances</li>
+                            <li><strong>Rejected:</strong> Entry needs correction before resubmission</li>
+                            <li><strong>Processing:</strong> Entry is temporarily locked</li>
+                            <li><strong>On Hold:</strong> Entry is paused but can be resumed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Regularly monitor pending and processing entries to ensure timely posting of transactions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Tracking Section -->
+        <section id="status-tracking" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Status Tracking</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Status tracking provides visibility into the posting process and helps manage workflow.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Tracking Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Entry Number:</strong> Unique identifier for the journal entry</li>
+                            <li><strong>Current Status:</strong> Current posting status of the entry</li>
+                            <li><strong>Status Timestamp:</strong> Date and time of status change</li>
+                            <li><strong>Processed By:</strong> User who processed the status change</li>
+                            <li><strong>Processing Time:</strong> Duration of processing if applicable</li>
+                            <li><strong>Error Details:</strong> Description of errors if rejected</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Tracking Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Real-time status updates</li>
+                            <li>Historical status changes</li>
+                            <li>Visual indicators for each status</li>
+                            <li>Filtering by status type</li>
+                            <li>Sorting by status or timestamp</li>
+                            <li>Export capabilities for status reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Monitoring:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Dashboard views of current statuses</li>
+                            <li>Alerts for stuck or delayed entries</li>
+                            <li>Reports on posting performance</li>
+                            <li>Trend analysis of posting patterns</li>
+                            <li>Identification of bottlenecks</li>
+                            <li>Performance metrics tracking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Set up automated alerts for entries that remain in processing status beyond expected timeframes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitoring Entries Section -->
+        <section id="monitoring-entries" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Monitoring Entries</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Monitoring entries involves tracking their progress through the posting process.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Monitoring Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Review pending entries regularly</li>
+                            <li>Check processing entries for progress</li>
+                            <li>Identify rejected entries requiring attention</li>
+                            <li>Monitor batch posting progress</li>
+                            <li>Track entry aging and bottlenecks</li>
+                            <li>Generate status reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Monitoring Tools:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Status dashboards with real-time updates</li>
+                            <li>Filtering and sorting capabilities</li>
+                            <li>Automated alerts and notifications</li>
+                            <li>Historical trend analysis</li>
+                            <li>Performance metrics and KPIs</li>
+                            <li>Export and reporting functions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Monitoring Best Practices:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Check pending entries daily</li>
+                            <li>Review rejected entries immediately</li>
+                            <li>Monitor processing entries for delays</li>
+                            <li>Generate weekly status reports</li>
+                            <li>Track posting performance metrics</li>
+                            <li>Identify and resolve bottlenecks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Entries that remain in processing status for extended periods may indicate system issues requiring IT attention.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posting Errors Section -->
+        <section id="posting-errors" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Posting Errors</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Posting errors occur when entries fail validation during the posting process.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Error Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Debit/Credit Imbalance:</strong> Debits don't equal credits</li>
+                            <li><strong>Invalid Account:</strong> Account doesn't exist in chart of accounts</li>
+                            <li><strong>Period Closed:</strong> Attempting to post to a closed period</li>
+                            <li><strong>Insufficient Permissions:</strong> User lacks posting authority</li>
+                            <li><strong>System Validation:</strong> Entry fails system validation rules</li>
+                            <li><strong>Database Constraint:</strong> Violates database integrity rules</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Error Resolution Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Identify the rejected entry in the status report</li>
+                            <li>Review the error message and details</li>
+                            <li>Determine the cause of the error</li>
+                            <li>Correct the entry as needed</li>
+                            <li>Resubmit the corrected entry</li>
+                            <li>Monitor the status until posted</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Error Prevention:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Implement validation checks during entry creation</li>
+                            <li>Train users on proper entry procedures</li>
+                            <li>Use templates for common entry types</li>
+                            <li>Regularly review and update validation rules</li>
+                            <li>Monitor error patterns for systemic issues</li>
+                            <li>Implement automated checks where possible</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Repeated posting errors may indicate training needs or system configuration issues that should be addressed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Batch Posting Section -->
+        <section id="batch-posting" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Batch Posting</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Batch posting allows multiple entries to be processed together for efficiency.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Processing:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Group multiple entries for simultaneous posting</li>
+                            <li>Improve processing efficiency</li>
+                            <li>Reduce system load during peak times</li>
+                            <li>Enable scheduled posting during off-hours</li>
+                            <li>Provide consolidated status reporting</li>
+                            <li>Allow for coordinated error handling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Create batches based on criteria (date, type, amount)</li>
+                            <li>Monitor batch processing progress</li>
+                            <li>Handle batch-level errors and exceptions</li>
+                            <li>Review batch completion status</li>
+                            <li>Generate batch-level reports</li>
+                            <li>Archive batch processing history</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Validate all entries before batch processing</li>
+                            <li>Consider system capacity during batch processing</li>
+                            <li>Plan batch processing during low-usage periods</li>
+                            <li>Monitor resource utilization during batches</li>
+                            <li>Have rollback procedures for failed batches</li>
+                            <li>Test batch processes in non-production environments</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Schedule batch posting during off-hours to minimize impact on system performance during business hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions and Access Section -->
+        <section id="permissions-access" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Posting Status features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to view and manage all posting statuses</li>
+                            <li><strong>Accounting Manager:</strong> Can view and manage posting statuses</li>
+                            <li><strong>Accountant:</strong> Can view posting statuses and retry failed entries</li>
+                            <li><strong>Bookkeeper:</strong> Can view posting statuses for entries they created</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel should manage posting statuses</li>
+                            <li>Retrying failed entries may require elevated permissions</li>
+                            <li>Batch posting may require specific authorization</li>
+                            <li>Some actions may be restricted based on entry amounts</li>
+                            <li>Access to sensitive status information may be limited</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for posting status management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Posting Status Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain effective posting status management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Monitoring:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Check pending entries daily</li>
+                            <li>Monitor processing entries for delays</li>
+                            <li>Address rejected entries immediately</li>
+                            <li>Review batch processing progress</li>
+                            <li>Generate regular status reports</li>
+                            <li>Track posting performance metrics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Error Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Document error patterns and causes</li>
+                            <li>Implement preventive measures</li>
+                            <li>Train staff on common error resolution</li>
+                            <li>Establish escalation procedures</li>
+                            <li>Regularly review error logs</li>
+                            <li>Update validation rules as needed</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Batch Processing:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Schedule batches during off-peak hours</li>
+                            <li>Validate entries before batch processing</li>
+                            <li>Monitor resource utilization</li>
+                            <li>Have rollback procedures ready</li>
+                            <li>Test batch processes regularly</li>
+                            <li>Document batch processing procedures</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain status tracking logs</li>
+                            <li>Document error resolution procedures</li>
+                            <li>Record batch processing history</li>
+                            <li>Train staff on status management</li>
+                            <li>Regularly update documentation</li>
+                            <li>Archive historical status data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> Implement automated monitoring and alerting to proactively identify and resolve posting issues before they impact financial reporting.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

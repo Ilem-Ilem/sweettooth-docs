@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart of Accounts - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Chart of Accounts</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Organizing and classifying all financial accounts in the system</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#account-categories" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Account Categories</a>
+                <a href="#creating-accounts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Accounts</a>
+                <a href="#managing-accounts" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Accounts</a>
+                <a href="#account-hierarchies" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Account Hierarchies</a>
+                <a href="#account-codes" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Account Codes</a>
+                <a href="#permissions-access" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Chart of Accounts Overview</h2>
+                <p class="mb-4">The Chart of Accounts organizes and classifies all financial accounts in the system.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Account Organization</h3>
+                        <p>Structure for organizing financial accounts</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Classification</h3>
+                        <p>Group accounts by type and function</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Tracking</h3>
+                        <p>Monitor account balances and activity</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Account Organization:</strong> Structure for organizing financial accounts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Classification:</strong> Group accounts by type and function</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Unique Codes:</strong> Assign unique account codes for identification</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Hierarchy Management:</strong> Define account hierarchies and sub-accounts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Balance Tracking:</strong> Track account balances and activity</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Permission Control:</strong> Control account posting permissions</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Account Categories Section -->
+        <section id="account-categories" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Account Categories</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Accounts are organized into five main categories based on accounting principles.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Asset Accounts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Current Assets:</strong> Cash, accounts receivable, inventory</li>
+                            <li><strong>Fixed Assets:</strong> Property, plant, equipment</li>
+                            <li><strong>Intangible Assets:</strong> Patents, trademarks, goodwill</li>
+                            <li><strong>Other Assets:</strong> Prepaid expenses, deferred charges</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Liability Accounts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Current Liabilities:</strong> Accounts payable, short-term loans</li>
+                            <li><strong>Long-term Liabilities:</strong> Bonds, mortgages, long-term debt</li>
+                            <li><strong>Other Liabilities:</strong> Deferred revenue, provisions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Equity Accounts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Owner's Capital:</strong> Initial investment and contributions</li>
+                            <li><strong>Retained Earnings:</strong> Accumulated profits</li>
+                            <li><strong>Dividends:</strong> Distributions to owners</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Revenue Accounts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Sales Revenue:</strong> Income from primary business activities</li>
+                            <li><strong>Service Revenue:</strong> Income from services provided</li>
+                            <li><strong>Other Income:</strong> Interest, dividends, gains</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Expense Accounts:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Cost of Goods Sold:</strong> Direct costs of producing goods</li>
+                            <li><strong>Operating Expenses:</strong> Salaries, rent, utilities</li>
+                            <li><strong>Other Expenses:</strong> Interest, taxes, losses</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Proper account categorization ensures accurate financial reporting and compliance with accounting standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creating Accounts Section -->
+        <section id="creating-accounts" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Accounts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating new accounts involves defining account properties and assigning them to appropriate categories.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Account Name:</strong> Descriptive name for the account</li>
+                            <li><strong>Account Code:</strong> Unique identifier for the account</li>
+                            <li><strong>Account Category:</strong> Asset, liability, equity, revenue, or expense</li>
+                            <li><strong>Account Type:</strong> Specific type within the category</li>
+                            <li><strong>Normal Balance:</strong> Whether the account normally has a debit or credit balance</li>
+                            <li><strong>Parent Account:</strong> If creating a sub-account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create an Account:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Chart of Accounts section</li>
+                            <li>Click the "Add New Account" button</li>
+                            <li>Enter the account name and description</li>
+                            <li>Assign a unique account code</li>
+                            <li>Select the appropriate account category</li>
+                            <li>Choose the specific account type</li>
+                            <li>Set the normal balance (debit or credit)</li>
+                            <li>Select a parent account if creating a sub-account</li>
+                            <li>Configure any additional properties</li>
+                            <li>Click "Save" to create the account</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Properties:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Active Status:</strong> Whether the account is currently in use</li>
+                            <li><strong>Posting Allowed:</strong> Whether transactions can be posted to this account</li>
+                            <li><strong>Reporting Level:</strong> How the account appears in reports</li>
+                            <li><strong>Department Assignment:</strong> Which department the account belongs to</li>
+                            <li><strong>Cost Center:</strong> Associated cost center for tracking</li>
+                            <li><strong>Default Description:</strong> Default text for journal entries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Account codes must be unique within the system. Choose codes that are logical and easy to remember.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Accounts Section -->
+        <section id="managing-accounts" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Accounts</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once accounts are created, you can view details, update properties, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Account Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on an account in the chart to view detailed information</li>
+                            <li>See the account name, code, and category</li>
+                            <li>Review the current balance and activity</li>
+                            <li>Check the account status and properties</li>
+                            <li>View transaction history for the account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Account Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Updating Properties:</strong> Modify account names, codes, or categories</li>
+                            <li><strong>Activating/Deactivating:</strong> Enable or disable accounts</li>
+                            <li><strong>Changing Hierarchies:</strong> Move accounts within the structure</li>
+                            <li><strong>Adjusting Permissions:</strong> Control posting access</li>
+                            <li><strong>Viewing History:</strong> Review transaction history</li>
+                            <li><strong>Exporting Data:</strong> Download account information</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actions Available:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>View Details:</strong> See complete account information</li>
+                            <li><strong>Edit Account:</strong> Modify account properties</li>
+                            <li><strong>Inactivate Account:</strong> Disable account without deleting</li>
+                            <li><strong>Export:</strong> Download account data in Excel or CSV</li>
+                            <li><strong>View Transactions:</strong> See all transactions for the account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regularly review and update account properties to ensure they remain accurate and relevant to business operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Hierarchies Section -->
+        <section id="account-hierarchies" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Account Hierarchies</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Account hierarchies allow you to organize accounts into logical structures for better reporting and analysis.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Hierarchy Structure:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Main Accounts:</strong> Top-level accounts in each category</li>
+                            <li><strong>Sub-Accounts:</strong> More specific accounts under main accounts</li>
+                            <li><strong>Detail Accounts:</strong> Individual accounts for specific tracking</li>
+                            <li><strong>Roll-up Totals:</strong> Aggregated balances at higher levels</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Benefits of Hierarchies:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Improved financial reporting with drill-down capabilities</li>
+                            <li>Better organization of account information</li>
+                            <li>Aggregation of related account balances</li>
+                            <li>Flexible reporting at different levels of detail</li>
+                            <li>Consistent account structure across the organization</li>
+                            <li>Enhanced analysis capabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Creating Hierarchies:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Create main accounts for each category</li>
+                            <li>Define sub-accounts under main accounts</li>
+                            <li>Assign detail accounts to appropriate sub-accounts</li>
+                            <li>Set up roll-up relationships</li>
+                            <li>Test the hierarchy structure</li>
+                            <li>Document the hierarchy for reference</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Design your account hierarchy to match your business structure and reporting requirements for maximum effectiveness.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Codes Section -->
+        <section id="account-codes" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Account Codes</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Account codes provide unique identification for each account and help organize the chart of accounts.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Code Structure:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Category Code:</strong> First digit indicates account category (1=Assets, 2=Liabilities, 3=Equity, 4=Revenue, 5=Expenses)</li>
+                            <li><strong>Subcategory Code:</strong> Second digit indicates subcategory within the main category</li>
+                            <li><strong>Specific Account Code:</strong> Remaining digits identify the specific account</li>
+                            <li><strong>Length:</strong> Typically 3-7 digits depending on organizational needs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Code Examples:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>1000:</strong> Cash (Asset)</li>
+                            <li><strong>1100:</strong> Accounts Receivable (Asset)</li>
+                            <li><strong>2000:</strong> Accounts Payable (Liability)</li>
+                            <li><strong>3000:</strong> Owner's Equity (Equity)</li>
+                            <li><strong>4000:</strong> Sales Revenue (Revenue)</li>
+                            <li><strong>5000:</strong> Rent Expense (Expense)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Code Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensure codes are unique across the entire chart</li>
+                            <li>Use logical sequences for easy identification</li>
+                            <li>Reserve ranges for future expansion</li>
+                            <li>Maintain consistency in coding standards</li>
+                            <li>Document the coding system for reference</li>
+                            <li>Review codes periodically for relevance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Changing account codes after transactions have been posted can cause reporting issues. Plan your coding system carefully.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions and Access Section -->
+        <section id="permissions-access" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Chart of Accounts features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, modify, and delete accounts</li>
+                            <li><strong>Accounting Manager:</strong> Can create and modify accounts</li>
+                            <li><strong>Accountant:</strong> Can view accounts and create sub-accounts</li>
+                            <li><strong>Bookkeeper:</strong> Can view accounts and post transactions</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel should create new accounts</li>
+                            <li>Modifying account properties may require elevated permissions</li>
+                            <li>Deleting accounts typically requires administrator access</li>
+                            <li>Posting permissions can be controlled at the account level</li>
+                            <li>Some accounts may be restricted to specific users</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for account management tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Chart of Accounts Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain an effective chart of accounts.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Planning:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Design the chart before implementing the system</li>
+                            <li>Align account structure with business operations</li>
+                            <li>Consider future growth and expansion</li>
+                            <li>Plan for multiple reporting requirements</li>
+                            <li>Document the rationale for each account</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Maintenance:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Regularly review and update account properties</li>
+                            <li>Archive unused accounts instead of deleting them</li>
+                            <li>Ensure account names are clear and descriptive</li>
+                            <li>Keep the chart organized and logical</li>
+                            <li>Train staff on proper account usage</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reporting:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Structure accounts to facilitate required reports</li>
+                            <li>Use consistent naming conventions</li>
+                            <li>Group related accounts together</li>
+                            <li>Plan for consolidation requirements</li>
+                            <li>Consider tax reporting needs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain a chart of accounts manual</li>
+                            <li>Document account purposes and usage</li>
+                            <li>Keep a history of account changes</li>
+                            <li>Train new staff on account structure</li>
+                            <li>Regularly update documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Pro Tip:</strong> A well-designed chart of accounts is the foundation of accurate financial reporting. Invest time in proper planning and maintenance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

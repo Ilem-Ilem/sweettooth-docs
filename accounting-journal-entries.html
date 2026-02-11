@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entries - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Journal Entries</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Recording financial transactions in the general ledger</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#creating-entries" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Entries</a>
+                <a href="#entry-components" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Entry Components</a>
+                <a href="#entry-types" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Entry Types</a>
+                <a href="#posting-process" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Posting Process</a>
+                <a href="#review-approval" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Review & Approval</a>
+                <a href="#permissions-access" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Permissions</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-teal-500 to-cyan-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Journal Entries Overview</h2>
+                <p class="mb-4">Journal Entries record all financial transactions in the general ledger.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Transaction Recording</h3>
+                        <p>Record debit and credit transactions</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Balance Verification</h3>
+                        <p>Ensure accounting equation balance</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Documentation</h3>
+                        <p>Link to supporting documentation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Debit/Credit Recording:</strong> Record debit and credit transactions</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Balance Verification:</strong> Ensure accounting equation balance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Documentation Linking:</strong> Link to supporting documentation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Date Tracking:</strong> Track transaction dates and references</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Assignment:</strong> Assign to specific accounting periods</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Review Process:</strong> Review and approve entries before posting</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Creating Entries Section -->
+        <section id="creating-entries" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Journal Entries</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating journal entries involves recording debit and credit transactions with proper documentation.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Entry Date:</strong> Date of the transaction</li>
+                            <li><strong>Reference:</strong> Transaction reference number</li>
+                            <li><strong>Account:</strong> General ledger account affected</li>
+                            <li><strong>Debit/Credit:</strong> Amount and direction of the entry</li>
+                            <li><strong>Description:</strong> Explanation of the transaction</li>
+                            <li><strong>Posting Status:</strong> Whether entry is posted</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create an Entry:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Journal Entries section</li>
+                            <li>Click the "Add New Entry" button</li>
+                            <li>Select the entry date</li>
+                            <li>Enter a reference number</li>
+                            <li>Add account lines with debit/credit amounts</li>
+                            <li>Ensure debits equal credits</li>
+                            <li>Provide a description for the entry</li>
+                            <li>Assign to the appropriate accounting period</li>
+                            <li>Set the initial status (typically "Draft")</li>
+                            <li>Click "Save" to create the entry</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System validates that debits equal credits</li>
+                            <li>Ensures all accounts exist in the chart of accounts</li>
+                            <li>Verifies that the accounting period is open</li>
+                            <li>Checks that amounts are positive values</li>
+                            <li>Validates that all required fields are filled</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Always ensure that debits equal credits in your journal entries to maintain accounting balance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entry Components Section -->
+        <section id="entry-components" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Entry Components</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Journal entries consist of several key components that ensure proper recording.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Header:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Entry Number:</strong> Unique identifier for the journal entry</li>
+                            <li><strong>Entry Date:</strong> Date when the transaction occurred</li>
+                            <li><strong>Reference:</strong> Reference number or document number</li>
+                            <li><strong>Description:</strong> Brief explanation of the transaction</li>
+                            <li><strong>Created By:</strong> User who created the entry</li>
+                            <li><strong>Created Date:</strong> Date the entry was created</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Lines:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Account:</strong> General ledger account affected</li>
+                            <li><strong>Debit Amount:</strong> Amount debited to the account</li>
+                            <li><strong>Credit Amount:</strong> Amount credited to the account</li>
+                            <li><strong>Line Description:</strong> Specific details for the line item</li>
+                            <li><strong>Cost Center:</strong> Associated cost center if applicable</li>
+                            <li><strong>Department:</strong> Associated department if applicable</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Metadata:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Accounting Period:</strong> Period to which the entry applies</li>
+                            <li><strong>Posting Status:</strong> Draft, pending, posted, or rejected</li>
+                            <li><strong>Approval Status:</strong> Whether entry is approved</li>
+                            <li><strong>Attached Documents:</strong> Supporting documentation</li>
+                            <li><strong>Reversal Entry:</strong> If this reverses a previous entry</li>
+                            <li><strong>Batch Information:</strong> If part of a batch posting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Use clear and descriptive references to make entries easily identifiable during review.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entry Types Section -->
+        <section id="entry-types" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Entry Types</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Different types of journal entries serve specific purposes in accounting.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Standard Entry:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Purpose:</strong> Record regular business transactions</li>
+                            <li><strong>Characteristics:</strong> Day-to-day operational transactions</li>
+                            <li><strong>Examples:</strong> Sales, purchases, expense payments</li>
+                            <li><strong>Timing:</strong> Recorded as transactions occur</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Adjusting Entry:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Purpose:</strong> Period-end adjustments to ensure accurate reporting</li>
+                            <li><strong>Characteristics:</strong> Made at the end of accounting periods</li>
+                            <li><strong>Examples:</strong> Accruals, deferrals, depreciation, provisions</li>
+                            <li><strong>Timing:</strong> Made during period closing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reversing Entry:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Purpose:</strong> Reverse previous adjusting entries</li>
+                            <li><strong>Characteristics:</strong> Exact opposite of the original entry</li>
+                            <li><strong>Examples:</strong> Reverse accruals made in previous period</li>
+                            <li><strong>Timing:</strong> Made at the beginning of the new period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Closing Entry:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Purpose:</strong> Close temporary accounts at period end</li>
+                            <li><strong>Characteristics:</strong> Transfers balances to permanent accounts</li>
+                            <li><strong>Examples:</strong> Close revenue and expense accounts to retained earnings</li>
+                            <li><strong>Timing:</strong> Made during period closing procedures</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Compound Entry:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Purpose:</strong> Record complex transactions with multiple debits and credits</li>
+                            <li><strong>Characteristics:</strong> Multiple accounts affected in a single entry</li>
+                            <li><strong>Examples:</strong> Complex transactions involving several accounts</li>
+                            <li><strong>Timing:</strong> Recorded as needed for complex transactions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Different entry types may have different approval requirements and controls.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posting Process Section -->
+        <section id="posting-process" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Posting Process</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">The posting process moves journal entries from draft status to the general ledger.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Pre-Posting Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Verify that debits equal credits</li>
+                            <li>Ensure all accounts exist in the chart of accounts</li>
+                            <li>Check that the accounting period is open</li>
+                            <li>Validate that all required fields are filled</li>
+                            <li>Confirm that the entry complies with accounting policies</li>
+                            <li>Ensure proper authorization if required</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Posting Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Validate the journal entry</li>
+                            <li>Check for proper authorization</li>
+                            <li>Update account balances in the general ledger</li>
+                            <li>Record the posting date and time</li>
+                            <li>Update the entry status to "Posted"</li>
+                            <li>Generate audit trail entries</li>
+                            <li>Update related reports and dashboards</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Post-Posting Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Update account balances</li>
+                            <li>Generate transaction reports</li>
+                            <li>Update financial statements</li>
+                            <li>Update dashboards and KPIs</li>
+                            <li>Archive the entry for historical reference</li>
+                            <li>Notify relevant stakeholders</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Post entries in chronological order to maintain proper transaction sequence and simplify reconciliation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review and Approval Section -->
+        <section id="review-approval" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Review and Approval</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">The review and approval process ensures accuracy and compliance before posting.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Review Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Initial entry creation by authorized personnel</li>
+                            <li>Self-review by the entry creator</li>
+                            <li>Assignment to reviewers based on amount or type</li>
+                            <li>Technical review for accounting accuracy</li>
+                            <li>Management review for business appropriateness</li>
+                            <li>Final approval for posting</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval Levels:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Minor Entries:</strong> Direct approval by department heads</li>
+                            <li><strong>Major Entries:</strong> Approval by finance managers</li>
+                            <li><strong>Significant Entries:</strong> Approval by CFO or executives</li>
+                            <li><strong>Adjusting Entries:</strong> Approval by accounting managers</li>
+                            <li><strong>Reversing Entries:</strong> Approval by senior accountants</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Review Criteria:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Accuracy of debits and credits</li>
+                            <li>Proper account selection</li>
+                            <li>Appropriate date assignment</li>
+                            <li>Compliance with accounting standards</li>
+                            <li>Business justification for the transaction</li>
+                            <li>Authorization levels and approvals</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Implement a tiered approval system based on transaction amounts and types to ensure appropriate oversight.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions and Access Section -->
+        <section id="permissions-access" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Permissions and Access</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Access to Journal Entries features is controlled by user roles and permissions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Role-Based Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Super Admin:</strong> Full access to create, modify, and post all entries</li>
+                            <li><strong>Accounting Manager:</strong> Can create and approve entries</li>
+                            <li><strong>Accountant:</strong> Can create entries and perform reviews</li>
+                            <li><strong>Bookkeeper:</strong> Can create basic entries</li>
+                            <li><strong>Regular Employee:</strong> May have read-only access depending on permissions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Permission Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Only authorized personnel should create journal entries</li>
+                            <li>Approval permissions are typically role-based</li>
+                            <li>Posting permissions may be restricted to specific roles</li>
+                            <li>Some entry types may require elevated permissions</li>
+                            <li>Amount-based controls may restrict certain users</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Contact your system administrator if you need elevated permissions for journal entry tasks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-cyan-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Journal Entry Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain effective journal entry management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Entry Creation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ensure debits always equal credits</li>
+                            <li>Use clear and descriptive references</li>
+                            <li>Record entries promptly after transactions occur</li>
+                            <li>Attach supporting documentation</li>
+                            <li>Use appropriate account codes</li>
+                            <li>Verify correct accounting period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Review Process:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Implement a systematic review process</li>
+                            <li>Verify mathematical accuracy</li>
+                            <li>Check account classifications</li>
+                            <li>Ensure proper authorization</li>
+                            <li>Document review activities</li>
+                            <li>Train reviewers on accounting standards</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Controls:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Implement segregation of duties</li>
+                            <li>Use approval hierarchies based on amounts</li>
+                            <li>Regularly review access permissions</li>
+                            <li>Monitor for unusual entries</li>
+                            <li>Implement automated validation controls</li>
+                            <li>Conduct periodic audits</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain detailed entry documentation</li>
+                            <li>Keep supporting documents attached</li>
+                            <li>Document approval processes</li>
+                            <li>Train staff on proper procedures</li>
+                            <li>Regularly update documentation</li>
+                            <li>Archive historical entries properly</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Journal entries form the foundation of financial reporting. Maintain strict controls and accuracy in all entries.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

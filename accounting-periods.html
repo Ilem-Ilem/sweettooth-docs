@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Periods - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Accounting Periods</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Defining time frames for financial reporting and transaction posting</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#creating-periods" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Creating Periods</a>
+                <a href="#period-types" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Period Types</a>
+                <a href="#period-statuses" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Period Statuses</a>
+                <a href="#managing-periods" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Managing Periods</a>
+                <a href="#period-closing" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Period Closing</a>
+                <a href="#reopening-periods" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Reopening Periods</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Accounting Periods Overview</h2>
+                <p class="mb-4">Accounting Periods define the time frames for financial reporting and transaction posting.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Time Frames</h3>
+                        <p>Define fiscal years and reporting periods</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Posting Control</h3>
+                        <p>Control when transactions can be posted</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Financial Reporting</h3>
+                        <p>Close periods for financial reporting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Definition:</strong> Define fiscal years and reporting periods</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Posting Control:</strong> Control when transactions can be posted</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Closing:</strong> Close periods for financial reporting</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Reopening:</strong> Reopen closed periods when necessary</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Status Tracking:</strong> Track period status (open, closed, locked)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Management:</strong> Manage period-end processes</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Creating Periods Section -->
+        <section id="creating-periods" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Creating Accounting Periods</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Creating accounting periods involves defining the time frame and setting the appropriate parameters.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Required Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Period Name:</strong> Descriptive name for the period</li>
+                            <li><strong>Period Type:</strong> Monthly, quarterly, or annually</li>
+                            <li><strong>Start Date:</strong> Beginning date of the period</li>
+                            <li><strong>End Date:</strong> Ending date of the period</li>
+                            <li><strong>Fiscal Year:</strong> The fiscal year the period belongs to</li>
+                            <li><strong>Period Number:</strong> Sequential number within the fiscal year</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Steps to Create a Period:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Navigate to the Accounting Periods section</li>
+                            <li>Click the "Add New Period" button</li>
+                            <li>Enter the period name and description</li>
+                            <li>Select the period type (monthly, quarterly, annually)</li>
+                            <li>Set the start and end dates for the period</li>
+                            <li>Select the fiscal year</li>
+                            <li>Assign a sequential period number</li>
+                            <li>Set the initial status (typically "Open")</li>
+                            <li>Click "Save" to create the period</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Validation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System validates that the period doesn't overlap with existing periods</li>
+                            <li>Ensures dates are valid and in chronological order</li>
+                            <li>Verifies that the fiscal year is properly defined</li>
+                            <li>Checks that the period number is unique within the fiscal year</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Plan your fiscal calendar in advance to ensure proper period setup and avoid gaps or overlaps.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Period Types Section -->
+        <section id="period-types" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Period Types</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Different types of accounting periods serve specific purposes in financial reporting.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Standard Periods:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Monthly:</strong> 1-month periods for regular reporting</li>
+                            <li><strong>Quarterly:</strong> 3-month periods for quarterly reporting</li>
+                            <li><strong>Annual:</strong> 12-month periods for year-end reporting</li>
+                            <li><strong>Half-Yearly:</strong> 6-month periods for semi-annual reporting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Special Periods:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Adjusting Period:</strong> Special period for adjusting entries</li>
+                            <li><strong>Opening Period:</strong> Initial period for system setup</li>
+                            <li><strong>Interim Period:</strong> Shorter periods for interim reporting</li>
+                            <li><strong>Transition Period:</strong> Periods during system changes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Characteristics:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Duration:</strong> Length of the period in days/months</li>
+                            <li><strong>Reporting Frequency:</strong> How often reports are generated</li>
+                            <li><strong>Closing Requirements:</strong> Procedures required at period end</li>
+                            <li><strong>Adjustment Allowance:</strong> Whether adjustments are permitted</li>
+                            <li><strong>Reversal Period:</strong> Whether entries reverse in next period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Align your period types with regulatory reporting requirements and business cycles.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Period Statuses Section -->
+        <section id="period-statuses" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Period Statuses</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Accounting periods have different statuses that control what actions can be performed.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Open:</strong> Transactions can be posted normally</li>
+                            <li><strong>Closed:</strong> No new postings allowed</li>
+                            <li><strong>Locked:</strong> Period is closed and cannot be reopened</li>
+                            <li><strong>Adjusting:</strong> Special period for adjusting entries</li>
+                            <li><strong>Processing:</strong> Period is undergoing closing procedures</li>
+                            <li><strong>Reopened:</strong> Previously closed period that has been reopened</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Transitions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Open → Closed:</strong> During period-end closing</li>
+                            <li><strong>Closed → Reopened:</strong> When corrections are needed</li>
+                            <li><strong>Reopened → Closed:</strong> After corrections are made</li>
+                            <li><strong>Closed → Locked:</strong> For legal or compliance reasons</li>
+                            <li><strong>Open → Adjusting:</strong> For special adjustment periods</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Implications:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Open:</strong> Normal posting, reporting, and adjustments allowed</li>
+                            <li><strong>Closed:</strong> No new postings, limited reporting</li>
+                            <li><strong>Locked:</strong> No changes allowed, final status</li>
+                            <li><strong>Adjusting:</strong> Special adjustment entries allowed</li>
+                            <li><strong>Processing:</strong> Limited access during closing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Once a period is locked, no changes can be made. Use this status carefully.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managing Periods Section -->
+        <section id="managing-periods" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Managing Accounting Periods</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Once periods are created, you can view details, update properties, and manage related activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Viewing Period Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Click on a period in the list to view detailed information</li>
+                            <li>See the period name, type, and dates</li>
+                            <li>Check the current status and activity</li>
+                            <li>Review transaction counts and totals</li>
+                            <li>View related reports and documents</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Management Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Status Tracking:</strong> Monitor the status of all periods</li>
+                            <li><strong>Activity Monitoring:</strong> Track transaction activity</li>
+                            <li><strong>Period Preparation:</strong> Prepare for upcoming periods</li>
+                            <li><strong>Period Transition:</strong> Manage status changes</li>
+                            <li><strong>Reporting:</strong> Generate period-specific reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Actions Available:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>View Details:</strong> See complete period information</li>
+                            <li><strong>Edit Period:</strong> Modify period properties (dates, name)</li>
+                            <li><strong>Change Status:</strong> Update the period status</li>
+                            <li><strong>Close Period:</strong> Initiate period closing procedures</li>
+                            <li><strong>Reopen Period:</strong> Reopen a closed period</li>
+                            <li><strong>Lock Period:</strong> Permanently lock a period</li>
+                            <li><strong>Export:</strong> Download period data in Excel or CSV</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Regularly review period statuses to ensure proper financial reporting timelines are maintained.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Period Closing Section -->
+        <section id="period-closing" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Period Closing</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Period closing involves finalizing all transactions and preparing for the next period.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Pre-Closing Checklist:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>All transactions are recorded for the period</li>
+                            <li>Bank reconciliations are completed</li>
+                            <li>Account reconciliations are verified</li>
+                            <li>Adjusting entries are recorded</li>
+                            <li>Accruals and deferrals are properly recorded</li>
+                            <li>Depreciation and amortization are calculated</li>
+                            <li>Inventory counts are completed</li>
+                            <li>Revenue recognition is properly applied</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Closing Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Verify all transactions are posted for the period</li>
+                            <li>Record all necessary adjusting entries</li>
+                            <li>Prepare trial balance to verify account balances</li>
+                            <li>Close temporary accounts (revenue, expense, dividend)</li>
+                            <li>Transfer net income/loss to retained earnings</li>
+                            <li>Prepare financial statements</li>
+                            <li>Review and approve financial statements</li>
+                            <li>Close the period in the system</li>
+                            <li>Archive period data for historical reference</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Post-Closing Activities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Generate period-end financial reports</li>
+                            <li>Distribute reports to stakeholders</li>
+                            <li>File required regulatory reports</li>
+                            <li>Prepare tax returns for the period</li>
+                            <li>Archive supporting documentation</li>
+                            <li>Begin preparation for next period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Develop a standardized closing checklist to ensure all necessary steps are completed consistently.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reopening Periods Section -->
+        <section id="reopening-periods" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Reopening Periods</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Process Overview</h3>
+                    <p class="text-gray-600 mb-4">Reopening periods allows for corrections to previously closed periods.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">When to Reopen:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Discovery of errors in the closed period</li>
+                            <li>Need to record adjusting entries</li>
+                            <li>Regulatory requirements for corrections</li>
+                            <li>Missing transactions that should have been recorded</li>
+                            <li>Changes in accounting estimates</li>
+                            <li>Correction of prior period errors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reopening Process:</h4>
+                        <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                            <li>Identify the need for period reopening</li>
+                            <li>Obtain necessary approvals for the change</li>
+                            <li>Document the reason for reopening</li>
+                            <li>Change the period status from "Closed" to "Open"</li>
+                            <li>Record the necessary correcting entries</li>
+                            <li>Verify that all corrections are accurate</li>
+                            <li>Re-close the period</li>
+                            <li>Update financial statements if necessary</li>
+                            <li>Document the changes made</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Reopening Considerations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Reopening may affect comparative financial statements</li>
+                            <li>Regulatory reporting may need to be revised</li>
+                            <li>Stakeholders may need to be notified</li>
+                            <li>Additional audit procedures may be required</li>
+                            <li>Internal controls should be strengthened</li>
+                            <li>Documentation requirements may be more stringent</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Reopening periods should be done sparingly and with proper authorization. Document all changes thoroughly.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Period Management</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maintain effective accounting period management.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Planning:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Plan your fiscal calendar well in advance</li>
+                            <li>Align periods with business cycles and reporting requirements</li>
+                            <li>Consider seasonal variations in your business</li>
+                            <li>Plan for holidays and business closures</li>
+                            <li>Coordinate with external reporting deadlines</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Execution:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Establish consistent closing procedures</li>
+                            <li>Set realistic deadlines for period closing</li>
+                            <li>Train staff on proper period management</li>
+                            <li>Use automation tools where possible</li>
+                            <li>Maintain detailed documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Controls:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Implement proper authorization controls</li>
+                            <li>Require approval for period status changes</li>
+                            <li>Maintain audit trails for all changes</li>
+                            <li>Regularly review period controls</li>
+                            <li>Monitor for unauthorized access</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain a period calendar with key dates</li>
+                            <li>Document all period management procedures</li>
+                            <li>Keep records of all period changes</li>
+                            <li>Train new staff on period procedures</li>
+                            <li>Regularly update documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Develop a standardized period management calendar that includes all key dates and responsibilities for consistent execution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

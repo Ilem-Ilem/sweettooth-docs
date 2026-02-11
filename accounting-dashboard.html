@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Dashboard - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Accounting Dashboard</h1>
+                <a href="accounting.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Accounting Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comprehensive overview of key financial metrics and activities</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#financial-summary" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Financial Summary</a>
+                <a href="#recent-transactions" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Recent Transactions</a>
+                <a href="#bank-balances" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Bank Balances</a>
+                <a href="#posting-status" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Posting Status</a>
+                <a href="#period-status" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Period Status</a>
+                <a href="#alerts-notifications" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Alerts & Notifications</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Accounting Dashboard Overview</h2>
+                <p class="mb-4">The Accounting Dashboard provides a comprehensive overview of key financial metrics and activities.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Financial Metrics</h3>
+                        <p>Real-time financial metrics and KPIs</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Recent Activity</h3>
+                        <p>Latest journal entries and transactions</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg mb-1">Critical Alerts</h3>
+                        <p>Important notifications and deadlines</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Dashboard Capabilities</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Financial Summary:</strong> Total assets, liabilities, and equity</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Recent Transactions:</strong> Latest journal entries</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Bank Balances:</strong> Current balances across all bank accounts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Posting Status:</strong> Entries awaiting posting</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Period Status:</strong> Current accounting period information</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Alerts:</strong> Important notifications and deadlines</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Financial Summary Section -->
+        <section id="financial-summary" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Financial Summary</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Financial Summary section provides key financial metrics at a glance.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Metrics:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Total Assets:</strong> Sum of all company assets</li>
+                            <li><strong>Total Liabilities:</strong> Sum of all company obligations</li>
+                            <li><strong>Total Equity:</strong> Owner's interest in the company</li>
+                            <li><strong>Net Income:</strong> Profit or loss for the period</li>
+                            <li><strong>Cash Position:</strong> Current cash and cash equivalents</li>
+                            <li><strong>Working Capital:</strong> Current assets minus current liabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Metric Display:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Visual cards with current values</li>
+                            <li>Comparison with previous periods</li>
+                            <li>Percentage changes from prior periods</li>
+                            <li>Trend indicators (up/down arrows)</li>
+                            <li>Color-coded status indicators</li>
+                            <li>Quick access to detailed reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Financial Health Indicators:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Liquidity ratios (current ratio, quick ratio)</li>
+                            <li>Profitability ratios (gross margin, net margin)</li>
+                            <li>Solvency ratios (debt-to-equity, debt ratio)</li>
+                            <li>Efficiency ratios (asset turnover, receivables turnover)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Review the Financial Summary daily to stay informed about the company's financial position and performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Transactions Section -->
+        <section id="recent-transactions" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Recent Transactions</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Recent Transactions section displays the latest journal entries and financial activities.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Transaction Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Date:</strong> Transaction date</li>
+                            <li><strong>Entry Number:</strong> Unique identifier for the journal entry</li>
+                            <li><strong>Description:</strong> Brief explanation of the transaction</li>
+                            <li><strong>Amount:</strong> Total transaction amount</li>
+                            <li><strong>Status:</strong> Posting status (draft, pending, posted)</li>
+                            <li><strong>Created By:</strong> User who created the entry</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Transaction Filtering:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Filter by date range</li>
+                            <li>Filter by transaction type</li>
+                            <li>Filter by account</li>
+                            <li>Filter by status (draft, pending, posted)</li>
+                            <li>Filter by amount range</li>
+                            <li>Search by description or reference</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quick Actions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>View detailed transaction information</li>
+                            <li>Post pending entries</li>
+                            <li>Edit draft entries</li>
+                            <li>Copy existing entries</li>
+                            <li>Export transaction list</li>
+                            <li>Generate transaction reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regularly review recent transactions to ensure accuracy and completeness of financial records.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Balances Section -->
+        <section id="bank-balances" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Bank Balances</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Bank Balances section provides current balances across all bank accounts.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Balance Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Account Name:</strong> Name of the bank account</li>
+                            <li><strong>Account Number:</strong> Last four digits of the account number</li>
+                            <li><strong>Bank Name:</strong> Name of the financial institution</li>
+                            <li><strong>Current Balance:</strong> Actual balance in the account</li>
+                            <li><strong>Available Balance:</strong> Funds available for use</li>
+                            <li><strong>Account Type:</strong> Checking, savings, credit, etc.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Balance Details:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Outstanding deposits not yet reflected</li>
+                            <li>Outstanding checks not yet cleared</li>
+                            <li>Bank holds or restrictions</li>
+                            <li>Interest earned or charged</li>
+                            <li>Bank fees and charges</li>
+                            <li>Reconciliation status</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Bank Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Quick access to individual bank accounts</li>
+                            <li>Initiate transfers between accounts</li>
+                            <li>Record deposits and withdrawals</li>
+                            <li>Start bank reconciliation process</li>
+                            <li>View recent bank activity</li>
+                            <li>Export bank statements</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Regular bank balance monitoring helps detect discrepancies and unauthorized transactions early.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Posting Status Section -->
+        <section id="posting-status" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Posting Status</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Posting Status section tracks the status of journal entries as they move through the posting process.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Draft:</strong> Entry is being prepared</li>
+                            <li><strong>Pending:</strong> Entry awaiting posting</li>
+                            <li><strong>Posted:</strong> Entry successfully posted to ledger</li>
+                            <li><strong>Rejected:</strong> Entry failed posting validation</li>
+                            <li><strong>Processing:</strong> Entry currently being posted</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Number of entries in each status</li>
+                            <li>Oldest pending entries</li>
+                            <li>Entries with errors requiring attention</li>
+                            <li>Batch posting progress</li>
+                            <li>Estimated time to completion</li>
+                            <li>Recent posting activity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Posting Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>View pending entries</li>
+                            <li>Post entries individually or in batches</li>
+                            <li>Identify and resolve posting errors</li>
+                            <li>Retry failed postings</li>
+                            <li>Monitor posting progress</li>
+                            <li>Generate posting status reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Regularly check the posting status to ensure all entries are properly recorded in the general ledger.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Period Status Section -->
+        <section id="period-status" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Period Status</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Period Status section provides information about current and past accounting periods.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Information:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Current Period:</strong> The active accounting period</li>
+                            <li><strong>Period Type:</strong> Monthly, quarterly, or annual</li>
+                            <li><strong>Start Date:</strong> Beginning of the period</li>
+                            <li><strong>End Date:</strong> End of the period</li>
+                            <li><strong>Status:</strong> Open, closed, or locked</li>
+                            <li><strong>Year:</strong> Fiscal year of the period</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Statuses:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Open:</strong> Transactions can be posted normally</li>
+                            <li><strong>Closed:</strong> No new postings allowed</li>
+                            <li><strong>Locked:</strong> Period is closed and cannot be reopened</li>
+                            <li><strong>Adjusting:</strong> Special period for adjusting entries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Period Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>View current period details</li>
+                            <li>Check upcoming closing dates</li>
+                            <li>Review closed periods</li>
+                            <li>Monitor period-end activities</li>
+                            <li>Prepare for period closing</li>
+                            <li>Access period-specific reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Monitor period status closely to ensure timely month-end and year-end closing procedures.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts and Notifications Section -->
+        <section id="alerts-notifications" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Alerts & Notifications</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">The Alerts & Notifications section displays important notifications and deadlines.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Alert Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Period Closing:</strong> Upcoming period closing deadlines</li>
+                            <li><strong>Bank Reconciliation:</strong> Accounts requiring reconciliation</li>
+                            <li><strong>Unposted Entries:</strong> Journal entries awaiting posting</li>
+                            <li><strong>Account Reconciliation:</strong> Accounts with discrepancies</li>
+                            <li><strong>Report Due:</strong> Required reports needing submission</li>
+                            <li><strong>System Maintenance:</strong> Scheduled system updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Notification Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>View all pending notifications</li>
+                            <li>Mark notifications as read</li>
+                            <li>Set notification preferences</li>
+                            <li>Configure alert thresholds</li>
+                            <li>Subscribe to specific alert types</li>
+                            <li>Export notification history</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Alert Prioritization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Critical alerts requiring immediate attention</li>
+                            <li>High priority items needing prompt action</li>
+                            <li>Medium priority items for regular review</li>
+                            <li>Low priority items for informational purposes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Critical alerts require immediate attention. Address these items promptly to maintain accurate financial records.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Dashboard Usage</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize the effectiveness of the Accounting Dashboard.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Daily Review:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Check the dashboard daily to stay informed about financial metrics</li>
+                            <li>Review recent transactions for accuracy</li>
+                            <li>Address any alerts or notifications promptly</li>
+                            <li>Verify that all pending entries are posted</li>
+                            <li>Monitor bank balances for unusual activity</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Weekly Review:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Analyze financial trends and patterns</li>
+                            <li>Review period status and upcoming deadlines</li>
+                            <li>Ensure all bank accounts are reconciled</li>
+                            <li>Verify that all adjusting entries are recorded</li>
+                            <li>Prepare preliminary financial reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Monthly Review:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Complete month-end closing procedures</li>
+                            <li>Generate and review monthly financial statements</li>
+                            <li>Reconcile all accounts</li>
+                            <li>Prepare for period closing</li>
+                            <li>Update budget vs. actual analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quarterly and Annual:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Prepare comprehensive financial reports</li>
+                            <li>Conduct detailed variance analysis</li>
+                            <li>Prepare for audits</li>
+                            <li>Update financial forecasts</li>
+                            <li>Review and update internal controls</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Use the dashboard as your central hub for all accounting activities. It provides the most important information at a glance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Accounting System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
