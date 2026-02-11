@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelato Production - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="text-black.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Gelato Production</h1>
+                <a href="production.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Production Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Managing the creation and storage of artisanal ice cream and frozen desserts</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#batch-planning" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Batch Planning</a>
+                <a href="#recipe-execution" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Recipe Execution</a>
+                <a href="#equipment-management" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Equipment Management</a>
+                <a href="#storage-tracking" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Storage Tracking</a>
+                <a href="#quality-testing" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Quality Testing</a>
+                <a href="#shelf-life" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Shelf Life</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Gelato Production Overview</h2>
+                <p class="mb-4">Gelato Production manages the creation and storage of artisanal ice cream and frozen desserts with emphasis on quality and consistency.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Artisanal Quality</h3>
+                        <p>Focus on premium ingredients and craftsmanship</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Batch Production</h3>
+                        <p>Plan and execute production in controlled batches</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Temperature Control</h3>
+                        <p>Maintain proper freezing and storage conditions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Batch Scheduling:</strong> Plan gelato production based on demand forecasts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Recipe Management:</strong> Store and execute standardized recipes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Equipment Monitoring:</strong> Track churner cycles and freezing equipment</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Storage Management:</strong> Monitor freezer temperatures and capacity</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quality Control:</strong> Conduct sensory evaluation of finished products</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Shelf-Life Tracking:</strong> Monitor freshness and rotation schedules</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Batch Planning Section -->
+        <section id="batch-planning" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Batch Planning</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Batch Planning schedules gelato production based on demand forecasts and seasonal patterns.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Demand Forecasting:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Historical sales data informs production volumes</li>
+                            <li>Seasonal trends are factored into planning</li>
+                            <li>Weather patterns affect gelato demand significantly</li>
+                            <li>Special events and holidays are considered</li>
+                            <li>Local festivals and celebrations influence demand</li>
+                            <li>Day-of-week patterns are analyzed for accuracy</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Production Scheduling:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Production is scheduled during low-demand periods</li>
+                            <li>Popular flavors are prioritized in production plans</li>
+                            <li>Seasonal flavors are rotated based on calendar</li>
+                            <li>Specialty flavors are produced in limited batches</li>
+                            <li>Production capacity is matched to storage availability</li>
+                            <li>Staffing requirements are planned in advance</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Resource Allocation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Specialty ingredients are ordered based on production plans</li>
+                            <li>Equipment availability is scheduled for each batch</li>
+                            <li>Production staff are assigned to specific tasks</li>
+                            <li>Quality control personnel are allocated for testing</li>
+                            <li>Storage space is reserved for finished products</li>
+                            <li>Transportation between production and storage is planned</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> Accurate batch planning reduces waste and ensures popular flavors are consistently available.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Execution Section -->
+        <section id="recipe-execution" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Recipe Execution</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Recipe Execution follows standardized procedures to ensure consistent flavor profiles and quality.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Preparation Steps:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Required ingredients are gathered and measured precisely</li>
+                            <li>Base mixture is prepared according to recipe specifications</li>
+                            <li>Ingredients are added in the correct sequence</li>
+                            <li>Temperatures are monitored throughout the process</li>
+                            <li>Timing is strictly followed for optimal results</li>
+                            <li>Quality checkpoints are performed at key stages</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Control Points:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ingredient quality is verified before use</li>
+                            <li>Mixture consistency is checked during preparation</li>
+                            <li>Flavor intensity is tested mid-process</li>
+                            <li>Color and texture are evaluated</li>
+                            <li>Temperature requirements are maintained</li>
+                            <li>Final product meets all quality standards</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Recipe Variations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Seasonal ingredients are incorporated as appropriate</li>
+                            <li>Customer preferences are considered for custom batches</li>
+                            <li>Special dietary requirements are accommodated</li>
+                            <li>Regional flavor preferences are reflected</li>
+                            <li>Ingredient availability affects recipe execution</li>
+                            <li>Equipment limitations are worked around</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Following recipes precisely ensures consistent quality and customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Management Section -->
+        <section id="equipment-management" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Equipment Management</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Equipment Management monitors churner cycles and freezing equipment to ensure optimal performance.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Churner Operations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Gelato machines are prepped before each batch</li>
+                            <li>Churning times are monitored for proper texture</li>
+                            <li>Temperature settings are adjusted based on recipes</li>
+                            <li>Machine cleaning is scheduled between batches</li>
+                            <li>Performance metrics are tracked for each machine</li>
+                            <li>Maintenance schedules are followed religiously</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Freezing Equipment:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Freezer temperatures are continuously monitored</li>
+                            <li>Defrosting cycles are scheduled regularly</li>
+                            <li>Humidity levels are controlled for quality preservation</li>
+                            <li>Energy efficiency is optimized during operation</li>
+                            <li>Backup systems are tested periodically</li>
+                            <li>Emergency procedures are in place for equipment failure</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Maintenance Protocols:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Daily cleaning routines are performed</li>
+                            <li>Weekly deep cleaning is scheduled</li>
+                            <li>Monthly inspections are conducted</li>
+                            <li>Annual servicing is arranged with technicians</li>
+                            <li>Parts inventory is maintained for quick repairs</li>
+                            <li>Equipment warranties are tracked and managed</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Proper equipment management is critical for consistent gelato quality and food safety.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Storage Tracking Section -->
+        <section id="storage-tracking" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Storage Tracking</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Storage Tracking monitors freezer temperatures and storage capacity for gelato products.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Temperature Monitoring:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Freezer temperatures are logged continuously</li>
+                            <li>Alarm systems alert staff to temperature fluctuations</li>
+                            <li>Different gelato types may require specific temperature zones</li>
+                            <li>Temperature logs are maintained for food safety compliance</li>
+                            <li>Backup power systems protect temperature-sensitive products</li>
+                            <li>Calibration of temperature sensors is performed regularly</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Capacity Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Storage space allocation is planned by flavor and volume</li>
+                            <li>Rotation schedules ensure first-in-first-out usage</li>
+                            <li>Space utilization is optimized for maximum efficiency</li>
+                            <li>Seasonal storage needs are anticipated and planned</li>
+                            <li>Emergency overflow storage is identified</li>
+                            <li>Accessibility for staff and equipment is considered</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Product Identification:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Each batch is labeled with production date and flavor</li>
+                            <li>Color-coded systems help identify different product types</li>
+                            <li>Barcode tracking enables precise inventory management</li>
+                            <li>Shelf-life indicators are clearly marked</li>
+                            <li>Special batches (custom orders) are separately identified</li>
+                            <li>Quality status is indicated on each container</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> Effective storage tracking prevents waste and ensures product freshness for customers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Testing Section -->
+        <section id="quality-testing" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Quality Testing</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Quality Testing conducts sensory evaluation of finished gelato products to ensure excellence.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Sensory Evaluation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Taste panels evaluate flavor profiles and intensity</li>
+                            <li>Texture assessment ensures proper consistency</li>
+                            <li>Color evaluation confirms visual appeal</li>
+                            <li>Aroma testing verifies scent characteristics</li>
+                            <li>Temperature appropriateness is confirmed</li>
+                            <li>Mouthfeel and creaminess are assessed</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Flavor intensity must meet established benchmarks</li>
+                            <li>Texture should be smooth and creamy without ice crystals</li>
+                            <li>Color should match expected standards for each flavor</li>
+                            <li>Overall appearance should be appetizing</li>
+                            <li>Consistency should match previous batches</li>
+                            <li>Hygiene standards must be impeccable</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Testing Protocols:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Random samples are tested from each batch</li>
+                            <li>Testing is performed by trained quality staff</li>
+                            <li>Results are documented and compared to standards</li>
+                            <li>Deviation triggers corrective action</li>
+                            <li>Customer feedback is incorporated into testing</li>
+                            <li>Continuous improvement is pursued based on testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular quality testing maintains customer trust and brand reputation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shelf Life Section -->
+        <section id="shelf-life" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Shelf Life Management</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Shelf Life Management monitors freshness and rotation schedules for gelato products.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Expiration Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Production dates are clearly marked on all containers</li>
+                            <li>Recommended consumption dates are calculated and displayed</li>
+                            <li>Automatic alerts notify staff of approaching expiration</li>
+                            <li>First-in-first-out rotation is strictly enforced</li>
+                            <li>Quality degradation patterns are studied and understood</li>
+                            <li>Customer safety is prioritized over waste reduction</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Rotation Systems:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Storage areas are organized for efficient rotation</li>
+                            <li>New batches are placed behind older stock</li>
+                            <li>Staff training ensures proper rotation practices</li>
+                            <li>Visual indicators help identify rotation priorities</li>
+                            <li>Electronic systems track rotation automatically</li>
+                            <li>Manual checks verify system accuracy</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Waste Reduction:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Production volumes are optimized based on sales data</li>
+                            <li>Smaller batches reduce waste risk</li>
+                            <li>End-of-day promotions move near-expiration products</li>
+                            <li>Quality samples are taken before expiration</li>
+                            <li>Donation programs are considered for safe products</li>
+                            <li>Production scheduling minimizes waste</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Strict shelf life management is essential for food safety and customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Gelato Production</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize quality and efficiency in gelato operations.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Ingredient Selection:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Source high-quality ingredients for superior flavor</li>
+                            <li>Choose seasonal ingredients when available</li>
+                            <li>Verify supplier certifications and quality standards</li>
+                            <li>Test new ingredients before incorporating into recipes</li>
+                            <li>Maintain ingredient freshness through proper storage</li>
+                            <li>Build relationships with reliable suppliers</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Production Timing:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Produce gelato during low-demand periods</li>
+                            <li>Allow adequate time for proper freezing and maturation</li>
+                            <li>Plan production to ensure fresh supply during peak hours</li>
+                            <li>Account for weather-related demand fluctuations</li>
+                            <li>Coordinate with sales forecasts for optimal timing</li>
+                            <li>Prepare backup plans for unexpected demand surges</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Customer Experience:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain consistent quality across all batches</li>
+                            <li>Ensure proper serving temperature for optimal texture</li>
+                            <li>Present gelato attractively in the display case</li>
+                            <li>Train staff to recommend flavors based on preferences</li>
+                            <li>Accommodate special dietary requirements when possible</li>
+                            <li>Collect and act on customer feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> Excellence in gelato production comes from attention to detail at every stage of the process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Gelato Production System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverage Production - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="text-black.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Beverage Production</h1>
+                <a href="production.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Production Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Managing the preparation of drinks, juices, cocktails, and other liquid refreshments</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#recipe-execution" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Recipe Execution</a>
+                <a href="#ingredient-mixing" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Ingredient Mixing</a>
+                <a href="#temperature-control" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Temperature Control</a>
+                <a href="#customization" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Customization</a>
+                <a href="#quality-checks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Quality Checks</a>
+                <a href="#waste-reduction" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Waste Reduction</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-green-500 to-teal-500 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Beverage Production Overview</h2>
+                <p class="mb-4">Beverage Production manages the preparation of drinks, juices, cocktails, and other liquid refreshments with focus on quality and consistency.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Recipe Management</h3>
+                        <p>Standardized formulas for consistent results</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Temperature Control</h3>
+                        <p>Proper serving temperatures for all beverages</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Customization</h3>
+                        <p>Flexibility for customer preferences</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Recipe Management:</strong> Store and execute complex drink formulations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Ingredient Tracking:</strong> Monitor freshness and expiration dates</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Equipment Maintenance:</strong> Track beverage machinery upkeep</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Temperature Control:</strong> Ensure proper serving temperatures</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Customization Options:</strong> Modify recipes based on preferences</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Waste Reduction:</strong> Minimize waste through portion control</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Recipe Execution Section -->
+        <section id="recipe-execution" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Recipe Execution</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Recipe Execution prepares beverages according to standardized recipes for consistent quality.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Recipe Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Exact measurements for all ingredients are specified</li>
+                            <li>Mixing sequences are clearly defined</li>
+                            <li>Preparation techniques are detailed</li>
+                            <li>Equipment requirements are listed</li>
+                            <li>Quality checkpoints are identified</li>
+                            <li>Alternative ingredients are documented</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Recipe Access:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Digital recipes are available on tablets or screens</li>
+                            <li>Search functionality helps find recipes quickly</li>
+                            <li>Categories organize recipes by type</li>
+                            <li>Popular recipes are prominently displayed</li>
+                            <li>Seasonal recipes are highlighted</li>
+                            <li>Specialty recipes are clearly marked</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Execution Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Steps are marked as completed during preparation</li>
+                            <li>Timing for each step is monitored</li>
+                            <li>Quality checks are prompted at key points</li>
+                            <li>Deviation from recipes is documented</li>
+                            <li>Success rates are tracked for each recipe</li>
+                            <li>Adjustments are noted for future reference</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Tip:</strong> Following recipes precisely ensures consistent quality and taste across all beverages.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingredient Mixing Section -->
+        <section id="ingredient-mixing" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Ingredient Mixing</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Ingredient Mixing combines ingredients in proper proportions to create beverages.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Measurement Accuracy:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Digital scales provide precise weight measurements</li>
+                            <li>Measuring cups and jiggers ensure volume accuracy</li>
+                            <li>Graduated cylinders measure small liquid amounts</li>
+                            <li>Calibrated dispensers control syrup portions</li>
+                            <li>Temperature affects liquid volume measurements</li>
+                            <li>Viscosity considerations impact measurement</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Mixing Techniques:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Stirring is used for simple combinations</li>
+                            <li>Shaking incorporates air and mixes vigorously</li>
+                            <li>Blending creates smooth, homogeneous mixtures</li>
+                            <li>Layering creates visual appeal without mixing</li>
+                            <li>Whipping introduces air for foam and texture</li>
+                            <li>Infusion allows flavors to meld over time</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Sequence Importance:</h4>
+                        <li>Base ingredients are added first</li>
+                        <li>Flavoring agents are incorporated at specific stages</li>
+                        <li>Carbonation is added last to preserve fizz</li>
+                        <li>Ice is added according to desired dilution</li>
+                        <li>Garnishes are applied last for freshness</li>
+                        <li>Special ingredients may require pre-mixing</li>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Best Practice:</strong> Proper ingredient mixing ensures consistent flavor and texture in all beverages.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Temperature Control Section -->
+        <section id="temperature-control" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Temperature Control</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Temperature Control ensures proper serving temperatures for optimal taste and safety.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Cold Beverage Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sodas and carbonated drinks: 35-40°F</li>
+                            <li>Fruit juices: 35-40°F</li>
+                            <li>Smoothies: 32-38°F</li>
+                            <li>Iced teas: 35-40°F</li>
+                            <li>Cocktails: 35-40°F</li>
+                            <li>Beer: 38-45°F</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Hot Beverage Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Coffee: 180-185°F</li>
+                            <li>Tea: 190-200°F</li>
+                            <li>Hot chocolate: 175-180°F</li>
+                            <li>Espresso: 160-170°F</li>
+                            <li>Hot cider: 185-190°F</li>
+                            <li>Specialty coffee drinks: 150-160°F</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Temperature Monitoring:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Digital thermometers verify serving temperatures</li>
+                            <li>Refrigeration units maintain storage temperatures</li>
+                            <li>Heating equipment is calibrated regularly</li>
+                            <li>Temperature logs track consistency</li>
+                            <li>Alarms alert staff to temperature deviations</li>
+                            <li>Equipment maintenance ensures temperature stability</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Proper temperature control is essential for both taste and food safety in beverages.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization Section -->
+        <section id="customization" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Customization</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Customization modifies recipes based on customer preferences and dietary requirements.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Modifications:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sweetness level adjustments (light, regular, extra sweet)</li>
+                            <li>Milk alternatives (soy, almond, oat, coconut)</li>
+                            <li>Ice level preferences (extra ice, light ice, no ice)</li>
+                            <li>Size modifications (small, medium, large, extra-large)</li>
+                            <li>Flavor additions or substitutions</li>
+                            <li>Extra shots or pumps for stronger flavor</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dietary Accommodations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Sugar-free alternatives for diabetics</li>
+                            <li>Caffeine-free options for sensitive individuals</li>
+                            <li>Gluten-free ingredients when applicable</li>
+                            <li>Allergen-free preparations for allergies</li>
+                            <li>Keto-friendly sweeteners for low-carb diets</li>
+                            <li>Low-sodium options for health-conscious customers</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Customization Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Special requests are clearly noted on orders</li>
+                            <li>Preparation staff are alerted to modifications</li>
+                            <li>Quality checks ensure customizations are correct</li>
+                            <li>Customer preferences are remembered for repeat orders</li>
+                            <li>Popular customizations inform menu development</li>
+                            <li>Price adjustments for customizations are calculated</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-orange-50 border-l-4 border-orange-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-orange-700">
+                                    <strong>Tip:</strong> Effective customization options can significantly enhance customer satisfaction and loyalty.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Checks Section -->
+        <section id="quality-checks" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Quality Checks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Quality Checks verify taste, appearance, and presentation before serving.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Taste Evaluation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Flavor balance is assessed for each beverage</li>
+                            <li>Sweetness level matches customer expectations</li>
+                            <li>Acidity and bitterness are in harmony</li>
+                            <li>Intensity of flavors is appropriate</li>
+                            <li>Off-flavors are detected and addressed</li>
+                            <li>Temperature affects taste perception</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Visual Inspection:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Color matches expected standards</li>
+                            <li>Clarity is appropriate for the beverage type</li>
+                            <li>Layering is distinct when applicable</li>
+                            <li>Foam or head has proper texture and volume</li>
+                            <li>Garnishes are properly placed and fresh</li>
+                            <li>Containers are clean and undamaged</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Presentation Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Glassware is appropriate for the beverage</li>
+                            <li>Ice level matches customer request</li>
+                            <li>Straws and stirrers are provided when needed</li>
+                            <li>Garnishes are fresh and properly placed</li>
+                            <li>Condensation is managed appropriately</li>
+                            <li>Overall appearance is appealing</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Consistent quality checks ensure customer satisfaction and brand reputation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Waste Reduction Section -->
+        <section id="waste-reduction" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Waste Reduction</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Waste Reduction minimizes losses through proper portion control and inventory management.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Portion Control:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Standardized measurements ensure consistent portions</li>
+                            <li>Dispensing equipment is calibrated regularly</li>
+                            <li>Staff training emphasizes proper portioning</li>
+                            <li>Customer education reduces requests for extras</li>
+                            <li>Recipe scaling maintains proportions in different sizes</li>
+                            <li>Quality over quantity approach satisfies customers</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Inventory Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>First-in-first-out rotation prevents spoilage</li>
+                            <li>Expiration dates are monitored closely</li>
+                            <li>Production volumes are adjusted based on demand</li>
+                            <li>Seasonal ingredients are used before expiration</li>
+                            <li>Overstock situations are avoided</li>
+                            <li>Supplier delivery schedules are coordinated</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Production Efficiency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Batch production reduces waste from small runs</li>
+                            <li>Equipment is used efficiently to minimize spillage</li>
+                            <li>Leftover ingredients are repurposed when possible</li>
+                            <li>Quality issues are caught before waste occurs</li>
+                            <li>Staff are trained to recognize waste patterns</li>
+                            <li>Continuous improvement reduces waste over time</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Waste reduction efforts must not compromise quality or food safety standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Beverage Production</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize quality and efficiency in beverage operations.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Ingredient Quality:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Use fresh, high-quality ingredients for superior taste</li>
+                            <li>Source seasonal ingredients when available</li>
+                            <li>Verify supplier certifications and quality standards</li>
+                            <li>Test new ingredients before incorporating into recipes</li>
+                            <li>Store ingredients properly to maintain freshness</li>
+                            <li>Build relationships with reliable suppliers</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Equipment Care:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Clean equipment thoroughly after each use</li>
+                            <li>Descale brewing equipment regularly</li>
+                            <li>Sanitize all surfaces that contact beverages</li>
+                            <li>Service blenders and mixers according to schedule</li>
+                            <li>Replace worn parts to maintain performance</li>
+                            <li>Calibrate measuring equipment regularly</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Customer Focus:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Train staff to suggest appropriate beverages</li>
+                            <li>Accommodate special dietary requirements</li>
+                            <li>Handle complaints professionally and learn from them</li>
+                            <li>Collect and act on customer feedback</li>
+                            <li>Develop signature beverages for differentiation</li>
+                            <li>Maintain consistency across all service interactions</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Tip:</strong> Excellence in beverage production comes from attention to detail and understanding customer preferences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Beverage Production System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

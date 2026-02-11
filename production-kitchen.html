@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Production - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="text-black.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Kitchen Production</h1>
+                <a href="production.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Production Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Managing all food preparation activities in the kitchen department</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#order-management" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Order Management</a>
+                <a href="#preparation-tracking" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Preparation Tracking</a>
+                <a href="#timing-coordination" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Timing Coordination</a>
+                <a href="#inventory-integration" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Inventory Integration</a>
+                <a href="#quality-assurance" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Quality Assurance</a>
+                <a href="#special-orders" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Special Orders</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Kitchen Production Overview</h2>
+                <p class="mb-4">Kitchen Production manages all food preparation activities in the kitchen department, focusing on fresh, made-to-order items.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Fresh Preparation</h3>
+                        <p>Focus on made-to-order food items</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Order Coordination</h3>
+                        <p>Manage orders from service areas</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Quality Standards</h3>
+                        <p>Maintain consistency and presentation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Real-Time Order Tracking:</strong> Monitor all kitchen orders in real-time</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Priority Management:</strong> Handle rush orders and special requests</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Preparation Status:</strong> Track the status of each dish being prepared</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Ingredient Availability:</strong> Check ingredient stock before preparation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quality Control:</strong> Maintain consistency and presentation standards</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Service Coordination:</strong> Coordinate with service staff for optimal delivery</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Order Management Section -->
+        <section id="order-management" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Order Management</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Order Management handles all incoming orders from service areas and distributes them appropriately in the kitchen.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Order Reception:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Orders arrive from tables, takeaway, and delivery services</li>
+                            <li>Orders are displayed on digital screens or tablets in the kitchen</li>
+                            <li>Order details include items, special requests, and table numbers</li>
+                            <li>Urgent orders are highlighted for priority handling</li>
+                            <li>Order timestamps help track preparation times</li>
+                            <li>Order modifications are updated in real-time</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Order Processing:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Kitchen staff acknowledge receipt of new orders</li>
+                            <li>Orders are assigned to appropriate stations based on menu items</li>
+                            <li>Complex orders are broken down into preparation steps</li>
+                            <li>Staff can mark orders as "in progress" to indicate work has begun</li>
+                            <li>Order status is updated throughout the preparation process</li>
+                            <li>Completed orders are marked as "ready for service"</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Order Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Each order has a unique identifier for tracking</li>
+                            <li>Preparation time is monitored to ensure efficiency</li>
+                            <li>Order history is maintained for analysis</li>
+                            <li>Delayed orders are flagged for management attention</li>
+                            <li>Customer satisfaction metrics are linked to order performance</li>
+                            <li>Peak hour patterns are analyzed for staffing optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Efficient order management is crucial for maintaining service speed and customer satisfaction in the kitchen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preparation Tracking Section -->
+        <section id="preparation-tracking" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Preparation Tracking</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Preparation Tracking monitors the status of each dish from start to completion.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Status Updates:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>New:</strong> Order has been received and is awaiting preparation</li>
+                            <li><strong>In Progress:</strong> Staff has started working on the order</li>
+                            <li><strong>Almost Ready:</strong> Final steps are being completed</li>
+                            <li><strong>Ready:</strong> Item is complete and awaiting service</li>
+                            <li><strong>Served:</strong> Item has been delivered to the customer</li>
+                            <li><strong>Modified:</strong> Order has been changed from original request</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Tracking Methods:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Staff update order status using tablets or terminals</li>
+                            <li>Automatic timers track preparation duration</li>
+                            <li>Color-coded indicators show order priority</li>
+                            <li>Notifications alert service staff when items are ready</li>
+                            <li>Reports summarize preparation times and efficiency</li>
+                            <li>Historical data helps predict future preparation needs</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Efficiency Monitoring:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Individual staff preparation times are tracked</li>
+                            <li>Station efficiency is monitored across shifts</li>
+                            <li>Menu item preparation times are analyzed</li>
+                            <li>Peak hour performance is evaluated</li>
+                            <li>Training needs are identified through tracking data</li>
+                            <li>Process improvements are suggested based on tracking insights</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular preparation tracking helps identify bottlenecks and improve kitchen efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timing Coordination Section -->
+        <section id="timing-coordination" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Timing Coordination</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Timing Coordination ensures dishes are prepared in sequence for optimal service timing.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Sequence Planning:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Appetizers are prepared first, followed by main courses</li>
+                            <li>Desserts are timed to be ready when needed</li>
+                            <li>Drinks are coordinated with food service</li>
+                            <li>Multi-course meals are planned for proper timing</li>
+                            <li>Takeaway orders are expedited appropriately</li>
+                            <li>Delivery orders are scheduled for optimal arrival time</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Cooking Time Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Recipes include estimated cooking times</li>
+                            <li>Complex items are started earlier in the process</li>
+                            <li>Simple items are prepared closer to service time</li>
+                            <li>Parallel cooking maximizes efficiency</li>
+                            <li>Equipment availability is considered in timing</li>
+                            <li>Staff workload is balanced across preparation times</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Service Coordination:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Service staff are notified when items are nearly ready</li>
+                            <li>Plating is timed to maintain temperature</li>
+                            <li>Garnishing is done just before service</li>
+                            <li>Final quality checks are performed before service</li>
+                            <li>Orders are grouped for efficient service delivery</li>
+                            <li>Special timing requests are accommodated when possible</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Proper timing coordination is essential for maintaining food quality and service efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Integration Section -->
+        <section id="inventory-integration" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Inventory Integration</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Inventory Integration connects kitchen production with ingredient availability tracking.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Availability Checks:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>System checks ingredient availability before order processing</li>
+                            <li>Low inventory items are flagged for management attention</li>
+                            <li>Out-of-stock items are automatically removed from active menu</li>
+                            <li>Substitution options are suggested when ingredients are unavailable</li>
+                            <li>Inventory levels are updated in real-time as items are used</li>
+                            <li>Automatic reorder points trigger purchasing requests</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Usage Tracking:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Each recipe specifies exact ingredient quantities</li>
+                            <li>Inventory is reduced automatically when items are prepared</li>
+                            <li>Waste and spoilage are tracked separately from usage</li>
+                            <li>Portion control is enforced through recipe specifications</li>
+                            <li>Cost per dish is calculated based on ingredient usage</li>
+                            <li>Seasonal ingredient variations are accounted for</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Integration Benefits:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Reduces food waste through accurate portioning</li>
+                            <li>Prevents order disappointment due to unavailable ingredients</li>
+                            <li>Improves cost control and profitability</li>
+                            <li>Streamlines purchasing decisions</li>
+                            <li>Provides accurate forecasting data</li>
+                            <li>Enhances menu planning capabilities</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Strong inventory integration helps maintain menu availability and reduces waste in kitchen operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Assurance Section -->
+        <section id="quality-assurance" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Quality Assurance</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Quality Assurance maintains consistency and presentation standards for all kitchen items.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Standard Procedures:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Recipes specify exact preparation methods and ingredients</li>
+                            <li>Plating guidelines ensure consistent presentation</li>
+                            <li>Temperature requirements are maintained for safety and quality</li>
+                            <li>Portion sizes are standardized across all preparations</li>
+                            <li>Quality checkpoints are built into the preparation process</li>
+                            <li>Staff training ensures consistent execution of standards</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Inspection Points:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ingredient quality is checked before use</li>
+                            <li>Preparation stages are monitored for compliance</li>
+                            <li>Final products undergo quality inspection</li>
+                            <li>Temperature checks are performed before service</li>
+                            <li>Appearance and presentation are verified</li>
+                            <li>Special dietary requirements are confirmed</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Metrics:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customer feedback is collected and analyzed</li>
+                            <li>Return rates for kitchen items are tracked</li>
+                            <li>Staff performance is evaluated on quality metrics</li>
+                            <li>Recipe success rates are monitored</li>
+                            <li>Waste due to quality issues is minimized</li>
+                            <li>Continuous improvement initiatives are implemented</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular quality assurance practices help maintain customer satisfaction and brand reputation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Orders Section -->
+        <section id="special-orders" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Special Orders</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Special Orders handles custom requests, dietary restrictions, and unique customer preferences.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dietary Accommodations:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Allergen information is clearly documented for each recipe</li>
+                            <li>Gluten-free alternatives are available when possible</li>
+                            <li>Vegan and vegetarian options are clearly marked</li>
+                            <li>Kosher and halal considerations are respected</li>
+                            <li>Low-sodium and diabetic-friendly options are offered</li>
+                            <li>Cross-contamination prevention protocols are followed</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Custom Requests:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Modifications to standard recipes are documented</li>
+                            <li>Staff are trained to handle common customization requests</li>
+                            <li>Price adjustments for special requests are calculated</li>
+                            <li>Feasibility of requests is assessed before acceptance</li>
+                            <li>Communication with customers confirms special requirements</li>
+                            <li>Quality standards are maintained despite modifications</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Event Catering:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Large orders are planned well in advance</li>
+                            <li>Special event menus are created and approved</li>
+                            <li>Timing for event service is carefully coordinated</li>
+                            <li>Packaging and transport considerations are addressed</li>
+                            <li>Staffing for large orders is arranged</li>
+                            <li>Quality maintenance during extended service periods is ensured</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Special orders require extra attention to detail and communication to ensure customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Kitchen Production</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize efficiency and quality in kitchen operations.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Daily Preparation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Review the day's reservations and expected volume</li>
+                            <li>Check inventory levels and arrange for necessary supplies</li>
+                            <li>Prepare mise en place for anticipated orders</li>
+                            <li>Review any special events or large orders scheduled</li>
+                            <li>Confirm equipment functionality and cleanliness</li>
+                            <li>Brief staff on daily specials and menu changes</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">During Service:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain constant communication with service staff</li>
+                            <li>Monitor order pace and adjust staffing as needed</li>
+                            <li>Keep prep areas clean and organized throughout service</li>
+                            <li>Address any issues immediately to prevent service disruption</li>
+                            <li>Stay focused on quality even during busy periods</li>
+                            <li>Anticipate needs before they become urgent</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">After Service:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Properly store any unused ingredients</li>
+                            <li>Clean and sanitize all equipment and surfaces</li>
+                            <li>Document any issues or special requests for future reference</li>
+                            <li>Prepare preliminary prep for the next service period</li>
+                            <li>Review the day's performance and identify improvement areas</li>
+                            <li>Update inventory records with actual usage</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Consistent best practices in kitchen production lead to predictable quality and efficient service.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Kitchen Production System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

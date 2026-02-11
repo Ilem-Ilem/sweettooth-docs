@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Callbacks - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="text-black.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Production Callbacks</h1>
+                <a href="production.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Production Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Managing communication and coordination between production departments and service areas</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#status-updates" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Status Updates</a>
+                <a href="#communication-hub" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Communication Hub</a>
+                <a href="#priority-management" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Priority Management</a>
+                <a href="#issue-resolution" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Issue Resolution</a>
+                <a href="#timing-coordination" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Timing Coordination</a>
+                <a href="#feedback-system" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Feedback System</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Production Callbacks Overview</h2>
+                <p class="mb-4">Production Callbacks manage communication and coordination between production departments and service areas.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Status Tracking</h3>
+                        <p>Monitor order progress in real-time</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Communication</h3>
+                        <p>Bridge between production and service</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Coordination</h3>
+                        <p>Ensure synchronized service delivery</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Status Updates:</strong> Provide real-time updates on order progress</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Communication Hub:</strong> Serve as liaison between production and service</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Priority Management:</strong> Handle rush orders and special requests</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Issue Resolution:</strong> Address production problems that affect service</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Timing Coordination:</strong> Ensure synchronized service of multi-component orders</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Feedback Collection:</strong> Gather information to improve operations</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Status Updates Section -->
+        <section id="status-updates" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Status Updates</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Status Updates provide real-time information on order progress to service staff.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Update Types:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Order Received:</strong> Confirmation that order has entered production queue</li>
+                            <li><strong>In Progress:</strong> Production has begun on the order</li>
+                            <li><strong>Almost Ready:</strong> Final steps are being completed</li>
+                            <li><strong>Ready for Pickup:</strong> Order is complete and awaiting service</li>
+                            <li><strong>Being Delivered:</strong> Order is in transit to customer</li>
+                            <li><strong>Delivered:</strong> Order has reached the customer</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Notification Methods:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Visual alerts on service staff devices</li>
+                            <li>Audio notifications for urgent updates</li>
+                            <li>Dashboard displays showing all order statuses</li>
+                            <li>Text messages for off-site deliveries</li>
+                            <li>Tablet notifications for front-of-house staff</li>
+                            <li>Printed tickets for kitchen staff</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Update Frequency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Real-time updates as orders progress</li>
+                            <li>Automatic notifications at key milestones</li>
+                            <li>Manual updates for special circumstances</li>
+                            <li>Periodic status checks for long orders</li>
+                            <li>Immediate alerts for delays or issues</li>
+                            <li>Completion confirmation for quality tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-rose-50 border-l-4 border-rose-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-rose-700">
+                                    <strong>Tip:</strong> Timely status updates help service staff manage customer expectations and improve satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Communication Hub Section -->
+        <section id="communication-hub" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Communication Hub</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Communication Hub serves as the central point for information exchange between production and service areas.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Information Flow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Orders flow from service to appropriate production departments</li>
+                            <li>Production status flows back to service staff</li>
+                            <li>Special requests are communicated both ways</li>
+                            <li>Inventory availability is shared in real-time</li>
+                            <li>Production capacity is communicated to service</li>
+                            <li>Quality issues are reported through the hub</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Communication Channels:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Digital messaging systems for instant communication</li>
+                            <li>Intercom systems for voice communication</li>
+                            <li>Visual displays showing order status</li>
+                            <li>Mobile apps for remote communication</li>
+                            <li>Written notes for detailed instructions</li>
+                            <li>Face-to-face communication for complex issues</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Central Coordination:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Coordinates between multiple production departments</li>
+                            <li>Manages communication priorities</li>
+                            <li>Ensures information reaches the right people</li>
+                            <li>Tracks communication for accountability</li>
+                            <li>Resolves communication conflicts</li>
+                            <li>Provides backup communication methods</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-pink-50 border-l-4 border-pink-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-pink-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-pink-700">
+                                    <strong>Best Practice:</strong> A centralized communication hub prevents information gaps and miscommunication.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Priority Management Section -->
+        <section id="priority-management" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Priority Management</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Priority Management handles rush orders and special requests that require immediate attention.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Priority Levels:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Normal:</strong> Standard orders processed in sequence</li>
+                            <li><strong>High:</strong> Orders requested for early completion</li>
+                            <li><strong>Rush:</strong> Immediate completion required</li>
+                            <li><strong>Emergency:</strong> Critical orders affecting service</li>
+                            <li><strong>VIP:</strong> Special customer requests with priority</li>
+                            <li><strong>Manager Override:</strong> Administrative priority adjustments</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Priority Assignment:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Automatic assignment based on order type</li>
+                            <li>Manual adjustment by supervisory staff</li>
+                            <li>Customer request consideration</li>
+                            <li>Service urgency assessment</li>
+                            <li>Production capacity evaluation</li>
+                            <li>Impact on other orders consideration</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Priority Handling:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Clear communication of priority status</li>
+                            <li>Adjustment of production sequence</li>
+                            <li>Resource reallocation if necessary</li>
+                            <li>Additional staff assignment when needed</li>
+                            <li>Expedited communication with service staff</li>
+                            <li>Monitoring to ensure priority completion</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Priority management must balance urgent requests with overall production efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Issue Resolution Section -->
+        <section id="issue-resolution" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Issue Resolution</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Issue Resolution addresses production problems that affect service delivery and customer satisfaction.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Issue Identification:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Equipment malfunctions affecting production</li>
+                            <li>Ingredient shortages or quality issues</li>
+                            <li>Recipe problems or preparation errors</li>
+                            <li>Staffing shortages during peak times</li>
+                            <li>Order complications or special requirements</li>
+                            <li>Quality control failures</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Resolution Process:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Immediate acknowledgment of the issue</li>
+                            <li>Quick assessment of impact and urgency</li>
+                            <li>Identification of potential solutions</li>
+                            <li>Coordination with relevant departments</li>
+                            <li>Implementation of chosen solution</li>
+                            <li>Verification that issue is resolved</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Communication During Issues:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Immediate notification to affected parties</li>
+                            <li>Regular updates on resolution progress</li>
+                            <li>Alternative solutions when available</li>
+                            <li>Timeline estimates for resolution</li>
+                            <li>Escalation when issues exceed authority</li>
+                            <li>Documentation of resolution steps</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Prompt issue resolution is critical to maintain service quality and customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timing Coordination Section -->
+        <section id="timing-coordination" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Timing Coordination</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Timing Coordination ensures synchronized service of multi-component orders and optimal delivery timing.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Multi-Component Orders:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Coordinate timing between different production departments</li>
+                            <li>Ensure all components are ready simultaneously</li>
+                            <li>Account for different preparation times</li>
+                            <li>Sequence components for optimal service</li>
+                            <li>Handle timing adjustments for special requests</li>
+                            <li>Communicate timing changes to service staff</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Delivery Timing:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Coordinate with delivery drivers for pickup times</li>
+                            <li>Account for travel time to destination</li>
+                            <li>Ensure hot foods remain hot during transport</li>
+                            <li>Time cold items to arrive at proper temperature</li>
+                            <li>Coordinate multiple delivery stops efficiently</li>
+                            <li>Handle special timing requests from customers</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Peak Hour Management:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Anticipate timing challenges during busy periods</li>
+                            <li>Coordinate additional staff deployment</li>
+                            <li>Adjust production sequencing for efficiency</li>
+                            <li>Communicate realistic timing expectations</li>
+                            <li>Implement contingency plans for delays</li>
+                            <li>Monitor timing performance during peaks</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> Effective timing coordination prevents order delays and maintains food quality.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback System Section -->
+        <section id="feedback-system" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Feedback System</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Feedback System collects information from service staff and customers to improve production operations.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Feedback Collection:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customer satisfaction surveys</li>
+                            <li>Service staff observations and reports</li>
+                            <li>Quality control assessments</li>
+                            <li>Production staff input on process improvements</li>
+                            <li>Management reviews and evaluations</li>
+                            <li>Online review monitoring</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Feedback Categories:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Taste and quality of products</li>
+                            <li>Temperature and presentation</li>
+                            <li>Timing and service speed</li>
+                            <li>Accuracy of orders</li>
+                            <li>Special request fulfillment</li>
+                            <li>Overall customer experience</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Feedback Implementation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Regular review of feedback data</li>
+                            <li>Identification of recurring issues</li>
+                            <li>Development of improvement plans</li>
+                            <li>Communication of changes to staff</li>
+                            <li>Monitoring of improvement effectiveness</li>
+                            <li>Recognition of positive feedback</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Regular feedback collection and implementation drives continuous improvement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Production Callbacks</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize effectiveness in production callback operations.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Communication Excellence:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Respond promptly to all communications</li>
+                            <li>Provide clear and accurate information</li>
+                            <li>Confirm receipt of important messages</li>
+                            <li>Use appropriate communication channels</li>
+                            <li>Document important communications</li>
+                            <li>Follow up on outstanding issues</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Problem-Solving:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Address issues as soon as they arise</li>
+                            <li>Think creatively about solutions</li>
+                            <li>Involve appropriate personnel when needed</li>
+                            <li>Consider impact on all stakeholders</li>
+                            <li>Implement preventive measures</li>
+                            <li>Learn from each challenge</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Customer Focus:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Prioritize customer satisfaction</li>
+                            <li>Manage customer expectations effectively</li>
+                            <li>Handle complaints professionally</li>
+                            <li>Exceed expectations when possible</li>
+                            <li>Remember regular customers' preferences</li>
+                            <li>Turn negative experiences into positive ones</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-rose-50 border-l-4 border-rose-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-rose-700">
+                                    <strong>Tip:</strong> Effective production callbacks are the backbone of excellent customer service and operational efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Production Callbacks System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

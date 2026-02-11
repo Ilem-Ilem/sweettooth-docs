@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Helper - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="text-black.css" rel="stylesheet">
+    <style>
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Production Helper</h1>
+                <a href="production.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Production Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Support functions and tools to assist all production departments</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#prep-work" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Prep Work</a>
+                <a href="#cleaning" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Cleaning</a>
+                <a href="#inventory-support" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Inventory Support</a>
+                <a href="#order-assistance" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Order Assistance</a>
+                <a href="#training" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Training</a>
+                <a href="#communication" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Communication</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Production Helper Overview</h2>
+                <p class="mb-4">Production Helper provides support functions and tools to assist all production departments in their daily operations.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Prep Support</h3>
+                        <p>Assist with preparation and setup tasks</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Cleanliness</h3>
+                        <p>Maintain equipment and workspace cleanliness</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Cross-Department</h3>
+                        <p>Support all production areas as needed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Prep Work:</strong> Prepare ingredients and materials in advance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Cleaning Duties:</strong> Maintain equipment and workspace cleanliness</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Inventory Support:</strong> Assist with stock monitoring</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Order Assistance:</strong> Help fulfill production orders</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Training:</strong> Learn production techniques and procedures</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Communication:</strong> Facilitate inter-department coordination</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Prep Work Section -->
+        <section id="prep-work" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Prep Work</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Prep Work involves preparing ingredients and materials in advance to support production staff.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Ingredient Preparation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Measure and portion ingredients according to recipes</li>
+                            <li>Pre-cut vegetables, fruits, and other ingredients</li>
+                            <li>Thaw frozen ingredients as needed</li>
+                            <li>Prepare marinades and sauces in advance</li>
+                            <li>Sort and organize ingredients by production schedule</li>
+                            <li>Label and date all prepared ingredients</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Equipment Setup:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Prepare workstations with necessary tools</li>
+                            <li>Set up equipment according to production needs</li>
+                            <li>Ensure all equipment is clean and functional</li>
+                            <li>Stock work areas with supplies and materials</li>
+                            <li>Arrange ingredients in logical order for workflow</li>
+                            <li>Prepare backup equipment as needed</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Organization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Arrange ingredients by preparation sequence</li>
+                            <li>Organize tools and utensils for easy access</li>
+                            <li>Set up mise en place for anticipated production</li>
+                            <li>Ensure work areas are clean and sanitized</li>
+                            <li>Verify all necessary items are available</li>
+                            <li>Communicate preparation status to production staff</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-indigo-700">
+                                    <strong>Tip:</strong> Thorough prep work significantly improves production efficiency and workflow.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cleaning Section -->
+        <section id="cleaning" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Cleaning</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Cleaning maintains equipment and workspace cleanliness to ensure food safety and hygiene.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Equipment Cleaning:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Disassemble equipment according to cleaning protocols</li>
+                            <li>Scrub all surfaces with appropriate cleaning solutions</li>
+                            <li>Rinse thoroughly to remove all cleaning residue</li>
+                            <li>Sanitize equipment with approved sanitizers</li>
+                            <li>Reassemble equipment following safety procedures</li>
+                            <li>Verify equipment functionality after cleaning</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workspace Sanitation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Clean and sanitize all work surfaces</li>
+                            <li>Empty and clean sinks and drains</li>
+                            <li>Sanitize cutting boards and utensils</li>
+                            <li>Clean floors with appropriate solutions</li>
+                            <li>Sanitize door handles and touchpoints</li>
+                            <li>Restock cleaning supplies as needed</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Safety Protocols:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Wear appropriate personal protective equipment</li>
+                            <li>Follow chemical safety guidelines</li>
+                            <li>Ensure proper ventilation during cleaning</li>
+                            <li>Store cleaning chemicals safely away from food</li>
+                            <li>Dispose of waste materials properly</li>
+                            <li>Document cleaning activities as required</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Consistent cleaning practices are essential for food safety and regulatory compliance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Support Section -->
+        <section id="inventory-support" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Inventory Support</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Inventory Support assists with monitoring stock levels and organizing materials.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Stock Monitoring:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Check inventory levels at regular intervals</li>
+                            <li>Identify low-stock items that need replenishment</li>
+                            <li>Report out-of-stock ingredients to supervisors</li>
+                            <li>Verify expiration dates on all items</li>
+                            <li>Rotate stock using first-in-first-out principle</li>
+                            <li>Document inventory discrepancies</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Organization:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Arrange items by category and frequency of use</li>
+                            <li>Ensure proper storage conditions for different ingredients</li>
+                            <li>Label shelves and storage areas clearly</li>
+                            <li>Keep walkways clear and organized</li>
+                            <li>Secure valuable or restricted items appropriately</li>
+                            <li>Maintain cleanliness in storage areas</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Receiving Support:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Assist with receiving deliveries</li>
+                            <li>Verify delivered items against purchase orders</li>
+                            <li>Check quality and condition of received goods</li>
+                            <li>Store items in appropriate locations</li>
+                            <li>Document any delivery discrepancies</li>
+                            <li>Report damaged or spoiled items immediately</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Important:</strong> Accurate inventory support prevents production delays and waste.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Assistance Section -->
+        <section id="order-assistance" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Order Assistance</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Order Assistance helps fulfill production orders under supervision of senior staff.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Order Processing:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Receive and understand order requirements</li>
+                            <li>Identify necessary ingredients and equipment</li>
+                            <li>Follow standardized procedures for preparation</li>
+                            <li>Work under supervision of experienced staff</li>
+                            <li>Complete tasks within specified timeframes</li>
+                            <li>Report progress to supervising staff</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Standards:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Follow recipes and procedures precisely</li>
+                            <li>Meet established quality standards</li>
+                            <li>Seek guidance when uncertain about procedures</li>
+                            <li>Report any quality issues immediately</li>
+                            <li>Participate in quality checks</li>
+                            <li>Learn from feedback and corrections</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Efficiency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Work efficiently without compromising quality</li>
+                            <li>Minimize waste during production</li>
+                            <li>Keep work areas organized during tasks</li>
+                            <li>Anticipate needs of production staff</li>
+                            <li>Communicate potential delays proactively</li>
+                            <li>Complete assigned tasks thoroughly</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> Effective order assistance supports production efficiency while maintaining quality standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section id="training" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Training</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Training involves learning production techniques, procedures, and safety protocols.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Technical Skills:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Learn proper food preparation techniques</li>
+                            <li>Understand equipment operation and safety</li>
+                            <li>Master cleaning and sanitation procedures</li>
+                            <li>Study recipe execution and quality standards</li>
+                            <li>Practice portion control and presentation</li>
+                            <li>Develop time management skills</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Safety Protocols:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Food safety and hygiene practices</li>
+                            <li>Equipment safety procedures</li>
+                            <li>Chemical handling and storage</li>
+                            <li>Emergency response procedures</li>
+                            <li>Personal protective equipment use</li>
+                            <li>Reporting procedures for incidents</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Professional Development:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Customer service skills</li>
+                            <li>Teamwork and communication</li>
+                            <li>Problem-solving abilities</li>
+                            <li>Attention to detail</li>
+                            <li>Time management</li>
+                            <li>Continuous learning mindset</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Best Practice:</strong> Continuous training and skill development enhance career growth and job performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Communication Section -->
+        <section id="communication" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Communication</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Communication facilitates coordination between production departments and service areas.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Internal Communication:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Report issues to supervising staff promptly</li>
+                            <li>Request assistance when needed</li>
+                            <li>Share relevant information with team members</li>
+                            <li>Follow established communication channels</li>
+                            <li>Participate in team meetings and briefings</li>
+                            <li>Provide feedback on processes and procedures</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Inter-Department Coordination:</h4>
+                        <li>Facilitate information exchange between departments</li>
+                        <li>Communicate special requirements or changes</li>
+                        <li>Coordinate shared resources and equipment</li>
+                        <li>Report cross-departmental issues</li>
+                        <li>Assist with inter-departmental requests</li>
+                        <li>Support collaborative problem-solving</li>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Documentation:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain accurate records of activities</li>
+                            <li>Complete required forms and checklists</li>
+                            <li>Document any incidents or issues</li>
+                            <li>Track training completion and certifications</li>
+                            <li>Record inventory movements and adjustments</li>
+                            <li>Log equipment maintenance and repairs</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-red-700">
+                                    <strong>Caution:</strong> Clear communication is essential for preventing errors and ensuring food safety.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="feature-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Production Helper Role</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize effectiveness in the Production Helper role.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Professional Attitude:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Approach tasks with enthusiasm and dedication</li>
+                            <li>Be proactive in identifying and solving problems</li>
+                            <li>Remain flexible and adaptable to changing needs</li>
+                            <li>Take initiative when appropriate</li>
+                            <li>Accept feedback positively and implement suggestions</li>
+                            <li>Maintain a positive attitude even during busy periods</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Attention to Detail:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Follow procedures exactly as taught</li>
+                            <li>Pay attention to quality standards</li>
+                            <li>Verify measurements and quantities</li>
+                            <li>Check expiration dates carefully</li>
+                            <li>Ensure cleanliness standards are met</li>
+                            <li>Double-check work before moving to next task</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Continuous Learning:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Ask questions to understand procedures better</li>
+                            <li>Observe experienced staff to learn techniques</li>
+                            <li>Practice new skills until proficient</li>
+                            <li>Stay updated on food safety regulations</li>
+                            <li>Learn about new equipment and technology</li>
+                            <li>Seek opportunities for skill development</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-indigo-700">
+                                    <strong>Tip:</strong> Success as a Production Helper comes from reliability, attention to detail, and willingness to learn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Production Helper System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Management - Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="text-black.css" rel="stylesheet">
+    <style>
+        .section-link { transition: all 0.3s ease; }
+        .section-link:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .nav-link { transition: all 0.2s ease; }
+        .nav-link:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Production Management</h1>
+                <a href="index.html" class="text-indigo-600 hover:text-indigo-800 font-medium">← Back to Main Index</a>
+            </div>
+            <p class="mt-2 text-lg text-gray-600">Comprehensive guide to managing all production activities across Kitchen, Gelato, Confectionaries, Bakery, and Beverage departments</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto py-4">
+                <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Overview</a>
+                <a href="#kitchen" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Kitchen</a>
+                <a href="#gelato" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Gelato Production</a>
+                <a href="#confectionaries" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Confectionaries</a>
+                <a href="#bakery" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Bakery</a>
+                <a href="#beverages" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Beverages</a>
+                <a href="#helper" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Production Helper</a>
+                <a href="#callbacks" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Callbacks</a>
+                <a href="#best-practices" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-6 text-white mb-8">
+                <h2 class="text-2xl font-bold mb-2">Production Management Overview</h2>
+                <p class="mb-4">Production Management encompasses all manufacturing and preparation activities across multiple departments in your establishment.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Multi-Department Operations</h3>
+                        <p>Manage production across Kitchen, Gelato, Confectionaries, Bakery, and Beverages</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Unified Interface</h3>
+                        <p>Consistent functionality across all production departments</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg text-white">
+                        <h3 class="font-semibold text-lg mb-1">Dynamic Filtering</h3>
+                        <p>Backend filters separate department-specific operations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">System Features</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Department-Specific Views:</strong> Dedicated interfaces for each production area</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Unified Functionality:</strong> Consistent operations across all departments</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Production Tracking:</strong> Monitor all production activities in real-time</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Recipe Management:</strong> Store and manage production recipes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Ingredient Tracking:</strong> Monitor raw material usage</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-2">✓</span>
+                        <span><strong>Quality Control:</strong> Maintain standards across all departments</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Kitchen Section -->
+        <section id="kitchen" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Kitchen Production</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Kitchen Production manages all food preparation activities in the kitchen department.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Track all food preparation orders</li>
+                            <li>Manage kitchen workflow and priorities</li>
+                            <li>Monitor preparation times and efficiency</li>
+                            <li>Coordinate with service staff</li>
+                            <li>Handle special dietary requirements</li>
+                            <li>Maintain food safety standards</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Order Management:</strong> Receive and process kitchen orders from service areas</li>
+                            <li><strong>Preparation Tracking:</strong> Monitor the status of each dish being prepared</li>
+                            <li><strong>Timing Coordination:</strong> Ensure dishes are prepared in sequence for optimal service</li>
+                            <li><strong>Inventory Integration:</strong> Track ingredient usage and availability</li>
+                            <li><strong>Quality Assurance:</strong> Maintain consistency and presentation standards</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Orders arrive from service points (tables, takeaway, delivery)</li>
+                            <li>Kitchen staff view orders on digital displays or tablets</li>
+                            <li>Preparation begins based on complexity and cooking time</li>
+                            <li>Completed items are marked as ready for service</li>
+                            <li>Quality check is performed before plating</li>
+                            <li>Items are sent to service staff for customer delivery</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-blue-700">
+                                    <strong>Tip:</strong> Kitchen production focuses on fresh, made-to-order food items that require immediate preparation upon order receipt.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gelato Production Section -->
+        <section id="gelato" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Gelato Production</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Gelato Production manages the creation and storage of artisanal ice cream and frozen desserts.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Batch production scheduling for gelato flavors</li>
+                            <li>Temperature and storage condition monitoring</li>
+                            <li>Recipe management for consistent flavor profiles</li>
+                            <li>Inventory tracking for specialty ingredients</li>
+                            <li>Quality control for texture and taste</li>
+                            <li>Shelf-life management for freshness</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Batch Planning:</strong> Schedule gelato production based on demand forecasts</li>
+                            <li><strong>Recipe Execution:</strong> Follow standardized recipes for consistent results</li>
+                            <li><strong>Equipment Management:</strong> Monitor churner cycles and freezing equipment</li>
+                            <li><strong>Storage Tracking:</strong> Monitor freezer temperatures and storage capacity</li>
+                            <li><strong>Quality Testing:</strong> Conduct sensory evaluation of finished products</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Production schedule is created based on sales forecasts</li>
+                            <li>Required ingredients are gathered and measured</li>
+                            <li>Base mixture is prepared according to recipe specifications</li>
+                            <li>Mixture is pasteurized and homogenized</li>
+                            <li>Flavorings and colorings are added</li>
+                            <li>Mixture is churned in gelato machines to achieve proper texture</li>
+                            <li>Finished gelato is stored in designated freezers</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-purple-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-purple-700">
+                                    <strong>Tip:</strong> Gelato production often requires advance planning due to the time needed for churning and proper freezing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Confectionaries Production Section -->
+        <section id="confectionaries" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Confectionaries Production</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Confectionaries Production manages the creation of sweets, candies, chocolates, and sugar-based treats.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Recipe precision for sugar temperature and timing</li>
+                            <li>Specialized equipment management (tempering machines, molds)</li>
+                            <li>Ingredient quality control for premium results</li>
+                            <li>Decorative element preparation</li>
+                            <li>Seasonal and custom order management</li>
+                            <li>Shelf-life and storage optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Recipe Management:</strong> Store and execute precise confectionery recipes</li>
+                            <li><strong>Tempering Control:</strong> Monitor chocolate tempering processes</li>
+                            <li><strong>Molding Operations:</strong> Create shaped confections using molds</li>
+                            <li><strong>Decorative Work:</strong> Apply finishing touches and decorations</li>
+                            <li><strong>Custom Orders:</strong> Handle special requests and seasonal items</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Production schedule is created based on demand and shelf life</li>
+                            <li>Ingredients are weighed with high precision</li>
+                            <li>Chocolate or sugar mixtures are prepared to exact temperatures</li>
+                            <li>Products are molded or shaped as required</li>
+                            <li>Tempering and cooling processes are carefully monitored</li>
+                            <li>Final decorations and packaging are applied</li>
+                            <li>Products are stored in climate-controlled environments</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Tip:</strong> Confectionaries production requires precise temperature control and timing for optimal texture and appearance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bakery Production Section -->
+        <section id="bakery" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-red-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Bakery Production</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Bakery Production manages the creation of breads, pastries, cakes, and other baked goods.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Proofing and fermentation cycle management</li>
+                            <li>Oven scheduling and temperature control</li>
+                            <li>Recipe scaling for batch production</li>
+                            <li>Freshness tracking and waste minimization</li>
+                            <li>Specialty and custom order handling</li>
+                            <li>Ingredient inventory for flour and perishables</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Production Scheduling:</strong> Plan baking cycles based on demand and shelf life</li>
+                            <li><strong>Dough Preparation:</strong> Mix and knead doughs according to recipes</li>
+                            <li><strong>Proofing Management:</strong> Monitor rising conditions and timing</li>
+                            <li><strong>Baking Operations:</strong> Control oven temperatures and baking times</li>
+                            <li><strong>Finishing Work:</strong> Apply glazes, icings, and decorations</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Production schedule is created considering proofing and baking times</li>
+                            <li>Dry and wet ingredients are measured and mixed</li>
+                            <li>Dough is kneaded and initial fermentation begins</li>
+                            <li>Products are shaped and placed for final proofing</li>
+                            <li>Ovens are preheated to required temperatures</li>
+                            <li>Products are baked according to specific time and temperature requirements</li>
+                            <li>Finished products are cooled and prepared for display or storage</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-amber-700">
+                                    <strong>Tip:</strong> Bakery production often starts very early in the morning to ensure fresh products are available for service.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beverages Production Section -->
+        <section id="beverages" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 p-5">
+                    <h2 class="text-2xl font-bold text-white">Beverage Production</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Beverage Production manages the preparation of drinks, juices, cocktails, and other liquid refreshments.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Recipe management for complex drink formulations</li>
+                            <li>Ingredient freshness and expiration tracking</li>
+                            <li>Equipment maintenance for beverage machinery</li>
+                            <li>Temperature control for cold and hot beverages</li>
+                            <li>Customization options for special requests</li>
+                            <li>Waste reduction through portion control</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Recipe Execution:</strong> Prepare beverages according to standardized recipes</li>
+                            <li><strong>Ingredient Mixing:</strong> Combine ingredients in proper proportions</li>
+                            <li><strong>Temperature Control:</strong> Ensure proper serving temperatures</li>
+                            <li><strong>Customization:</strong> Modify recipes based on customer preferences</li>
+                            <li><strong>Quality Checks:</strong> Verify taste, appearance, and presentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Orders are received from service staff or customers</li>
+                            <li>Required ingredients are gathered from storage</li>
+                            <li>Equipment is prepared (blenders, espresso machines, etc.)</li>
+                            <li>Ingredients are measured and combined</li>
+                            <li>Beverages are mixed, blended, or brewed as required</li>
+                            <li>Final preparations (garnishes, ice, etc.) are added</li>
+                            <li>Finished beverages are served to customers</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-green-700">
+                                    <strong>Tip:</strong> Beverage production often requires immediate preparation upon order to maintain optimal taste and temperature.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Production Helper Section -->
+        <section id="helper" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Production Helper</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Production Helper provides support functions and tools to assist all production departments.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Assist with routine production tasks</li>
+                            <li>Support senior production staff</li>
+                            <li>Handle preparation and cleanup duties</li>
+                            <li>Monitor inventory levels for immediate needs</li>
+                            <li>Facilitate communication between departments</li>
+                            <li>Perform quality checks under supervision</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Prep Work:</strong> Prepare ingredients and materials in advance</li>
+                            <li><strong>Cleaning:</strong> Maintain equipment and workspace cleanliness</li>
+                            <li><strong>Inventory Support:</strong> Assist with stock monitoring</li>
+                            <li><strong>Order Assistance:</strong> Help fulfill production orders</li>
+                            <li><strong>Training:</strong> Learn production techniques and procedures</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Responsibilities:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Follow all food safety and hygiene protocols</li>
+                            <li>Assist with setup and breakdown of production areas</li>
+                            <li>Support all production departments as needed</li>
+                            <li>Report any equipment issues or concerns</li>
+                            <li>Maintain organized workspaces</li>
+                            <li>Follow instructions from senior staff members</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-indigo-700">
+                                    <strong>Tip:</strong> Production Helpers play a crucial role in maintaining efficiency across all production departments.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Production Callbacks Section -->
+        <section id="callbacks" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Production Callbacks</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
+                    <p class="text-gray-600 mb-4">Production Callbacks manage communication and coordination between production departments and service areas.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Key Features:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Track order status and completion times</li>
+                            <li>Notify service staff when items are ready</li>
+                            <li>Handle special requests and modifications</li>
+                            <li>Coordinate with multiple departments simultaneously</li>
+                            <li>Manage rush orders and priority items</li>
+                            <li>Resolve production delays or issues</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Common Functions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li><strong>Status Updates:</strong> Provide real-time updates on order progress</li>
+                            <li><strong>Communication Hub:</strong> Serve as liaison between production and service</li>
+                            <li><strong>Priority Management:</strong> Handle rush orders and special requests</li>
+                            <li><strong>Issue Resolution:</strong> Address production problems that affect service</li>
+                            <li><strong>Timing Coordination:</strong> Ensure synchronized service of multi-component orders</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Workflow:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Orders are received from service areas and distributed to appropriate departments</li>
+                            <li>Production staff begin work on ordered items</li>
+                            <li>Progress is tracked through the system</li>
+                            <li>Service staff receive notifications when items are ready</li>
+                            <li>Any special requests or modifications are communicated</li>
+                            <li>Completion times are monitored to maintain service efficiency</li>
+                            <li>Feedback is collected to improve future operations</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-rose-50 border-l-4 border-rose-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-rose-700">
+                                    <strong>Tip:</strong> Effective callbacks ensure smooth communication between production and service, leading to better customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="mb-12">
+            <div class="section-link bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-5">
+                    <h2 class="text-2xl font-bold text-white">Best Practices</h2>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Optimizing Production Operations</h3>
+                    <p class="text-gray-600 mb-4">Follow these best practices to maximize efficiency and quality across all production departments.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Food Safety:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Maintain proper hand hygiene at all times</li>
+                            <li>Follow HACCP guidelines for food safety</li>
+                            <li>Store ingredients at appropriate temperatures</li>
+                            <li>Use separate cutting boards for different food types</li>
+                            <li>Label and date all prepared items</li>
+                            <li>Dispose of expired ingredients promptly</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Quality Control:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Follow recipes precisely for consistent results</li>
+                            <li>Conduct regular taste tests of products</li>
+                            <li>Maintain proper portion sizes</li>
+                            <li>Inspect finished products before service</li>
+                            <li>Document any quality issues for improvement</li>
+                            <li>Train staff on quality standards</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-2">Efficiency:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                            <li>Prepare ingredients in advance when possible</li>
+                            <li>Organize workstations for optimal workflow</li>
+                            <li>Keep frequently used tools within easy reach</li>
+                            <li>Coordinate with other departments to anticipate demand</li>
+                            <li>Maintain equipment to prevent unexpected downtime</li>
+                            <li>Track production times to identify improvement opportunities</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-sky-50 border-l-4 border-sky-400 p-4 mb-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-sky-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-sky-700">
+                                    <strong>Tip:</strong> Consistency across all production departments leads to better customer experiences and operational efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500 text-sm">© 2026 SweetTooth Production System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
