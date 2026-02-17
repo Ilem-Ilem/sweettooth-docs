@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Workflow - SweetTooth Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #4CAF50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #4CAF50;
+            text-decoration: none;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: #333;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .section {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .section h2 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .section h3 {
+            color: #2196F3;
+            margin: 20px 0 10px 0;
+            font-size: 16px;
+        }
+
+        .section p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .workflow-diagram {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #81c784;
+            overflow-x: auto;
+            line-height: 2;
+        }
+
+        .table-info {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .table-info th,
+        .table-info td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        .table-info th {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .table-info td {
+            color: #aaa;
+        }
+
+        .table-info code {
+            background: #1a1a1a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #4CAF50;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        .info-box {
+            background: #1b3a1b;
+            border-left: 4px solid #81c784;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #81c784;
+        }
+
+        .info-box.warning {
+            background: #3a2a1b;
+            border-left-color: #ffb74d;
+            color: #ffb74d;
+        }
+
+        .info-box.info {
+            background: #1e3a5f;
+            border-left-color: #64b5f6;
+            color: #b0d4ff;
+        }
+
+        ul {
+            color: #aaa;
+            line-height: 2;
+            margin-left: 25px;
+        }
+
+        ul li:before {
+            content: "→ ";
+            color: #4CAF50;
+            margin-left: -15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Accounting Index</a>
+        
+        <div class="header">
+            <h1>📋 Accounting Workflow</h1>
+            <p>Manager-style accounting flow integrated with SweetTooth operations</p>
+        </div>
+
+        <div class="section">
+            <h2>Core Principle</h2>
+            <p>The accounting system follows a Manager-style workflow that separates operational events from accounting settlement events. This ensures accurate financial tracking while keeping daily operations simple.</p>
+            
+            <div class="info-box">
+                <strong>Key Concept:</strong> Operational documents (quotes, orders, delivery notes) track logistics. Financial documents (invoices, payments, bills) create GL entries.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Sales Workflow</h2>
+            
+            <h3>Document Flow</h3>
+            <div class="workflow-diagram">
+SALES WORKFLOW:
+  
+  Quote (sales_quotes)
+    ↓
+  Order (sales_orders)
+    ↓
+  Invoice (sales) ──────────────→ Creates: AR + Revenue + COGS
+    ↓                              Debit: Accounts Receivable
+  Receipt (payments) ───────────→ Creates: Cash + AR Reduction
+                                 Debit: Cash/Bank
+                                 Credit: Accounts Receivable
+            </div>
+
+            <h3>Posting Triggers</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>GL Entries Created</th>
+                        <th>Observer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sale marked <code>completed</code></td>
+                        <td>
+                            <strong>Entry A:</strong> Dr AR, Cr Revenue<br>
+                            <strong>Entry B:</strong> Dr COGS, Cr Inventory
+                        </td>
+                        <td><code>SaleObserver</code></td>
+                    </tr>
+                    <tr>
+                        <td>Payment marked <code>completed</code></td>
+                        <td>
+                            <strong>Entry:</strong> Dr Cash/Bank, Cr AR
+                        </td>
+                        <td><code>PaymentObserver</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cash Sale vs Invoice Sale</h3>
+            <div class="info-box info">
+                <strong>Cash Sale:</strong> Sale created as <code>completed</code> with immediate payment. Both sale and payment post in sequence.<br><br>
+                <strong>Invoice Sale:</strong> Sale created as <code>completed</code> (posts AR + Revenue). Payment added later (posts Cash + AR reduction).
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Purchases Workflow</h2>
+            
+            <h3>Document Flow</h3>
+            <div class="workflow-diagram">
+PURCHASES WORKFLOW:
+  
+  RFQ (purchase_quotes)
+    ↓
+  PO (purchase_orders)
+    ↓
+  Bill (purchases) ─────────────→ Creates: Inventory + AP
+    ↓                              Debit: Inventory
+  Payment ──────────────────────→ Creates: AP Reduction + Cash
+                                 Debit: Accounts Payable
+                                 Credit: Cash/Bank
+            </div>
+
+            <h3>Posting Triggers</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>GL Entries Created</th>
+                        <th>Observer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Purchase marked <code>approved</code></td>
+                        <td>
+                            <strong>Entry:</strong> Dr Inventory, Cr AP
+                        </td>
+                        <td><code>PurchaseObserver</code></td>
+                    </tr>
+                    <tr>
+                        <td>Supplier Payment <code>completed</code></td>
+                        <td>
+                            <strong>Entry:</strong> Dr AP, Cr Cash/Bank
+                        </td>
+                        <td><code>PaymentObserver</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cash Purchase vs Bill Purchase</h3>
+            <div class="info-box info">
+                <strong>Cash Purchase:</strong> Purchase created and approved immediately. Posts Inventory + AP. Payment follows to clear AP.<br><br>
+                <strong>Bill Purchase:</strong> Purchase created as <code>draft</code>, approved later. Posting occurs only on approval.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Inventory Workflow</h2>
+            
+            <h3>Non-Posting Events</h3>
+            <p>These events track stock movement but do NOT create GL entries:</p>
+            <ul>
+                <li>Goods Receipts (<code>goods_receipts</code>) - Receiving proof only</li>
+                <li>Delivery Notes (<code>delivery_notes</code>) - Dispatch proof only</li>
+                <li>Regular Stock Transfers - Location changes without value adjustment</li>
+            </ul>
+
+            <h3>Posting Events</h3>
+            <p>These events DO create GL entries for value adjustments:</p>
+            <div class="workflow-diagram">
+INVENTORY ADJUSTMENT POSTING:
+
+  Stock Movement (type = 'damaged')
+    OR
+  Stock Movement (type = 'adjustment' + reason)
+    ↓
+  Requires: approved_by_id
+    ↓
+  GL Entry Created:
+    - Decrease: Dr Loss Account, Cr Inventory
+    - Increase: Dr Inventory, Cr Gain Account
+            </div>
+
+            <h3>Adjustment Types</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Reason Values</th>
+                        <th>GL Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>damaged</code></td>
+                        <td>Auto-assigned</td>
+                        <td>Dr Damage Loss, Cr Inventory</td>
+                    </tr>
+                    <tr>
+                        <td><code>adjustment</code></td>
+                        <td><code>damage</code>, <code>shrinkage</code>, <code>write_off</code>, <code>count_variance</code></td>
+                        <td>Based on direction (increase/decrease)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Accounting Period Control</h2>
+            
+            <p>All GL postings require an open accounting period. The system validates period status before creating entries.</p>
+            
+            <div class="info-box warning">
+                <strong>Important:</strong> Transactions cannot be posted to closed or locked periods. Ensure the current period is open before processing transactions.
+            </div>
+
+            <h3>Period Statuses</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Can Post?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>open</code></td>
+                        <td>Active period accepting transactions</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td><code>closed</code></td>
+                        <td>Period finalized, no new postings</td>
+                        <td>✗ No</td>
+                    </tr>
+                    <tr>
+                        <td><code>locked</code></td>
+                        <td>Period permanently closed</td>
+                        <td>✗ No</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Period Management</h3>
+            <ul>
+                <li>Navigate to <strong>Accounting → Periods</strong></li>
+                <li>Create new periods before the current period closes</li>
+                <li>Close periods after reconciliation is complete</li>
+                <li>Lock periods for year-end finalization</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Department GL Mapping</h2>
+            
+            <p>Departments can have default GL accounts for automated posting. This reduces manual account selection during transactions.</p>
+            
+            <h3>Department GL Fields</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Purpose</th>
+                        <th>Fallback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>revenue_account_id</code></td>
+                        <td>Default revenue account for sales</td>
+                        <td>System default (4010)</td>
+                    </tr>
+                    <tr>
+                        <td><code>receivable_account_id</code></td>
+                        <td>Default AR account</td>
+                        <td>System default (1100)</td>
+                    </tr>
+                    <tr>
+                        <td><code>cash_account_id</code></td>
+                        <td>Default cash account</td>
+                        <td>Based on payment method</td>
+                    </tr>
+                    <tr>
+                        <td><code>tax_account_id</code></td>
+                        <td>Default tax liability account</td>
+                        <td>System default (2020)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Transaction Status Flow</h2>
+            
+            <div class="workflow-diagram">
+STATUS FLOW FOR ALL TRANSACTIONS:
+
+  PENDING ──(posting attempted)──→ POSTED
+     │                              ↑
+     │                              │
+     └────(posting failed)────────→ FAILED
+                                    │
+                                    │ (retry)
+                                    └───────────────→ PENDING
+            </div>
+
+            <h3>Status Definitions</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Meaning</th>
+                        <th>Action Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>pending</code></td>
+                        <td>Awaiting GL posting</td>
+                        <td>None - automatic</td>
+                    </tr>
+                    <tr>
+                        <td><code>posted</code></td>
+                        <td>GL entries created successfully</td>
+                        <td>None - complete</td>
+                    </tr>
+                    <tr>
+                        <td><code>failed</code></td>
+                        <td>Posting failed with error</td>
+                        <td>Review error and retry</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <strong>Retry Process:</strong> Navigate to Accounting → Posting Status, filter by 'failed', and click retry. The system will re-attempt posting and update the status.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Idempotency Protection</h2>
+            
+            <p>The posting engine prevents duplicate GL entries through idempotency checks.</p>
+            
+            <div class="info-box info">
+                <strong>How It Works:</strong> Before posting, GlPostingService checks if entries already exist for the reference type, reference ID, and entry type combination. If found, posting is skipped.
+            </div>
+
+            <h3>Idempotency Check</h3>
+            <div class="workflow-diagram">
+BEFORE POSTING:
+
+  GlEntry::where('reference_type', Sale::class)
+    ->where('reference_id', $sale->id)
+    ->whereIn('entry_type', ['sale', 'sale_cogs', 'sale_tax'])
+    ->where('status', 'posted')
+    ->exists()
+    
+  IF EXISTS → Skip posting (already done)
+  IF NOT EXISTS → Proceed with posting
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Quick Reference</h2>
+            
+            <h3>Key Files</h3>
+            <ul>
+                <li><strong>Posting Service:</strong> <code>app/Services/GlPostingService.php</code></li>
+                <li><strong>Sale Observer:</strong> <code>app/Observers/SaleObserver.php</code></li>
+                <li><strong>Payment Observer:</strong> <code>app/Observers/PaymentObserver.php</code></li>
+                <li><strong>Purchase Observer:</strong> <code>app/Observers/PurchaseObserver.php</code></li>
+                <li><strong>Stock Movement Observer:</strong> <code>app/Observers/StockMovementObserver.php</code></li>
+            </ul>
+
+            <h3>Related Documentation</h3>
+            <ul>
+                <li><a href="02_posting.html" style="color: #4CAF50;">Posting Engine Details</a></li>
+                <li><a href="03_reports.html" style="color: #4CAF50;">Financial Reports</a></li>
+                <li><a href="index.html" style="color: #4CAF50;">Back to Index</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            console.log('%c✓ Accounting Workflow Documentation Ready', 'color: #4CAF50; font-size: 16px; font-weight: bold;');
+        });
+    </script>
+</body>
+</html>

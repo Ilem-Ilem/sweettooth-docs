@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetTooth - Accounting System Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            color: #4CAF50;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #aaa;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .status-banner {
+            background: #1b3a1b;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            color: #81c784;
+            font-size: 14px;
+        }
+
+        .status-banner strong {
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #4CAF50;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+            border-left-color: #45a049;
+        }
+
+        .card h2 {
+            color: #4CAF50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .card-features {
+            list-style: none;
+            margin: 15px 0;
+            padding: 15px 0;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .card-features li {
+            padding: 4px 0;
+        }
+
+        .card-features li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            margin-right: 6px;
+        }
+
+        .card-button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card-button:hover {
+            background: #45a049;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status.core {
+            background: #1b3a1b;
+            color: #81c784;
+        }
+
+        .status.implementation {
+            background: #1e3a5f;
+            color: #b0d4ff;
+        }
+
+        .status.ui {
+            background: #3a2a5f;
+            color: #d4b0ff;
+        }
+
+        .status.reports {
+            background: #3a3a1b;
+            color: #fff59d;
+        }
+
+        .section-title {
+            color: #4CAF50;
+            font-size: 24px;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #444;
+        }
+
+        .info-section {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .info-section h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            list-style-position: inside;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+        }
+
+        .info-section code {
+            background: #1a1a1a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #4CAF50;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .workflow-diagram {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #81c784;
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-links a {
+            padding: 8px 16px;
+            background: #333;
+            color: #4CAF50;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .quick-links a:hover {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .table-info {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .table-info th,
+        .table-info td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        .table-info th {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .table-info td {
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 SweetTooth Accounting System</h1>
+            <p>Automatic GL posting integration with sales, purchases, payments, and inventory</p>
+        </div>
+
+        <div class="status-banner">
+            <strong>✓ Posting Engine:</strong> GlPostingService handles all accounting entries<br>
+            <strong>✓ Observers:</strong> SaleObserver, PaymentObserver, PurchaseObserver, StockMovementObserver<br>
+            <strong>✓ Auto-Posting:</strong> Completed sales, payments, approved purchases, inventory adjustments<br>
+            <strong>✓ Reports:</strong> Balance Sheet, Income Statement, Trial Balance, General Ledger, Cash Flow
+        </div>
+
+        <h2 class="section-title">System Overview</h2>
+        <div class="grid">
+            <!-- Core Posting Engine -->
+            <div class="card">
+                <span class="status.core">CORE ENGINE</span>
+                <h2>⚙️ GlPostingService</h2>
+                <p>Central posting engine that creates balanced GL entries for all accounting transactions. Handles idempotency and period validation.</p>
+                <ul class="card-features">
+                    <li>postSaleTransaction() - Revenue + COGS entries</li>
+                    <li>postPurchaseTransaction() - Inventory + AP entries</li>
+                    <li>postPaymentTransaction() - Cash + AR entries</li>
+                    <li>postInventoryAdjustment() - Loss/Gain entries</li>
+                    <li>postAccountTransfer() - Bank transfer entries</li>
+                    <li>postExpenseClaim() - Expense entries</li>
+                </ul>
+                <div class="quick-links">
+                    <a href="02_posting.html">Posting Flow</a>
+                    <a href="#entry-types">Entry Types</a>
+                </div>
+            </div>
+
+            <!-- Observers -->
+            <div class="card">
+                <span class="status.core">AUTO TRIGGERS</span>
+                <h2>🔔 Model Observers</h2>
+                <p>Laravel observers automatically trigger GL posting when models reach specific states.</p>
+                <ul class="card-features">
+                    <li>SaleObserver: posts on status = completed</li>
+                    <li>PaymentObserver: posts on created/updated completed</li>
+                    <li>PurchaseObserver: posts on status = approved</li>
+                    <li>StockMovementObserver: posts damaged/adjustment types</li>
+                </ul>
+                <div class="quick-links">
+                    <a href="01_workflow.html#observer-flow">Observer Flow</a>
+                </div>
+            </div>
+
+            <!-- UI Components -->
+            <div class="card">
+                <span class="status.ui">USER INTERFACE</span>
+                <h2>🖥️ Accounting UI</h2>
+                <p>Livewire components for accounting management under branch dashboard.</p>
+                <ul class="card-features">
+                    <li>Home: Dashboard with posting stats</li>
+                    <li>Transactions: View/retry failed postings</li>
+                    <li>ChartOfAccounts: GL account management</li>
+                    <li>CashBank: Bank account management</li>
+                    <li>Journals: Manual journal entries</li>
+                    <li>PeriodControl: Accounting period management</li>
+                </ul>
+                <div class="quick-links">
+                    <a href="/accounting" target="_blank">Open Accounting App</a>
+                </div>
+            </div>
+
+            <!-- Reports -->
+            <div class="card">
+                <span class="status.reports">REPORTING</span>
+                <h2>📈 Financial Reports</h2>
+                <p>Standard accounting reports generated from GL entries.</p>
+                <ul class="card-features">
+                    <li>Balance Sheet Report</li>
+                    <li>Income Statement Report</li>
+                    <li>Trial Balance Report</li>
+                    <li>General Ledger Report</li>
+                    <li>Cash Flow Statement Report</li>
+                </ul>
+                <div class="quick-links">
+                    <a href="03_reports.html">Report Structure</a>
+                </div>
+            </div>
+
+            <!-- Data Models -->
+            <div class="card">
+                <span class="status.implementation">DATA MODEL</span>
+                <h2>🗄️ Core Models</h2>
+                <p>Database models that store accounting data and GL entries.</p>
+                <ul class="card-features">
+                    <li>AccountingEntry: Double-entry records</li>
+                    <li>AccountingPeriod: Period control</li>
+                    <li>GlAccount: Chart of accounts</li>
+                    <li>GlEntry: Individual ledger entries</li>
+                    <li>AccountingPostingFailure: Error tracking</li>
+                </ul>
+                <div class="quick-links">
+                    <a href="#data-models">Model Details</a>
+                </div>
+            </div>
+
+            <!-- Routes -->
+            <div class="card">
+                <span class="status.ui">NAVIGATION</span>
+                <h2>🛣️ Route Structure</h2>
+                <p>Accounting routes organized under /accounting prefix with middleware protection.</p>
+                <ul class="card-features">
+                    <li>GET /accounting - Dashboard</li>
+                    <li>GET /accounting/gl-accounts</li>
+                    <li>GET /accounting/bank-accounts</li>
+                    <li>GET /accounting/journal-entries</li>
+                    <li>GET /accounting/reports/*</li>
+                    <li>GET /accounting/posting-status</li>
+                </ul>
+                <div class="quick-links">
+                    <a href="#routes">Route Details</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="posting-flow">Posting Flow</h2>
+        <div class="info-section">
+            <h3>How Automatic Posting Works</h3>
+            <div class="workflow-diagram">
+1. TRANSACTION CREATED/UPDATED
+   ↓
+2. OBSERVER DETECTS STATE CHANGE
+   ↓
+3. OBSERVER CHECKS gl_posting_status = 'pending'
+   ↓
+4. OBSERVER CALLS GlPostingService
+   ↓
+5. GlPostingService VALIDATES:
+   - Accounting period is open
+   - Department GL accounts configured
+   - Entry not already posted (idempotency)
+   ↓
+6. GlEntry RECORDS CREATED (draft status)
+   ↓
+7. GlEntry->post() CALLED (posts to ledger)
+   ↓
+8. MODEL STATUS UPDATED TO 'posted'
+            </div>
+        </div>
+
+        <h2 class="section-title" id="observer-flow">Observer Trigger Conditions</h2>
+        <div class="info-section">
+            <h3>When Each Observer Fires</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Observer</th>
+                        <th>Trigger Event</th>
+                        <th>Condition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>SaleObserver</code></td>
+                        <td>created()</td>
+                        <td>status = 'completed'</td>
+                    </tr>
+                    <tr>
+                        <td><code>SaleObserver</code></td>
+                        <td>updated()</td>
+                        <td>status changed to 'completed' AND gl_posting_status = 'pending'</td>
+                    </tr>
+                    <tr>
+                        <td><code>PaymentObserver</code></td>
+                        <td>created()</td>
+                        <td>status = 'completed' AND gl_posting_status = 'pending'</td>
+                    </tr>
+                    <tr>
+                        <td><code>PaymentObserver</code></td>
+                        <td>updated()</td>
+                        <td>status changed to 'completed' AND gl_posting_status = 'pending'</td>
+                    </tr>
+                    <tr>
+                        <td><code>PurchaseObserver</code></td>
+                        <td>created()</td>
+                        <td>status = 'approved' AND gl_posting_status = 'pending'</td>
+                    </tr>
+                    <tr>
+                        <td><code>PurchaseObserver</code></td>
+                        <td>updated()</td>
+                        <td>status changed to 'approved' AND gl_posting_status = 'pending'</td>
+                    </tr>
+                    <tr>
+                        <td><code>StockMovementObserver</code></td>
+                        <td>created()</td>
+                        <td>type = 'damaged' OR (type = 'adjustment' AND adjustment_reason) AND approved_by_id</td>
+                    </tr>
+                    <tr>
+                        <td><code>StockMovementObserver</code></td>
+                        <td>updated()</td>
+                        <td>approved_by_id added AND (type = 'damaged' OR adjustment with reason)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title" id="entry-types">GL Entry Types</h2>
+        <div class="info-section">
+            <h3>Transaction Types and Their Entries</h3>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Transaction</th>
+                        <th>Entry Type</th>
+                        <th>Debit Account</th>
+                        <th>Credit Account</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sale</td>
+                        <td><code>sale</code></td>
+                        <td>Accounts Receivable (1100)</td>
+                        <td>Sales Revenue (4010)</td>
+                    </tr>
+                    <tr>
+                        <td>Sale COGS</td>
+                        <td><code>sale_cogs</code></td>
+                        <td>COGS (5010)</td>
+                        <td>Inventory (1220)</td>
+                    </tr>
+                    <tr>
+                        <td>Sale Tax</td>
+                        <td><code>sale_tax</code></td>
+                        <td>AR (additional)</td>
+                        <td>Tax Liability (2020)</td>
+                    </tr>
+                    <tr>
+                        <td>Payment</td>
+                        <td><code>payment</code></td>
+                        <td>Cash/Bank (method-based)</td>
+                        <td>Accounts Receivable (1100)</td>
+                    </tr>
+                    <tr>
+                        <td>Purchase</td>
+                        <td><code>purchase</code></td>
+                        <td>Inventory (1200)</td>
+                        <td>Accounts Payable (2010)</td>
+                    </tr>
+                    <tr>
+                        <td>Inventory Adjustment</td>
+                        <td><code>adjustment</code></td>
+                        <td>Inventory / Loss Account</td>
+                        <td>Loss Account / Inventory</td>
+                    </tr>
+                    <tr>
+                        <td>Account Transfer</td>
+                        <td><code>transfer</code></td>
+                        <td>To Bank Account GL</td>
+                        <td>From Bank Account GL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title" id="data-models">Data Models</h2>
+        <div class="info-section">
+            <h3>Key Model Fields</h3>
+            
+            <h4 style="color: #4CAF50; margin: 20px 0 10px 0;">AccountingEntry</h4>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>branch_id</code></td><td>foreign</td><td>Branch reference</td></tr>
+                    <tr><td><code>accounting_period_id</code></td><td>foreign</td><td>Period reference</td></tr>
+                    <tr><td><code>entry_type</code></td><td>string</td><td>Type of entry</td></tr>
+                    <tr><td><code>entry_date</code></td><td>date</td><td>Transaction date</td></tr>
+                    <tr><td><code>amount</code></td><td>decimal</td><td>Transaction amount</td></tr>
+                    <tr><td><code>debit_gl_account_id</code></td><td>foreign</td><td>Debit account</td></tr>
+                    <tr><td><code>credit_gl_account_id</code></td><td>foreign</td><td>Credit account</td></tr>
+                    <tr><td><code>source</code></td><td>string</td><td>Source system/document</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: #4CAF50; margin: 20px 0 10px 0;">GlEntry</h4>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>gl_account_id</code></td><td>foreign</td><td>GL account reference</td></tr>
+                    <tr><td><code>accounting_period_id</code></td><td>foreign</td><td>Period reference</td></tr>
+                    <tr><td><code>entry_type</code></td><td>string</td><td>Entry type code</td></tr>
+                    <tr><td><code>reference_type</code></td><td>morph</td><td>Source model class</td></tr>
+                    <tr><td><code>reference_id</code></td><td>int</td><td>Source model ID</td></tr>
+                    <tr><td><code>reference_number</code></td><td>string</td><td>Document number</td></tr>
+                    <tr><td><code>debit</code></td><td>decimal</td><td>Debit amount</td></tr>
+                    <tr><td><code>credit</code></td><td>decimal</td><td>Credit amount</td></tr>
+                    <tr><td><code>status</code></td><td>enum</td><td>draft/posted/reversed</td></tr>
+                    <tr><td><code>entry_date</code></td><td>datetime</td><td>Entry date</td></tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: #4CAF50; margin: 20px 0 10px 0;">AccountingPeriod</h4>
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>year</code></td><td>int</td><td>Fiscal year</td></tr>
+                    <tr><td><code>month</code></td><td>int</td><td>Month (1-12)</td></tr>
+                    <tr><td><code>period_start</code></td><td>date</td><td>Period start date</td></tr>
+                    <tr><td><code>period_end</code></td><td>date</td><td>Period end date</td></tr>
+                    <tr><td><code>status</code></td><td>enum</td><td>open/closed/locked</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title" id="report-structure">Report Structure</h2>
+        <div class="info-section">
+            <h3>Financial Reports Implementation</h3>
+            <p style="color: #aaa; margin-bottom: 15px;">Reports are defined in <code>app/Services/Reports/Definitions/</code> and use the TrialBalanceService for data generation.</p>
+            
+            <table class="table-info">
+                <thead>
+                    <tr>
+                        <th>Report</th>
+                        <th>Definition Class</th>
+                        <th>Route</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Balance Sheet</td>
+                        <td><code>AccountingBalanceSheetDefinition</code></td>
+                        <td>/accounting/reports/balance-sheet</td>
+                    </tr>
+                    <tr>
+                        <td>Income Statement</td>
+                        <td><code>AccountingIncomeStatementDefinition</code></td>
+                        <td>/accounting/reports/income-statement</td>
+                    </tr>
+                    <tr>
+                        <td>Trial Balance</td>
+                        <td><code>AccountingTrialBalanceDefinition</code></td>
+                        <td>/accounting/reports/trial-balance</td>
+                    </tr>
+                    <tr>
+                        <td>General Ledger</td>
+                        <td><code>AccountingGeneralLedgerDefinition</code></td>
+                        <td>/accounting/reports/general-ledger</td>
+                    </tr>
+                    <tr>
+                        <td>Cash Flow</td>
+                        <td><code>AccountingCashFlowStatementDefinition</code></td>
+                        <td>/accounting/reports/cash-flow</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title" id="routes">Route Structure</h2>
+        <div class="info-section">
+            <h3>Accounting Routes (routes/accounting.php)</h3>
+            <div class="workflow-diagram">
+Middleware: ['auth', 'accounting']
+Prefix: /accounting
+
+Dashboard:
+  GET /                          → Home::class
+  GET /overview                  → Home::class
+
+Management:
+  GET /gl-accounts               → ChartOfAccounts::class
+  GET /bank-accounts             → CashBank::class
+  GET /journal-entries           → Journals::class
+  GET /periods                   → PeriodControl::class
+
+Reports:
+  GET /reports/                  → Report Index
+  GET /reports/balance-sheet     → BalanceSheetReport
+  GET /reports/income-statement  → IncomeStatementReport
+  GET /reports/trial-balance     → TrialBalanceReport
+  GET /reports/general-ledger    → GeneralLedgerReport
+  GET /reports/cash-flow         → CashFlowStatementReport
+
+Transactions:
+  GET /posting-status            → Transactions::class
+  GET /inventory-valuation       → InventoryValuation::class
+
+Bank Reconciliation:
+  GET /bank-reconciliation       → CashBank::class
+  GET /bank-reconciliation/manage → BankReconciliation::class
+            </div>
+        </div>
+
+        <h2 class="section-title">Retry Failed Postings</h2>
+        <div class="info-section">
+            <h3>Handling Posting Failures</h3>
+            <p style="color: #aaa; margin-bottom: 15px;">When a GL posting fails, the transaction status is set to 'failed' and the error message is stored. The Transactions page allows retrying failed postings.</p>
+            
+            <h4 style="color: #4CAF50; margin: 20px 0 10px 0;">Retry Process</h4>
+            <ol style="color: #aaa; line-height: 2; margin-left: 20px;">
+                <li>Navigate to <strong>Accounting → Posting Status</strong></li>
+                <li>Filter by status = 'failed'</li>
+                <li>Click the retry action for the failed transaction</li>
+                <li>System sets status back to 'pending'</li>
+                <li>GlPostingService is called to re-attempt posting</li>
+                <li>If successful: status = 'posted', error cleared</li>
+                <li>If failed: status = 'failed', error updated, AccountingPostingFailure logged</li>
+            </ol>
+
+            <div class="workflow-diagram" style="margin-top: 20px;">
+RETRY FLOW:
+  Transactions::retryFailed()
+    ↓
+  Set gl_posting_status = 'pending'
+  Clear gl_posting_error
+    ↓
+  Call appropriate GlPostingService method
+    ↓
+  Success: status = 'posted'
+  Failure: status = 'failed' + AccountingPostingFailure::create()
+            </div>
+        </div>
+
+        <h2 class="section-title">Quick Reference</h2>
+        <div class="info-section">
+            <h3>Key Files</h3>
+            <ul>
+                <li><strong>Posting Service:</strong> <code>app/Services/GlPostingService.php</code> (1599 lines)</li>
+                <li><strong>Accounting Service:</strong> <code>app/Services/AccountingService.php</code> (462 lines)</li>
+                <li><strong>Sale Observer:</strong> <code>app/Observers/SaleObserver.php</code></li>
+                <li><strong>Payment Observer:</strong> <code>app/Observers/PaymentObserver.php</code></li>
+                <li><strong>Purchase Observer:</strong> <code>app/Observers/PurchaseObserver.php</code></li>
+                <li><strong>Stock Movement Observer:</strong> <code>app/Observers/StockMovementObserver.php</code></li>
+                <li><strong>Routes:</strong> <code>routes/accounting.php</code></li>
+                <li><strong>Models:</strong> <code>app/Models/Accounting*.php</code>, <code>app/Models/Gl*.php</code></li>
+                <li><strong>Reports:</strong> <code>app/Services/Reports/Definitions/Accounting*.php</code></li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>Navigation</h3>
+            <div class="quick-links">
+                <a href="/">🏠 Home</a>
+                <a href="/accounting">📊 Accounting Dashboard</a>
+                <a href="/diagnostic-index.html">🔍 Diagnostics</a>
+                <a href="javascript:alert('See accounting_md/ folder for detailed implementation docs')">📁 Source Docs</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            console.log('%c✓ SweetTooth Accounting Documentation Ready', 'color: #4CAF50; font-size: 16px; font-weight: bold;');
+            console.log('Start with System Overview to understand the posting architecture');
+        });
+    </script>
+</body>
+</html>
